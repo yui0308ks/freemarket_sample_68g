@@ -31,10 +31,11 @@ Things you may want to cover:
 |password|string|null: false|
 |name|string|null: false|
 ### Association
-- has_many :products
+- has_many :items
+- has_many :comments
 - has_many :likes
 
-## productsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
@@ -43,7 +44,10 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: ture|
 ### Association
 - belongs_to :user
-- belongs_to :group
+- belongs_to :category
+- has_many :comments
+- has_many :likes
+
 
 ## likesテーブル
 |Column|Type|Options|
@@ -52,23 +56,23 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
+- belongs_to :item
 - belongs_to :user
+
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many :groups_users
-- has_many  :users,  through:  :groups_users
-- has_many :posts
+- has_many :users
+- has_many :items
+
 
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many :groups_users
-- has_many  :users,  through:  :groups_users
-- has_many :posts
+- has_many :items
+- has_ancestry
