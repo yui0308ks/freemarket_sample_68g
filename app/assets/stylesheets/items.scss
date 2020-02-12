@@ -1,3 +1,35 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+  border: solid 1px #ff8000;;
+}
+
+
+.Header{
+  padding: 0 60px;
+  &__inner{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &--main{
+      height: 50px; //仮の値
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    &--nav{
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      ul.nav-left{
+        position: relative;
+        display: flex;
+      }
+      ul.nav-right{
+        margin-left: auto;
+        display: flex;
+      }
+    }
+  }
+}
