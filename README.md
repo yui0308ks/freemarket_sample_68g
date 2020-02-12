@@ -27,21 +27,44 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|name|string|null: false|
+|nickname|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kane|string|null: false|
+|birthday_yyyy_id|integer	null: false|
+|birthday_mm_id|integer	null: false|
+|birthday_dd_id|integer	null: false|
+|phone_num|string	null: false|
+|authentication_num|integer	null: false|
+|content|text|
+|address|references	null: false, foreign_key: true|
+|telephone|string|
 ### Association
-- has_many :items
-- has_many :comments
-- has_many :likes
+- belongs_to_active_hash :birth_yyyy
+- belongs_to_active_hash :birth_mm
+- belongs_to_active_hash :birth_dd
+- belongs_to_active_hash :prefecture
+- has_many :products
+- has_one :card
+- has_one :address
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
-|text|text||
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: ture|
+|user|references|null: false, foreign_key: true|
+|name	string|null: false|
+|description|text|
+|category|references|null: false, foreign_key: true|
+|condition|references	null: false, foreign_key: true|
+|size	references|null: false, foreign_key: true|
+|brand|string|
+|delivery_charge|references|null: false, foreign_key: true|
+|delivery_way|references|null: false, foreign_key: true|
+|prefecture	references|null: false, foreign_key: true|
+|delivery_days|references	null: false, foreign_key: true|
+|price|integer|null: false|
+|status|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :category
@@ -52,8 +75,8 @@ Things you may want to cover:
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|refernces|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -73,6 +96,30 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|sub|integer|
+|sub_sub|integer|
+|size|integer|
+|brand|integer|
 ### Association
 - has_many :items
 - has_ancestry
+
+
+## cardテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|customer_id|string|
+|card_id|string|
+### Association
+- has_many :items
+- has_ancestry
+
+## addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|zip_code1|string|null: false|
+|prefecture_id|integer|null: false|
+|city	string|null: false|
+|address1|string|
+|address2|string|
