@@ -4,5 +4,8 @@ class ItemsController < ApplicationController
 
   def new
   end
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
 end
