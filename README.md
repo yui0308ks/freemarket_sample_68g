@@ -43,7 +43,6 @@ Things you may want to cover:
 |password|string|null: false|
 |image|text|null: false|
 ### Association
-- has_one :image
 - has_one :card
 - has_one :address
 
@@ -108,15 +107,14 @@ Things you may want to cover:
 |expiration_mm|integer|null: false|
 |security|integer|null: false|
 ### Association
-- has_many :items
-- has_ancestry
+- belongs_to :user
 
 
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
-|zip_code1|string|null: false|
+|zip_code|string|null: false|
 |prefecture|integer|null: false|
 |city|tring|null: false|
 |block|string|null: false|
