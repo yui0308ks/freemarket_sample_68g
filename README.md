@@ -41,8 +41,9 @@ Things you may want to cover:
 |content|text|
 |email_address|string|null: false|
 |password|string|null: false|
+|image|text|null: false|
 ### Association
-- has_many :items
+- has_one :image
 - has_one :card
 - has_one :address
 - has_many :images
@@ -54,7 +55,7 @@ Things you may want to cover:
 |name|string|null: false|
 |description|text|null: false|
 |category|references|null: false, foreign_key: true|
-|condition|references null: false|
+|condition|enum| null: false|
 |size|integer|null: false|
 |delivery_charge|references|null: false|
 |delivery_way|references|null: false|
@@ -86,7 +87,7 @@ Things you may want to cover:
 |user_id|string|null: false|
 ### Association
 - belongs_to :item
-
+- belongs_to :user
 
 ## categorysテーブル
 |Column|Type|Options|
@@ -118,8 +119,8 @@ Things you may want to cover:
 |zip_code1|string|null: false|
 |prefecture|integer|null: false|
 |city|tring|null: false|
-|address1|string|null: false|
-|address2|string|null: false|
+|block|string|null: false|
+|home|string|null: false|
 ### Association
 - belongs_to :user
 
@@ -127,8 +128,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|image|text|null: false|
 |item_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
-- belongs_to :user
