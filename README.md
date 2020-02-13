@@ -45,6 +45,10 @@ Things you may want to cover:
 ### Association
 - has_one :card
 - has_one :address
+- has_many :items
+- has_many :likes
+- has_many :comments
+
 
 ## itemsテーブル
 |Column|Type|Options|
