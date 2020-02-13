@@ -1,0 +1,238 @@
+.sell__page {
+  background: cover;
+  background-color: rgb(245, 245, 245);
+  color: #333;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.sell__header {
+  height: 128px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sell__header_logo {
+  width: 185px;
+  height: 49px;
+}
+
+.sell__container {
+  height: 100%;
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+h2 {
+  height: 86px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #eee;
+  // border-bottom-width: 1px;
+}
+
+.sell__head {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.sell__upload_box {
+  height: 303px;
+  width: 620px;
+  padding: 40px;
+}
+
+.sell__upload_head {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+span {
+  background-color: #3ccace;
+  color: #fff;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+.sell__upload_text {
+  margin: 8px 0 0;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.sell__dropbox_container {
+  height: 162px;
+  width: 620px;
+  margin: 16px auto 0;
+}
+
+.sell__upload_drop_box {
+  height: 162px;
+  width: 620px;
+  margin-left: 0;
+  float: left;
+  padding: 40px;
+  background-color: #f5f5f5;
+  border: 1px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sell__dropbox_text {
+  font-size: 14px;
+}
+
+.sell__content {
+  height: 355px;
+  width: 700px;
+  padding: 0 40px 0 40px;
+  border-top: solid 1px #eee;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form_group {
+  margin: 40px 0 0;
+}
+
+
+input {
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.sell__input {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+textarea {
+  height: 142px;
+  width: 620px;
+  margin: 8px 0 0;
+  border-radius: 0;
+  outline: 0;
+}
+
+.sell__textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.sell__content2 {
+  height: 441px;
+  width: 700px;
+  padding: 40px 40px 0 40px;
+  border-top: solid 1px #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sell__sub_head {
+  float: left;
+  color: #888;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sell__form_box {
+  height: 360px;
+  width: 400px;
+}
+
+.sell__form_group2 {
+  margin: 0 0 40px 0;
+}
+
+.sell__select {
+  height: 48px;
+  width: 400px;
+  padding: 0 16px;
+}
+
+.sell__input_brand {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.form_require2 {
+  background-color: #888;
+  color: #fff;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+.sell__content3 {
+  height: 441px;
+  width: 700px;
+  padding: 40px 40px 0 40px;
+  border-top: solid 1px #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sell__content4 {
+  height: 187px;
+  width: 620px;
+  padding: 40px 40px 0 40px;
+  border-top: solid 1px #eee;
+  // display: flex;
+  // justify-content: space-between;
+}
+
+.sell__price_box {
+  display: flex;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 14px;
+  // float: left;
+  color: black;
+}
+
+.sell__yen_mark {
+  background-color: white;
+  color: black;
+  font-weight: none;
+}
+
+.sell__input_price {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
