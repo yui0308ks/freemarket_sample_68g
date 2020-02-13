@@ -46,7 +46,6 @@ Things you may want to cover:
 - has_one :image
 - has_one :card
 - has_one :address
-- has_many :images
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -116,6 +115,7 @@ Things you may want to cover:
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user_id|integer|null: false|
 |zip_code1|string|null: false|
 |prefecture|integer|null: false|
 |city|tring|null: false|
