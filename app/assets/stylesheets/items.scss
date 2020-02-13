@@ -17,6 +17,10 @@
       position: relative;
       display: flex;
       align-items: center;
+      a{
+        width: 140px;
+        display: block;
+      }
     }
     &--nav{
       font-size: 14px;
