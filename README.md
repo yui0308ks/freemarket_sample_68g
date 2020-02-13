@@ -28,19 +28,19 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|null: false, index: true|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
-|last_name_kane|string|null: false|
-|birthday_yyyy_id|integer|null: false|
-|birthday_mm_id|integer|null: false|
-|birthday_dd_id|integer|null: false|
+|last_name_kana|string|null: false|
+|birthday_year_id|integer|null: false|
+|birthday_month_id|integer|null: false|
+|birthday_day_id|integer|null: false|
 |phone_num|string|null: false|
 |authentication_num|integer|null: false|
 |content|text|
-|email_address|string|null: false, foreign_key: true|
-|password|string|
+|email_address|string|null: false|
+|password|string|null: false|
 ### Association
 - has_many :items
 - has_one :card
@@ -50,19 +50,16 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|description|text|
+|description|text|null: false|
 |category|references|null: false, foreign_key: true|
-|condition|references null: false, foreign_key: true|
-|size references|null: false, foreign_key: true|
-|delivery_charge|references|null: false, foreign_key: true|
-|delivery_way|references|null: false, foreign_key: true|
-|prefecture|references|null: false, foreign_key: true|
-|delivery_days|references null: false, foreign_key: true|
-|price|integer|null: false|
-|status|references|null: false, foreign_key: true|
-|image|string|null: false|
+|condition|references null: false|
+|size|integer|null: false|
+|delivery_charge|references|null: false|
+|delivery_way|references|null: false|
+|prefecture|references|null: false|
+
 ### Association
 - belongs_to :user
 - belongs_to :category
@@ -84,12 +81,11 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
 |comment|string|null: false|
 |item_id|string|null: false|
+|user_id|string|null: false|
 ### Association
 - belongs_to :item
-- belongs_to :user
 
 
 ## categorysテーブル
@@ -105,7 +101,7 @@ Things you may want to cover:
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 |expiration_yyy|integer|null: false|
@@ -131,7 +127,6 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
