@@ -20,9 +20,9 @@ class User < ApplicationRecord
         validates :password_confirmation,   presence: true, length: {minimum: 7, maximum: 30}, on: :validates_information_first
 
 
-- has_one :card
-- has_one :address
-- has_many :items
-- has_many :likes
-- has_many :comments
+has_one :card
+has_one :address
+has_many :items
+has_many :likes
+has_many :comments
 end

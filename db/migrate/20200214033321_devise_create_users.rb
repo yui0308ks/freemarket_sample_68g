@@ -25,10 +25,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :birthday_day_id,    null: false
       t.string :phone_num,           null: false
       t.integer :authentication_num, null: false
-      t.text :content,
-      t.string :email_address,       null: false
-      t.string :password,            null: false
-      t.text :image,                 null: false
+      t.text :content
 
 
 
