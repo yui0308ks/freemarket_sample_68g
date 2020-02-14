@@ -1,19 +1,217 @@
-.Header
-  .Header__inner
-    .Header__inner--main
-      %h1.icon
-        = link_to image_tag("/assets/logo/logo.png"),"#"
+= render partial: "items/header"#locals: { group: @group }
+
+.main
+  %section.main__section1
+    .main__section1--content
+      %h2.main__section1--content--subtitle
+        人生を変えるフリマアプリ
+      .main__section1--content--text
+        FURIMAはだれでもかんたんに出品・購入できる<br>
+        フリマアプリです
+      .main__section1--content--btn
+      = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
+      = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+    -# .main__section1--picture　まだ当ててない
+    
+  %section.main__section2
+    %h2.main__section2--title
+      FURIMAが選ばれる3つの理由    
+    .pictures
+      .picture
+        .picture__list
+          %span.number 1
+          %img.list{:src => "/assets/pict/pict-reason-01.jpg"}/
+        %h3.picture__text
+          %span.color 3分 
+          ですぐに出品
+        %p.text__description
+          スマホで入力するだけで簡単に出品できる！
+      
+      .picture
+        .picture__list
+          %span.number 2
+          %img.list{:src => "/assets/pict/pict-reason-02.jpg"}/
+        %h3.picture__text
+          %span.color シンプル
+          で使いやすい
+        %p.text__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+
+      .picture__last
+        .picture__last--list
+          %span.number 3
+          %img.list{:src => "/assets/pict/pict-reason-03.jpg"}/
+        %h3.picture-__last--text
+          手数料
+          %span.color 業界最安
+        %p.picture__last--description
+          最大3%でお得に出品&購入！
+      
+  
+  %section.main__section3
+    .main__section3--content
+      %h2.main-__section3--content--title
+        会員数日本一位
+      .main__section3--content--text
+        FURIMAは、フリマアプリで最も人気。<br>
+        出品・購入回数も業界最多です！<br>
+        ほしかったあの商品に出会えるかもしれません。
+      .main__section3--content--btn
+        = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
+        = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+
+  %section.main__section4
+    %h2.main__section4--title
+      FURIMAの特徴
+    .main__section4--contents
+      
+      %section.main__section4--contents--item
+        %figure.main__section4--contents--item--img
+          %img.img{:src => "/assets/icon/icon-01.png"}/
+        %h3.main__section4--contents--item--title
+          簡単に売り買いできる
+        %p.main__section4--contents--item--detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+
+      %section.main__section4--contents--item
+        %figure.main__section4--contents--item--img
+          %img.img{:src => "/assets/icon/icon-03.png"}/
+        %h3.main__section4--contents--item--title
+          売上金は即日振込みに対応
+        %p.main__section4--contents--item--detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+    
+      %section.main__section4--contents--item
+        %figure.main__section4--contents--item--img
+          %img.img{:src => "/assets/icon/icon-04.png"}/
+        %h3.main__section4--contents--item--title
+          様々な支払いに対応
+        %p.main__section4--contents--item--detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+
+  %section.main__section5
+    %h2.main__section5--title
+      ピックアップカテゴリー
+    .main__section5--content
+   
+      .main__section5--content--head
+        = link_to "新規投稿商品" , "#"
+        %h3.main__section5--product--head--title
+      
+
+      .main__section5--content--lists
+        .main__section5--content--lists--list
+          %figure.main__section5--content--lists--list--img
+            %img.img{:src => "/assets/a001.png"}/
+          .main__ection5--content--lists--list--body
+            .name product3
+            .detail
+              %ul.product 
+                %li.yen 300000円
+                %i.fas.fa-star
+                  0
+              %p (税込)
+
+        .main__section5--content--lists--list
+          %figure.main__section5--content--lists--list--img
+            %img.img{:src => "/assets/a004.png"}/
+          .main__section5--content--lists--list--body
+            .name product3
+            .detail
+              %ul.product 
+                %li.yen 300円
+                %i.fas.fa-star
+                  0
+              %p (税込)
+
+        .main__section5--content--lists--list
+          %figure.main__section5--content--lists--list--img
+            %img.img{:src => "/assets/a007.png"}/
+          .main__section5--content--lists--list--body
+            .name product3
+            .detail
+              %ul.product 
+                %li.yen 300円
+                %i.fas.fa-star
+                  0
+              %p (税込)
 
 
 
-    .Header__inner--nav
-      %ul.nav-left
-        %li.nav-left--category
-          = link_to "カテゴリー" , "#"
-        %li.nav-left--brand
-          = link_to "ブランド" , "#"
-      %ul.nav-right
-        %li.nav-right--login
-          = link_to "ログイン" , "#"
-        %li.nav-right--new
-          = link_to "新規会員登録" , "#"
+
+  %section.main__section5
+    %h2.main__section5--title
+      ピックアップブランド
+    .main__section5--content
+   
+      .main__section5--content--head
+        = link_to "アーカイバ" , "#"
+        %h3.main__section5--content--head--title
+      
+
+     
+      .main__section5--content--lists
+        .main__section5--content--lists--list
+          %figure.main__section5--content--lists--list--img
+            %img.img{:src => "/assets/a001.png"}/
+          .main__section5--content--lists--list--body
+            .name product3
+            .detail
+              %ul.product 
+                %li.yen 300円
+                %i.fas.fa-star
+                  0
+              %p (税込)
+
+        .main__section5--content--lists--list
+          %figure.main__section5--content--lists--list--img
+            %img.img{:src => "/assets/a004.png"}/
+          .main__section5--content--lists--list--body
+            .name product3
+            .detail
+              %ul.product 
+                %li.yen 300円
+                %i.fas.fa-star
+                  0
+              %p (税込)
+
+        .main__section5--content--lists--list
+          %figure.main__ection5--content--lists--list--img
+            %img.img{:src => "/assets/a007.png"}/
+          .main__section5--content--lists--list--body
+            .name product3
+            .detail
+              %ul.product 
+                %li.yen 300円
+                %i.fas.fa-star
+                  0
+              %p (税込)
+
+  %section.main__section6
+    .main__section6--content
+      %h2.main__section6--content--title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.main__section6--content--text
+        今すぐ無料ダウンロード！
+      .main__section6--content--icon
+        = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
+        = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+      
+  = render partial: "items/footer"#locals: { group: @group }
+
+.camera
+  .camera__text
+    出品する
+  .camera__img
+    = link_to image_tag("/assets/icon/icon_camera.png", class:"camera__img1"), "#"
+
+
+
+      
+
+                
+
+
+
+      
