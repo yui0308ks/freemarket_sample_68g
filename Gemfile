@@ -73,3 +73,4 @@ gem 'haml-rails'
 
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'pry-rails'
