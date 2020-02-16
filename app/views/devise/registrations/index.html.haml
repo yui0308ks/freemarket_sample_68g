@@ -16,16 +16,6 @@
           = icon "fa","envelope"
           メールアドレスで登録する
 
-      .signup-index-facebook-box
-        = link_to user_facebook_omniauth_authorize_path, method: :post do
-          %i.fab.fa-facebook-square
-          Facebookで登録する
-
-      .signup-index-google-box
-        = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
-          .main__conect__lists__google__btn
-            %i.fab.fa-google
-            Googleで登録する
 
       -# 新規ログイン画面フッター
   .signup__footer

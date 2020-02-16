@@ -14,7 +14,4 @@
         %li.nav-left--brand
           = link_to "ブランド" , "#"
       %ul.nav-right
-        %li.nav-right--login
-          = link_to "ログイン" , "#"
-        %li.nav-right--new
-          = link_to "新規会員登録" , "#"
+        = render 'devise/shared/links'
