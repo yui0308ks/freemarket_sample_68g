@@ -1,56 +1,80 @@
-.sell__page {
+.sell {
   background: cover;
   background-color: rgb(245, 245, 245);
   color: #333;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__header {
+    height: 128px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__header_logo {
+      width: 185px;
+      height: 49px;
+    }    
+  } 
+  &__container {
+    height: 100%;
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    h2 {
+      height: 86px;
+      width: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: solid 1px #eee;
+      .sell__head {
+        font-size: 22px;
+        font-weight: bold;
+      }      
+    }
+  }   
+  &__upload_box {
+    height: 303px;
+    width: 620px;
+    padding: 40px;
+    .sell__upload_head {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .sell__upload_text {
+      margin: 8px 0 0;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .sell__dropbox_container {
+      height: 162px;
+      width: 620px;
+      margin: 16px auto 0;
+      .sell__upload_drop_box {
+        height: 162px;
+        width: 620px;
+        margin-left: 0;
+        float: left;
+        padding: 40px;
+        background-color: #f5f5f5;
+        border: 1px dashed #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .sell__dropbox_text {
+          font-size: 14px;
+        }        
+      }      
+    }            
+  }
+  &__content {
+    height: 355px;
+    width: 700px;
+    padding: 0 40px 0 40px;
+    border-top: solid 1px #eee;
+  }
+    
 }
-
-.sell__header {
-  height: 128px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sell__header_logo {
-  width: 185px;
-  height: 49px;
-}
-
-.sell__container {
-  height: 100%;
-  width: 700px;
-  margin: 0 auto;
-  background-color: #fff;
-}
-
-h2 {
-  height: 86px;
-  width: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: solid 1px #eee;
-  // border-bottom-width: 1px;
-}
-
-.sell__head {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.sell__upload_box {
-  height: 303px;
-  width: 620px;
-  padding: 40px;
-}
-
-.sell__upload_head {
-  font-size: 16px;
-  font-weight: bold;
-}
-
 span {
   background-color: #3ccace;
   color: #fff;
@@ -59,44 +83,6 @@ span {
   font-size: 12px;
   border-radius: 2px;
 }
-
-.sell__upload_text {
-  margin: 8px 0 0;
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-.sell__dropbox_container {
-  height: 162px;
-  width: 620px;
-  margin: 16px auto 0;
-}
-
-.sell__upload_drop_box {
-  height: 162px;
-  width: 620px;
-  margin-left: 0;
-  float: left;
-  padding: 40px;
-  background-color: #f5f5f5;
-  border: 1px dashed #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.sell__dropbox_text {
-  font-size: 14px;
-}
-
-.sell__content {
-  height: 355px;
-  width: 700px;
-  padding: 0 40px 0 40px;
-  border-top: solid 1px #eee;
-}
-
 label {
   font-weight: 600;
   font-size: 14px;
@@ -149,19 +135,14 @@ textarea {
   border-top: solid 1px #eee;
   display: flex;
   justify-content: space-between;
-}
+}  
 
 .sell__sub_head {
-  float: left;
   color: #888;
   font-size: 14px;
   font-weight: bold;
 }
 
-.sell__form_box {
-  height: 360px;
-  width: 400px;
-}
 
 .sell__form_group2 {
   margin: 0 0 40px 0;
@@ -171,6 +152,7 @@ textarea {
   height: 48px;
   width: 400px;
   padding: 0 16px;
+  margin-top: 8px;
 }
 
 .sell__input_brand {
@@ -202,33 +184,62 @@ textarea {
 }
 
 .sell__content4 {
-  height: 187px;
-  width: 620px;
-  padding: 40px 40px 0 40px;
+  height: 299px;
+  width: 700px;
+  padding: 40px;
   border-top: solid 1px #eee;
-  // display: flex;
-  // justify-content: space-between;
+  border-bottom: solid 1px #eee;
+}
+
+.sell__sub_head2 {
+  height: 19px;
+  width: 100%;
+  margin-bottom: 24px;
 }
 
 .sell__price_box {
+  height: 58px;
+  width: 620px;
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.form_group3 {
+  width: 620px;
+  // margin: 40px 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .price {
   font-weight: 600;
   font-size: 14px;
-  // float: left;
   color: black;
+
+}
+
+.sell__price_box {
+  width: 100%;
+  float:right;
 }
 
 .sell__yen_mark {
+  font-size: 14px;
+  // margin-right: 8px;
+  float: right;
   background-color: white;
   color: black;
-  font-weight: none;
+  font-weight: normal;
+  // line-height: 48px;
+  line-height: 58px;
+
 }
 
 .sell__input_price {
   height: 48px;
+  width: 285px;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -236,3 +247,123 @@ textarea {
   line-height: 1.5;
   font-size: 16px;
 }
+
+.option {
+  display: inline-block;
+}
+
+.form{
+  display: flex;
+  justify-content: flex-end;
+  line-height: 58px;
+}
+
+.sell__commission_box {
+  height: 70px;
+  width: 620px;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 1px rgb(204, 204, 204);
+}
+
+.commission {
+  font-size: 14px;
+}
+
+.commission_line {
+  background-color: #fff;
+}
+
+.sell__profit_box {
+  height: 83px;
+  width: 620px;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 1px rgb(204, 204, 204);
+}
+
+.profit {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profit_line {
+  background-color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.sell__content5 {
+  height: 329px;
+  width: 700px;
+  padding: 40px;
+}
+
+.sell__content_text {
+  font-size: 14px;
+}
+
+.sell__btn {
+  height: 50px;
+  width: 620px;
+  margin-top: 40px;
+  background-color: #3ccace;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  }
+
+.sell__back_btn {
+  height: 50px;
+  width: 279px;
+  margin: 24px 170.5px 0;
+  background-color: #aaa;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sell__footer_box {
+  height: 220px;
+  width: 456px;
+  margin: 0 492px;
+  padding: 40px 0;
+  background-color: rgb(245, 245, 245);
+}
+
+ul {
+  width: 456px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+.sell__footer_logo {
+  height: 69px;
+  width: 456px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sell__name_box {
+  height: 14px;
+  width: 456px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
