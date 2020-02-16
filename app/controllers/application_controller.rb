@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+
   def production?
     Rails.env.production?
   end
@@ -16,6 +17,7 @@ class ApplicationController < ActionController::Base
 
 
 
+
 #ストロングパラメータを使用するためにconfigure_permitted_parametersを定義
   def  configure_permitted_parameters
     # binding.pry
@@ -23,3 +25,4 @@ class ApplicationController < ActionController::Base
   end
 
 end
+
