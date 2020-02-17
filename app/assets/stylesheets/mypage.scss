@@ -1,0 +1,86 @@
+.mypage{
+  margin: 40px auto 0;
+  width: 1020px;
+  display: flex;
+  background-color: #f8f8f8;
+  
+  
+  &__side{
+    width: 280px;
+    
+    margin-right: 40px;
+
+    ul.mypage__side__lists{
+      li.mypage__side__lists__list__first{
+        background: #eee;
+        font-weight: 600;
+      } 
+    
+      a{
+        text-decoration: none;
+        color:black;
+          
+      }
+      .far.fa-angle-right{
+        color: #333;
+      }
+
+      li.mypage__side__lists__list{
+        background: #eee;
+        font-weight: 600;
+        border-top: 1px solid #eee;
+        position: relative;
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+      } 
+      h3.mypage__side__lists__list__second{
+        margin: 40px 0 0;
+      } 
+      
+
+
+
+
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  }
+
+  &__main{
+  
+    &__icon{
+      height: 200px;
+      .icon{
+        height: 60px;
+        width: 60px;
+      
+      }
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
