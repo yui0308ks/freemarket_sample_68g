@@ -100,43 +100,12 @@
         = link_to "新規投稿商品" , "#"
         .main__section5--product--head--title
       
-
+      
       .main__section5--content--lists
-        .main__section5--content--list
-          %figure.main__section5--content--lists--list--image
-            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
-          .main__section5--content--lists--list--body
-            .main__section5--content--lists--list--body__name product3
-            .main__section5--content--lists--list--body__detail
-              %ul.product 
-                %li.yen 300000円
-                %i.fas.fa-star
-                  0
-              %p (税込)
-
-        .main__section5--content--lists--list
-          %figure.main__section5--content--lists--list--image
-            =image_tag("/assets/a004.png", class: "main__section5--content--lists--list__img")
-          .main__section5--content--lists--list--body
-            .main__section5--content--lists--list--body__name product3
-            .main__section5--content--lists--list--body__detail
-              %ul.product 
-                %li.yen 300円
-                %i.fas.fa-star
-                  0
-              %p (税込)
-
-        .main__section5--content--lists--list
-          %figure.main__section5--content--lists--list--image
-            =image_tag("/assets/a007.png", class: "main__section5--content--lists--list__img")
-          .main__section5--content--lists--list--body
-            .main__section5--content--lists--list--body__name product3
-            .main__section5--content--lists--list--body__detail
-              %ul.product 
-                %li.yen 300円
-                %i.fas.fa-star
-                  0
-              %p (税込)
+        
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
 
   %section.main__section5
     .main__section5--title
@@ -147,42 +116,12 @@
         = link_to "アーカイバ" , "#"
         .main__section5--content--head--title
  
-      .main__section5--content--lists
-        .main__section5--content--lists--list
-          %figure.main__section5--content--lists--list--image
-            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
-          .main__section5--content--lists--list--body
-            .main__section5--content--lists--list--body__name product3
-            .main__section5--content--lists--list--body__detail
-              %ul.product 
-                %li.yen 300000円
-                %i.fas.fa-star
-                  0
-              %p (税込)
+      .main__section5--content--lists    
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
+        
 
-        .main__section5--content--lists--list
-          %figure.main__section5--content--lists--list--image
-            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
-          .main__section5--content--lists--list--body
-            .main__section5--content--lists--list--body__name product3
-            .main__section5--content--lists--list--body__detail
-              %ul.product 
-                %li.yen 300円
-                %i.fas.fa-star
-                  0
-              %p (税込)
-
-        .main__section5--content--lists--list
-          %figure.main__section5--content--lists--list--image
-            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
-          .main__section5--content--lists--list--body
-            .main__section5--content--lists--list--body__name product3
-            .main__section5--content--lists--list--body__detail
-              %ul.product 
-                %li.yen 300円
-                %i.fas.fa-star
-                  0
-              %p (税込)
 
   %section.main__section6
     .main__section6--content
