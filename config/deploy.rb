@@ -50,7 +50,6 @@ desc 'upload master.key'
       upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
-end
 before :starting, 'deploy:upload'
 after :finishing, 'deploy:cleanup'
 end
