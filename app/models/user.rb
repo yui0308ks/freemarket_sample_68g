@@ -15,7 +15,6 @@ class User < ApplicationRecord
         validates :birthday_year_id,        presence: true
         validates :birthday_month_id,       presence: true
         validates :birthday_day_id,         presence: true
-        validates :phone_num,               presence: true
         validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
         validates :password,                presence: true, length: {minimum: 7, maximum: 30}
         validates :password_confirmation,   presence: true, length: {minimum: 7, maximum: 30}

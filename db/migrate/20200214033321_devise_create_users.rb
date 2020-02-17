@@ -4,18 +4,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
-
-      ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
-
-      ## Rememberable
-      t.datetime :remember_created_at
-
 
       t.string :nickname,            null: false, index: true
+      t.string :email,              null: false, default: ""
+      t.string :encrypted_password, null: false, default: ""
       t.string :first_name,          null: false
       t.string :last_name,           null: false
       t.string :first_name_kana,     null: false
@@ -23,10 +15,19 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :birthday_year_id,   null: false
       t.integer :birthday_month_id,  null: false
       t.integer :birthday_day_id,    null: false
+      # 電話番号カラム削除済
       t.string :phone_num,           null: false
+      # 以下の番号削除済
       t.integer :authentication_num, null: false
       t.text :content
 
+
+      ## Recoverable
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
+
+      ## Rememberable
+      t.datetime :remember_created_at
 
 
       ## Trackable
