@@ -1,3 +1,4 @@
+
 = render partial: "items/header"#locals: { group: @group }
 
 .main
@@ -215,3 +216,20 @@
 
 
       
+
+.Header
+  .Header__inner
+    .Header__inner--main
+      %h1.icon
+        = link_to image_tag asset_path("logo.png")
+        -# = link_to image_tag("/assets/pict/bg-appBanner-pict.jpg"),"#"
+        
+    .Header__inner--nav
+      %ul.nav-left
+        %li.nav-left--category
+          = link_to "カテゴリー" , "#"
+        %li.nav-left--brand
+          = link_to "ブランド" , "#"
+      %ul.nav-right
+        = render 'devise/shared/links'
+

@@ -1,0 +1,38 @@
+.sell__page {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(245, 245, 245)
+}
+
+.sell__header {
+  height: 128px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sell__header_logo {
+  width: 185px;
+  height: 49px;
+}
+
+.sell__container {
+  height: 100%;
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+h2 {
+  height: 86px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sell__head {
+  font-size: 22px;
+  font-weight: bold;
+}
