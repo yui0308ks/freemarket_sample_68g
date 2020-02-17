@@ -30,8 +30,6 @@ $base-color: #fff;
  
 }
 
-
-
 .Header{
   padding: 0 60px;
   &__inner{
@@ -386,9 +384,6 @@ $base-color: #fff;
           color: #3CCACE;
           font-weight: bold;
         }
-
-        // &--title{
-        // }
       }
 
       &--lists{
@@ -414,11 +409,8 @@ $base-color: #fff;
 
           &--body{
             background-color:$base-color;
-        
             padding: 16px;
             
-            // .name{   
-            // }
             &__detail{
             
               ul.product{
@@ -435,10 +427,7 @@ $base-color: #fff;
         }
         &--list:hover {
           opacity: 0.5 ;
-        }
-      
-      
-      
+        } 
       }
     }
   }
@@ -502,7 +491,7 @@ $base-color: #fff;
     li.footer__contents--content{
       width: calc(1 / 3 * 100%);
   
-      h2.footer__contents--content--title{
+      &--title{
         margin: 0 0 20px;
         font-size: 16px;
         font-weight: bold;

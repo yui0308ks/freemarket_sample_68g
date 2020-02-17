@@ -138,9 +138,6 @@
                   0
               %p (税込)
 
-
-
-
   %section.main__section5
     %h2.main__section5--title
       ピックアップブランド
@@ -149,9 +146,7 @@
       .main__section5--content--head
         = link_to "アーカイバ" , "#"
         %h3.main__section5--content--head--title
-      
-
-     
+ 
       .main__section5--content--lists
         .main__section5--content--lists--list
           %figure.main__section5--content--lists--list--image
@@ -206,30 +201,3 @@
     出品する
   .camera__img
     = link_to image_tag("/assets/icon/icon_camera.png", class:"camera__img1"), "#"
-
-
-
-      
-
-                
-
-
-
-      
-
-.Header
-  .Header__inner
-    .Header__inner--main
-      %h1.icon
-        = link_to image_tag asset_path("logo.png")
-        -# = link_to image_tag("/assets/pict/bg-appBanner-pict.jpg"),"#"
-        
-    .Header__inner--nav
-      %ul.nav-left
-        %li.nav-left--category
-          = link_to "カテゴリー" , "#"
-        %li.nav-left--brand
-          = link_to "ブランド" , "#"
-      %ul.nav-right
-        = render 'devise/shared/links'
-
