@@ -44,7 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  
+
 end
 
 group :development do
@@ -71,10 +71,15 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails'
-gem 'font-awesome-sass'
+
 gem 'devise'
+
+gem 'font-awesome-sass'
+gem 'pry-rails'
+
 
 # 画像投稿
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
+
