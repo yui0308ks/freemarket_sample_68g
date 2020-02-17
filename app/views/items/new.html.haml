@@ -1,7 +1,7 @@
 .sell
   %header.sell__header
     %a.sell__header--logo
-      = image_tag src = "/assets/logo/logo.png", size: "185x49"
+      = image_tag src = "/assets/logo.png", size: "185x49"
 
   .sell__form
     .sell__form__container
@@ -56,7 +56,8 @@
               ブランド
               %span.form_require2
                 任意
-            %input.sell__input_brand{:placeholder => "例）シャネル"}
+            .div
+              %input.sell__input_brand{:placeholder => "例）シャネル"}
           .form_group
             %label
               商品の状態
@@ -103,12 +104,12 @@
         %h3.sell__sub_head
           価格（¥300〜9,999,999）
         .sell__form__price_box
-          .form_group3
+          .sell__form__price_box--left
             %label.price
               販売価格
             %span.form_require.option
               必須
-          .form
+          .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
             %input.sell__input_price.option{:placeholder => "例)300"}
@@ -143,7 +144,7 @@
         %button.sell__form__back_btn{:type => "submit"}
           もどる
     
-    %footer.sell__footer_box
+    %footer.footer
       %ul
         %li
           =link_to 'プライバシーポリシー', 'https://www.mercari.com/jp/privacy/'
@@ -151,19 +152,9 @@
           =link_to 'メルカリ利用規約', 'https://www.mercari.com/jp/tos/'
         %li
           =link_to '特定商取引に関する表記', 'https://www.mercari.com/jp/tokutei/'
-      .sell__footer_logo
-        = image_tag src = "/assets/logo/logo.png", size: "80x65"
+      .footer__logo
+        = image_tag src = "/assets/logo.png", size: "80x65"
         = link_to '', '#'
-      %p.sell__name_box
-        %small.sell__name
+      %p.footer__name_box
+        %small
           © Furima, Inc.
--# .sell__page
-
--#   %header.sell__header
--#     %a.sell__header_logo
--#       = image_tag src="/assets/logo.png", size: "185x49"
-  
--#   .sell__container
--#     %h2
--#       .sell__head
--#         商品の情報を入力
