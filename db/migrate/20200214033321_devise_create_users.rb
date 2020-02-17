@@ -4,22 +4,22 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string  :email_adress,        null: false, default: "",unique: true
-      t.string  :encrypted_password,  null: false, default: ""
 
-      t.string  :nickname,            null: false
-      t.string  :first_name,          null: false
-      t.string  :lastname,            null: false
-      t.string  :first_name_kana,     null: false
-      t.string  :last_name_kana       null: false
-
-      t.integer :birthday_yyyy_id,    null: false
-      t.integer :birthday_mm_id,      null: false
-      t.integer :birthday_dd_id,      null: false
-
-      t.string  :phone_num,           unique:true
-      t.integer :authentication_num,  null: false
-      t.text    :content
+      t.string :nickname,            null: false, index: true
+      t.string :email,              null: false, default: ""
+      t.string :encrypted_password, null: false, default: ""
+      t.string :first_name,          null: false
+      t.string :last_name,           null: false
+      t.string :first_name_kana,     null: false
+      t.string :last_name_kana,      null: false
+      t.integer :birthday_year_id,   null: false
+      t.integer :birthday_month_id,  null: false
+      t.integer :birthday_day_id,    null: false
+      # 電話番号カラム削除済
+      t.string :phone_num,           null: false
+      # 以下の番号削除済
+      t.integer :authentication_num, null: false
+      t.text :content
 
 
       ## Recoverable
@@ -28,6 +28,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       ## Rememberable
       t.datetime :remember_created_at
+
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -47,7 +48,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-# oooo
+
       t.timestamps null: false
     end
 
