@@ -4,7 +4,7 @@
 .main
   %section.main__section1
     .main__section1--content
-      %h2.main__section1--content--subtitle
+      .main__section1--content--subtitle
         人生を変えるフリマアプリ
       .main__section1--content--text
         FURIMAはだれでもかんたんに出品・購入できる<br>
@@ -15,14 +15,14 @@
     -# .main__section1--picture　まだ当ててない
     
   %section.main__section2
-    %h2.main__section2--title
+    .main__section2--title
       FURIMAが選ばれる3つの理由    
     .main__section2--pictures
       .main__section2--pictures--picture
         .main__section2--pictures--picture__list
           %span.main__section2--pictures--picture__list__number 1
-          %img.main__section2--pictures--picture__list__img{:src => "/assets/pict/pict-reason-01.jpg"}/
-        %h3.main__section2--pictures--picture__text
+          =image_tag("/assets/pict/pict-reason-01.jpg", class: "main__section2--pictures--picture__list__img")
+        .main__section2--pictures--picture__text
           %span.main__section2--pictures--picture__text__color 3分 
           ですぐに出品
         %p.main__section2--pictures--picture__text__description
@@ -31,8 +31,8 @@
       .main__section2--pictures--picture
         .main__section2--pictures--picture__list
           %span.main__section2--pictures--picture__list__number 2
-          %img.main__section2--pictures--picture__list__img{:src => "/assets/pict/pict-reason-02.jpg"}/
-        %h3.main__section2--pictures--picture__text
+          =image_tag("/assets/pict/pict-reason-02.jpg", class: "main__section2--pictures--picture__list__img")
+        .main__section2--pictures--picture__text
           %span.main__section2--pictures--picture__text__color シンプル
           で使いやすい
         %p.main__section2--pictures--picture__text__description
@@ -41,8 +41,8 @@
       .main__section2--pictures--picture__last
         .main__section2--pictures--picture__last--list
           %span.main__section2--pictures--picture__list__number 3
-          %img.main__section2--pictures--picture__list__img{:src => "/assets/pict/pict-reason-03.jpg"}/
-        %h3.main__section2--pictures--picture__last--text
+          =image_tag("/assets/pict/pict-reason-03.jpg", class: "main__section2--pictures--picture__list__img")
+        .main__section2--pictures--picture__last--text
           手数料
           %span.main__section2--pictures--picture__text__color 業界最安
         %p.main__section2--pictures--picture__last--description
@@ -51,7 +51,7 @@
   
   %section.main__section3
     .main__section3--content
-      %h2.main-__section3--content--title
+      .main-__section3--content--title
         会員数日本一位
       .main__section3--content--text
         FURIMAは、フリマアプリで最も人気。<br>
@@ -62,49 +62,49 @@
         = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
 
   %section.main__section4
-    %h2.main__section4--title
+    .main__section4--title
       FURIMAの特徴
     .main__section4--contents
       
       %section.main__section4--contents--item
         %figure.main__section4--contents--item--image
-          %img.main__section4--contents--item--image__img{:src => "/assets/icon/icon-01.png"}/
-        %h3.main__section4--contents--item--title
+        =image_tag("/assets/icon/icon-01.png", class: "main__section4--contents--item--image__img")
+        .main__section4--contents--item--title
           簡単に売り買いできる
         %p.main__section4--contents--item--detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
 
       %section.main__section4--contents--item
         %figure.main__section4--contents--item--image
-          %img.main__section4--contents--item--image__img{:src => "/assets/icon/icon-03.png"}/
-        %h3.main__section4--contents--item--title
+        =image_tag("/assets/icon/icon-03.png", class: "main__section4--contents--item--image__img")
+        .main__section4--contents--item--title
           売上金は即日振込みに対応
         %p.main__section4--contents--item--detail
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
     
       %section.main__section4--contents--item
         %figure.main__section4--contents--item--image
-          %img.main__section4--contents--item--image__img{:src => "/assets/icon/icon-04.png"}/
-        %h3.main__section4--contents--item--title
+        =image_tag("/assets/icon/icon-04.png", class: "main__section4--contents--item--image__img")
+        .main__section4--contents--item--title
           様々な支払いに対応
         %p.main__section4--contents--item--detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
 
   %section.main__section5
-    %h2.main__section5--title
+    .main__section5--title
       ピックアップカテゴリー
     .main__section5--content
    
       .main__section5--content--head
         = link_to "新規投稿商品" , "#"
-        %h3.main__section5--product--head--title
+        .main__section5--product--head--title
       
 
       .main__section5--content--lists
-        .main__section5--content--lists--list
+        .main__section5--content--list
           %figure.main__section5--content--lists--list--image
-            %img.main__section5--content--lists--list__img{:src => "/assets/a001.png"}/
+            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
           .main__section5--content--lists--list--body
             .main__section5--content--lists--list--body__name product3
             .main__section5--content--lists--list--body__detail
@@ -116,7 +116,7 @@
 
         .main__section5--content--lists--list
           %figure.main__section5--content--lists--list--image
-            %img.main__section5--content--lists--list__img{:src => "/assets/a004.png"}/
+            =image_tag("/assets/a004.png", class: "main__section5--content--lists--list__img")
           .main__section5--content--lists--list--body
             .main__section5--content--lists--list--body__name product3
             .main__section5--content--lists--list--body__detail
@@ -128,7 +128,7 @@
 
         .main__section5--content--lists--list
           %figure.main__section5--content--lists--list--image
-            %img.main__section5--content--lists--list__img{:src => "/assets/a007.png"}/
+            =image_tag("/assets/a007.png", class: "main__section5--content--lists--list__img")
           .main__section5--content--lists--list--body
             .main__section5--content--lists--list--body__name product3
             .main__section5--content--lists--list--body__detail
@@ -139,18 +139,18 @@
               %p (税込)
 
   %section.main__section5
-    %h2.main__section5--title
+    .main__section5--title
       ピックアップブランド
     .main__section5--content
    
       .main__section5--content--head
         = link_to "アーカイバ" , "#"
-        %h3.main__section5--content--head--title
+        .main__section5--content--head--title
  
       .main__section5--content--lists
         .main__section5--content--lists--list
           %figure.main__section5--content--lists--list--image
-            %img.main__section5--content--lists--list__img{:src => "/assets/a001.png"}/
+            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
           .main__section5--content--lists--list--body
             .main__section5--content--lists--list--body__name product3
             .main__section5--content--lists--list--body__detail
@@ -162,7 +162,7 @@
 
         .main__section5--content--lists--list
           %figure.main__section5--content--lists--list--image
-            %img.main__section5--content--lists--list__img{:src => "/assets/a004.png"}/
+            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
           .main__section5--content--lists--list--body
             .main__section5--content--lists--list--body__name product3
             .main__section5--content--lists--list--body__detail
@@ -174,7 +174,7 @@
 
         .main__section5--content--lists--list
           %figure.main__section5--content--lists--list--image
-            %img.main__section5--content--lists--list__img{:src => "/assets/a007.png"}/
+            =image_tag("/assets/a001.png", class: "main__section5--content--lists--list__img")
           .main__section5--content--lists--list--body
             .main__section5--content--lists--list--body__name product3
             .main__section5--content--lists--list--body__detail
@@ -186,7 +186,7 @@
 
   %section.main__section6
     .main__section6--content
-      %h2.main__section6--content--title
+      .main__section6--content--title
         だれでもかんたん、人生を変えるフリマアプリ
       %p.main__section6--content--text
         今すぐ無料ダウンロード！

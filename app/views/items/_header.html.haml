@@ -5,7 +5,7 @@
         = link_to image_tag("/assets/logo.png", class:"Header__inner--main--image"), "#"
       = form_with  local: true, method: :get, class: "search-form" do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "searching-form"
-        %button#sbtn{:type => "submit"} 
+        %button_tag#sbtn{:type => "submit"} 
           %i.fas.fa-search
 
     .Header__inner--nav
