@@ -1,38 +1,316 @@
-.sell__page {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(245, 245, 245)
+.sell {
+  background: cover;
+  background-color: rgb(245, 245, 245);
+  color: #333;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+  &__header {
+    height: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--logo {
+      width: 185px;
+      height: 49px;
+    }
+  }
+  &__form {
+    width: 700px;
+    margin: 0 auto;
+    &__container {
+      margin: 0 auto;
+      background-color: #fff;
+      h2 {
+        height: 86px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid 1px #eee;
+        &__head {
+          font-size: 22px;
+          font-weight: bold;
+        }      
+      }
+    &__content2 {
+      height: 441px;
+      padding: 40px 40px 0 40px;
+      border-top: solid 1px #eee;
+      display: flex;
+      justify-content: space-between;
+      &__sub_head {
+        color: #888;
+        font-size: 14px;
+        font-weight: bold;
+        &_group2 {
+          margin: 0 0 40px 0;
+        }        
+      }      
+    }
+    &__content3 {
+      height: 441px;
+      padding: 40px 40px 0 40px;
+      border-top: solid 1px #eee;
+      display: flex;
+      justify-content: space-between;
+    }
+    &__content4 {
+      height: 299px;
+      padding: 40px;
+      border-top: solid 1px #eee;
+      border-bottom: solid 1px #eee;
+      &__price_box {
+        width: 100%;
+        float:right;
+      }
+      &__commission_box {
+        height: 70px;
+        width: 620px;
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: solid 1px rgb(204, 204, 204);
+        &__commission {
+          font-size: 14px;
+        }
+        &__commission_line {
+          background-color: #fff;
+        }                
+      }
+      &__profit_box {
+        height: 83px;
+        width: 620px;
+        padding: 24px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: solid 1px rgb(204, 204, 204);
+        &__profit {
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__profit_line {
+          background-color: #fff;
+          font-weight: bold;
+          font-size: 16px;
+        }                
+      }    
+      &__content5 {
+        padding: 40px;
+        &__content_text {
+          font-size: 14px;
+        }
+        &__btn {
+          height: 50px;
+          width: 620px;
+          margin-top: 40px;
+          background-color: #3ccace;
+          color: #fff;
+          font-size: 14px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+        &__back_btn {
+          height: 50px;
+          width: 279px;
+          margin: 24px 170.5px 0;
+          background-color: #aaa;
+          color: #fff;
+          font-size: 14px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }                  
+      }                  
+    } 
+      &__footer_box {
+        height: 220px;
+        width: 456px;
+        margin: 0 auto;
+        padding: 40px 0;
+        background-color: rgb(245, 245, 245);
+      
+        ul {
+          width: 456px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          font-size: 12px;
+        }
+      }
+      &__footer_logo {
+        height: 69px;
+        width: 456px;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+      }
+      &__name_box {
+        height: 14px;
+        width: 456px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 8px;
+      }                  
+    }
+
+  }
+  
+  &__upload_box {
+    padding: 40px;
+    .sell__upload_head {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .sell__upload_text {
+      margin: 8px 0 0;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .sell__dropbox_container {
+      height: 162px;
+      margin: 16px auto 0;
+      .sell__upload_drop_box {
+        height: 162px;
+        width: 620px;
+        margin-left: 0;
+        float: left;
+        padding: 40px;
+        background-color: #f5f5f5;
+        border: 1px dashed #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .sell__dropbox_text {
+          font-size: 14px;
+        }        
+      }      
+    }            
+  }
+  &__content {
+    height: 355px;
+    padding: 0 40px 0 40px;
+    border-top: solid 1px #eee;
+    .sell__input {
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }    
+  }    
+span {
+  background-color: #3ccace;
+  color: #fff;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+label {
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.sell__header {
-  height: 128px;
+.form_group {
+  margin: 40px 0 0;
+  textarea {
+    height: 142px;
+    margin: 8px 0 0;
+    border-radius: 0;
+    outline: 0;
+  }
+  .sell__textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 104px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .sell__input_brand {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .form_require2 {
+    background-color: #888;
+    color: #fff;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 2px;
+  }        
+}
+
+input {
   width: 100%;
+  margin: 8px 0 0;
+}
+
+.sell__select {
+  height: 48px;
+  width: 400px;
+  padding: 0 16px;
+  margin-top: 8px;
+}
+
+.sell__price_box {
+  height: 58px;
+  width: 620px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  .form_group3 {
+    width: 620px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .price {
+      font-weight: 600;
+      font-size: 14px;
+      color: black;
+    }    
+  }
+  .sell__input_price {
+    height: 48px;
+    width: 285px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .form{
+    display: flex;
+    justify-content: flex-end;
+    line-height: 58px;
+    .sell__yen_mark {
+      font-size: 14px;
+      float: right;
+      background-color: white;
+      color: black;
+      font-weight: normal;
+      line-height: 58px;
+    }
+  }
 }
-
-.sell__header_logo {
-  width: 185px;
-  height: 49px;
-}
-
-.sell__container {
-  height: 100%;
-  width: 700px;
-  margin: 0 auto;
-  background-color: #fff;
-}
-
-h2 {
-  height: 86px;
-  width: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sell__head {
-  font-size: 22px;
-  font-weight: bold;
+.option {
+  display: inline-block;
 }
