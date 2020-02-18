@@ -6,7 +6,9 @@
         = link_to image_tag("logo.png", class:"Header__inner--main--image"), "#"
         = link_to image_tag("logo/logo.png", class:"Header__inner--main--image"), "#"
         = link_to image_tag("/logo.png", class:"Header__inner--main--image"), "#"
-        = link_to image_tag("logo/logo.png", class:"Header__inner--main--image"), "#"
+        = link_to image_tag("/pict-reason-01.jpg", class:"Header__inner--main--image"), "#"
+        = link_to image_tag("/assets/logo.png", class:"Header__inner--main--image"), "#"
+        = link_to image_tag("/assets/images/logo.png", class:"Header__inner--main--image"), "#"
       = form_with  local: true, method: :get, class: "search-form" do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "searching-form"
         %button_tag#sbtn{:type => "submit"} 
