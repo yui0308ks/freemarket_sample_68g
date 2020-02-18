@@ -2,14 +2,14 @@ Rails.application.routes.draw do
 
 
   root "items#index"
-  # devise_for :users
-  # resources :users, only: :show
+
+ 
 
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
   }
-
+  resources :users, only: :show
   devise_scope :user do
     get  'signup',    to: 'users/registrations#index'
     get  'addresses',  to: 'users/registrations#new_address'

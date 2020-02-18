@@ -1,73 +1,198 @@
+= render partial: "items/header"#locals: { group: @group }
+.head-nav
+  %ul.head-nav__lists
+    %li.head-nav__lists__list
+      = link_to "メルカリ" , "#"
+      %i.fas.fa-chevron-right
+    %li.head-nav__lists__title
+      = link_to "マイページ" , "#"
+
 .mypage
   .mypage__side
     %ul.mypage__side__lists
       %li.mypage__side__lists__list__first
-        = link_to "マイページ" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "お知らせ" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "やることリスト" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "いいね！一覧" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "出品する" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "出品した商品-出品中" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "出品した商品-取引中" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "出品した商品-売却済み" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "購入した商品-取引中" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "購入した商品-過去の取引" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "ニュース一覧" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "評価一覧" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "ガイド" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "お問い合わせ" , "#"
-        %i.far.fa-angle-right
+        マイページ
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
 
-      %h3.mypage__side__lists__list__second
-        = link_to "メルペイ" , "#"
-        %i.far.fa-angle-right
       %li.mypage__side__lists__list
-        = link_to "売上・振込申請" , "#"
-        %i.far.fa-angle-right
+        お知らせ
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
       %li.mypage__side__lists__list
-        = link_to "ポイント" , "#"
-        %i.far.fa-angle-right
+        やることリスト
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        いいね！一覧
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        出品する
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        出品した商品-出品中
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        出品した商品-取引中
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        出品した商品-売却済み
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        購入した商品-取引中
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        購入した商品-過去の取引
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        ニュース一覧
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        評価一覧
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        ガイド
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        お問い合わせ
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
 
-      %h3.mypage__side__lists__list__second
-        = link_to "設定" , "#"
-        %i.far.fa-angle-right
+      %li.mypage__side__lists__list__second
+        メルペイ
+        %i.fas.fa-chevron-right
       %li.mypage__side__lists__list
-        = link_to "プロフィール" , "#"
-        %i.far.fa-angle-right
+        売上・振込申請
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
       %li.mypage__side__lists__list
-        = link_to "発送元・お届け先住所変更" , "#"
-        %i.far.fa-angle-right
-      %li.mypage__side__lists__list
-        = link_to "プロフィール" , "#"
-        %i.far.fa-angle-right
+        ポイント
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
 
-.mypage__main
+      .mypage__side__lists__list__second
+        設定
+        %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        プロフィール
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        発送元・お届け先住所変更
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        支払い方法
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        メール/パスワード
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        本人情報
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        電話番号の確認
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+      %li.mypage__side__lists__list
+        ログアウト
+        %a.Link{:href => "＃"}
+          %i.fas.fa-chevron-right
+
+  .mypage__main
     .mypage__main__icon
       = link_to image_tag("/assets/icon/member_photo_noimage_thumb.png", class: "icon"),  "#"
-    .mypage__main__contents
+      .name
+        = link_to "name" , "#"
+      .evaluation
+        = link_to "評価　出品数" , "#"
+      
+    .contents
+      %ul.contents__content
+        %li
+          %a#about.contents__content__tab.active{:href => "#"} お知らせ
+        %li
+          %a#service.contents__content__tab{:href => "#"} やることリスト
+      %ul.lists
+        %li.lists__list__show
+          出品する
+        %li.lists__list
+          出品しない
+
+  -# .container
+  -#   %ul.menu
+  -#     %li
+  -#       %a#about.menu_item.active{:href => "#"} Rails
+  -#     %li
+  -#       %a#service.menu_item{:href => "#"} Javascript
+  -#     %li
+  -#       %a#contact.menu_item{:href => "#"} Ruby
+  -#   %ul.contents
+  -#     %li.content.show
+  -#       about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about
+  -#     %li.content
+  -#       service service service service service service service service service service service service service service service service service service service service service service service service service service
+  -#     %li.content
+  -#       contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact
+
+
+
+
+
+
+
+
+
+
+        
+        %a{:href => "#"}
+      .mypage__main__lists__list
+        出品する
+        %a.Link{:href => "＃"}
+      .mypage__main__lists__list
+        出品する
+        %a.Link{:href => "＃"}
+      .mypage__main__lists__list
+        出品する
+        %a.Link{:href => "＃"}
+      .mypage__main__lists__list
+        出品する
+        %a.Link{:href => "＃"}
+      .mypage__main__lists__go
+        一覧を見る
+        %a.Link{:href => "＃"}
+    
+      .mypage__main__cage
+        .mypage__main__cage__head
+          購入した商品
+          %a{:href => "#"}
+        .mypage__main__cage__tabs 
+          .mypage__main__cage__tab
+            取引中
+            -# %a{:href => "#"}
+          .mypage__main__cage__tab
+            過去の取引
+            -# %a{:href => "#"}
+        .mypage__main__cage__contents
+          取引中の商品が商品がありません
+
+
+
+
+
+
+
+= render partial: "items/footer"#locals: { group: @group }
