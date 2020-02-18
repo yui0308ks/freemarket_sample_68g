@@ -1,15 +1,142 @@
-.Header
-  .Header__inner
-    .Header__inner--main
-      %h1.icon
-        = link_to image_tag asset_path("logo.png")
-        -# = link_to image_tag("/assets/pict/bg-appBanner-pict.jpg"),"#"
+
+= render partial: "items/header"#locals: { group: @group }
+
+.main
+  %section.main__section1
+    .main__section1--content
+      .main__section1--content--subtitle
+        人生を変えるフリマアプリ
+      .main__section1--content--text
+        FURIMAはだれでもかんたんに出品・購入できる<br>
+        フリマアプリです
+      .main__section1--content--btn
+      = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
+      = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+    -# .main__section1--picture　まだ当ててない
+    
+  %section.main__section2
+    .main__section2--title
+      FURIMAが選ばれる3つの理由    
+    .main__section2--pictures
+      .main__section2--pictures--picture
+        .main__section2--pictures--picture__list
+          %span.main__section2--pictures--picture__list__number 1
+          =image_tag("/assets/pict/pict-reason-01.jpg", class: "main__section2--pictures--picture__list__img")
+        .main__section2--pictures--picture__text
+          %span.main__section2--pictures--picture__text__color 3分 
+          ですぐに出品
+        %p.main__section2--pictures--picture__text__description
+          スマホで入力するだけで簡単に出品できる！
+      
+      .main__section2--pictures--picture
+        .main__section2--pictures--picture__list
+          %span.main__section2--pictures--picture__list__number 2
+          =image_tag("/assets/pict/pict-reason-02.jpg", class: "main__section2--pictures--picture__list__img")
+        .main__section2--pictures--picture__text
+          %span.main__section2--pictures--picture__text__color シンプル
+          で使いやすい
+        %p.main__section2--pictures--picture__text__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+
+      .main__section2--pictures--picture__last
+        .main__section2--pictures--picture__last--list
+          %span.main__section2--pictures--picture__list__number 3
+          =image_tag("/assets/pict/pict-reason-03.jpg", class: "main__section2--pictures--picture__list__img")
+        .main__section2--pictures--picture__last--text
+          手数料
+          %span.main__section2--pictures--picture__text__color 業界最安
+        %p.main__section2--pictures--picture__last--description
+          最大3%でお得に出品&購入！
+      
+  
+  %section.main__section3
+    .main__section3--content
+      .main-__section3--content--title
+        会員数日本一位
+      .main__section3--content--text
+        FURIMAは、フリマアプリで最も人気。<br>
+        出品・購入回数も業界最多です！<br>
+        ほしかったあの商品に出会えるかもしれません。
+      .main__section3--content--btn
+        = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
+        = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+
+  %section.main__section4
+    .main__section4--title
+      FURIMAの特徴
+    .main__section4--contents
+      
+      %section.main__section4--contents--item
+        %figure.main__section4--contents--item--image
+        =image_tag("/assets/icon/icon-01.png", class: "main__section4--contents--item--image__img")
+        .main__section4--contents--item--title
+          簡単に売り買いできる
+        %p.main__section4--contents--item--detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+
+      %section.main__section4--contents--item
+        %figure.main__section4--contents--item--image
+        =image_tag("/assets/icon/icon-03.png", class: "main__section4--contents--item--image__img")
+        .main__section4--contents--item--title
+          売上金は即日振込みに対応
+        %p.main__section4--contents--item--detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+    
+      %section.main__section4--contents--item
+        %figure.main__section4--contents--item--image
+        =image_tag("/assets/icon/icon-04.png", class: "main__section4--contents--item--image__img")
+        .main__section4--contents--item--title
+          様々な支払いに対応
+        %p.main__section4--contents--item--detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+
+  %section.main__section5
+    .main__section5--title
+      ピックアップカテゴリー
+    .main__section5--content
+   
+      .main__section5--content--head
+        = link_to "新規投稿商品" , "#"
+        .main__section5--product--head--title
+      
+      
+      .main__section5--content--lists
         
-    .Header__inner--nav
-      %ul.nav-left
-        %li.nav-left--category
-          = link_to "カテゴリー" , "#"
-        %li.nav-left--brand
-          = link_to "ブランド" , "#"
-      %ul.nav-right
-        = render 'devise/shared/links'
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
+
+  %section.main__section5
+    .main__section5--title
+      ピックアップブランド
+    .main__section5--content
+   
+      .main__section5--content--head
+        = link_to "アーカイバ" , "#"
+        .main__section5--content--head--title
+ 
+      .main__section5--content--lists    
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
+        = render partial: "items/content-list"
+        
+
+
+  %section.main__section6
+    .main__section6--content
+      .main__section6--content--title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.main__section6--content--text
+        今すぐ無料ダウンロード！
+      .main__section6--content--icon
+        = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
+        = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+      
+= render partial: "items/footer"#locals: { group: @group }
+
+.camera
+  .camera__text
+    出品する
+  .camera__img
+    = link_to image_tag("/assets/icon/icon_camera.png", class:"camera__img1"), "#"
