@@ -34,14 +34,14 @@ set :keep_releases, 5
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
+
   task :restart do
     invoke 'unicorn:restart'
   end
-end
 
 
-# qiitaを参考に以下全ての行追加(本番環境のみ画像uploadsする分岐) 
-desc 'upload master.key'
+  # qiitaを参考に以下全ての行追加(本番環境のみ画像uploadsする分岐) 
+  desc 'upload master.key'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
@@ -50,8 +50,8 @@ desc 'upload master.key'
       upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
-before :starting, 'deploy:upload'
-after :finishing, 'deploy:cleanup'
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
 
 # 環境変数をcapistranoでの自動デプロイで利用
