@@ -1,7 +1,9 @@
+= stylesheet_link_tag "furima/items_new"
+= stylesheet_link_tag "furima/_reset"
 .sell
   %header.sell__header
     %a.sell__header--logo
-      = image_tag src = "/assets/logo.png", size: "185x49"
+      = image_tag src = "/logo.png", size: "185x49"
 
   .sell__form
     .sell__form__container
@@ -153,7 +155,7 @@
         %li
           =link_to '特定商取引に関する表記', 'https://www.mercari.com/jp/tokutei/'
       .footer__logo
-        = image_tag src = "/assets/logo.png", size: "80x65"
+        = image_tag src = "/logo.png", size: "80x65"
         = link_to '', '#'
       %p.footer__name_box
         %small

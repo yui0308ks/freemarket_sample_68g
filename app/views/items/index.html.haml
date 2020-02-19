@@ -1,4 +1,4 @@
-
+= stylesheet_link_tag "furima/items"
 = render partial: "items/header"#locals: { group: @group }
 
 .main
@@ -10,8 +10,8 @@
         FURIMAはだれでもかんたんに出品・購入できる<br>
         フリマアプリです
       .main__section1--content--btn
-      = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
-      = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+      = link_to image_tag("/app-store.svg", class: "abtn"),  "#"
+      = link_to image_tag("/google.svg", class: "gbtn"),  "#"
     -# .main__section1--picture　まだ当ててない
     
   %section.main__section2
@@ -21,7 +21,7 @@
       .main__section2--pictures--picture
         .main__section2--pictures--picture__list
           %span.main__section2--pictures--picture__list__number 1
-          =image_tag("/assets/pict/pict-reason-01.jpg", class: "main__section2--pictures--picture__list__img")
+          =image_tag("/pict-reason-01.jpg", class: "main__section2--pictures--picture__list__img")
         .main__section2--pictures--picture__text
           %span.main__section2--pictures--picture__text__color 3分 
           ですぐに出品
@@ -31,7 +31,7 @@
       .main__section2--pictures--picture
         .main__section2--pictures--picture__list
           %span.main__section2--pictures--picture__list__number 2
-          =image_tag("/assets/pict/pict-reason-02.jpg", class: "main__section2--pictures--picture__list__img")
+          =image_tag("/pict-reason-02.jpg", class: "main__section2--pictures--picture__list__img")
         .main__section2--pictures--picture__text
           %span.main__section2--pictures--picture__text__color シンプル
           で使いやすい
@@ -41,7 +41,7 @@
       .main__section2--pictures--picture__last
         .main__section2--pictures--picture__last--list
           %span.main__section2--pictures--picture__list__number 3
-          =image_tag("/assets/pict/pict-reason-03.jpg", class: "main__section2--pictures--picture__list__img")
+          =image_tag("/pict-reason-03.jpg", class: "main__section2--pictures--picture__list__img")
         .main__section2--pictures--picture__last--text
           手数料
           %span.main__section2--pictures--picture__text__color 業界最安
@@ -58,8 +58,8 @@
         出品・購入回数も業界最多です！<br>
         ほしかったあの商品に出会えるかもしれません。
       .main__section3--content--btn
-        = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
-        = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+        = link_to image_tag("/app-store.svg", class: "abtn"),  "#"
+        = link_to image_tag("/google.svg", class: "gbtn"),  "#"
 
   %section.main__section4
     .main__section4--title
@@ -68,7 +68,7 @@
       
       %section.main__section4--contents--item
         %figure.main__section4--contents--item--image
-        =image_tag("/assets/icon/icon-01.png", class: "main__section4--contents--item--image__img")
+        =image_tag("/icon-01.png", class: "main__section4--contents--item--image__img")
         .main__section4--contents--item--title
           簡単に売り買いできる
         %p.main__section4--contents--item--detail
@@ -76,7 +76,7 @@
 
       %section.main__section4--contents--item
         %figure.main__section4--contents--item--image
-        =image_tag("/assets/icon/icon-03.png", class: "main__section4--contents--item--image__img")
+        =image_tag("/icon-03.png", class: "main__section4--contents--item--image__img")
         .main__section4--contents--item--title
           売上金は即日振込みに対応
         %p.main__section4--contents--item--detail
@@ -84,7 +84,7 @@
     
       %section.main__section4--contents--item
         %figure.main__section4--contents--item--image
-        =image_tag("/assets/icon/icon-04.png", class: "main__section4--contents--item--image__img")
+        =image_tag("/icon-04.png", class: "main__section4--contents--item--image__img")
         .main__section4--contents--item--title
           様々な支払いに対応
         %p.main__section4--contents--item--detail
@@ -130,8 +130,8 @@
       %p.main__section6--content--text
         今すぐ無料ダウンロード！
       .main__section6--content--icon
-        = link_to image_tag("/assets/app-store.svg", class: "abtn"),  "#"
-        = link_to image_tag("/assets/google.svg", class: "gbtn"),  "#"
+        = link_to image_tag("/app-store.svg", class: "abtn"),  "#"
+        = link_to image_tag("/google.svg", class: "gbtn"),  "#"
       
 = render partial: "items/footer"#locals: { group: @group }
 
@@ -139,4 +139,4 @@
   .camera__text
     出品する
   .camera__img
-    = link_to image_tag("/assets/icon/icon_camera.png", class:"camera__img1"), "#"
+    = link_to image_tag("/icon_camera.png", class:"camera__img1"), "#"
