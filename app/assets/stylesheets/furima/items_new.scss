@@ -3,16 +3,6 @@
   background-color: rgb(245, 245,245);
   color: #333;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  &__header {
-    height: 128px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &--logo{
-      width: 185px;
-      height: 49px;
-    }
-  }
   
   &__form{
     width: 700px;
@@ -262,84 +252,4 @@ span {
   padding: 2px 4px;
   font-size: 12px;
   border-radius: 2px;
-}
-
-
-
-.footer {
-  height: 220px;
-  width: 456px;
-  margin: 0 auto;
-  padding: 40px 0;
-  background-color: rgb(245, 245, 245);
-  &__logo {
-    height: 69px;
-    width: 456px;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-  }
-  ul {
-    width: 456px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 12px;
-  }
-  &__name_box {
-    height: 14px;
-    width: 456px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 8px;
-  }
-}
-
-label {
-  font-weight: 600;
-  font-size: 14px;
-}
-.form_group--left {
-  margin: 40px 0 0;
-}
-
-textarea {
-  height: 142px;
-  margin: 8px 0 0;
-  border-radius: 0;
-  outline: 0;
-}
-
-
-
-.form_require2 {
-  background-color: #888;
-  color: #fff;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  font-size: 12px;
-  border-radius: 2px;
-}
-
-input {
-  width: 100%;
-  margin: 8px 0 0;
-}
-
-.price {
-  font-weight: 600;
-  font-size: 14px;
-  color: black;
-}
-
-.option {
-  display: inline-block;
-}
-
-.form_group {
-  margin-top: 40px;
-
 }
