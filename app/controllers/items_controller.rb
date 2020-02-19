@@ -3,16 +3,17 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
-    Item.create(item_params)
-    redirect_to root_path
+    @item = Item.new(item_params)
+    @item.save
+    render :index
   end
 
   private
   def item_params
-    params.permit(:name, :description, :category, :condition, :size, :delivery_charge, :delivery_way, :prefecture)
+    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price)
   end
 end
