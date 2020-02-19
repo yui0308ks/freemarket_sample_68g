@@ -19,6 +19,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone_num,           null: false
       # 以下の番号削除済
       t.integer :authentication_num, null: false
+
       t.text :content
 
 
