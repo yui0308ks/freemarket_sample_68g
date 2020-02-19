@@ -1,3 +1,5 @@
+= stylesheet_link_tag "furima/mypage"
+= stylesheet_link_tag "furima/_reset"
 = render partial: "items/header"#locals: { group: @group }
 .head-nav
   %ul.head-nav__lists
@@ -114,7 +116,7 @@
 
   .mypage__main
     .mypage__main__icon
-      = link_to image_tag("/assets/icon/member_photo_noimage_thumb.png", class: "icon"),  "#"
+      = link_to image_tag("/member_photo_noimage_thumb.png", class: "icon"),  "#"
       .name
         = link_to "name" , "#"
       .evaluation
@@ -148,16 +150,6 @@
   -#     %li.content
   -#       contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact
 
-
-
-
-
-
-
-
-
-
-        
         %a{:href => "#"}
       .mypage__main__lists__list
         出品する
@@ -188,11 +180,6 @@
             -# %a{:href => "#"}
         .mypage__main__cage__contents
           取引中の商品が商品がありません
-
-
-
-
-
 
 
 = render partial: "items/footer"#locals: { group: @group }
