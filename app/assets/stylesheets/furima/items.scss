@@ -119,12 +119,13 @@ $base-color: #fff;
       ul.nav-right{
         margin-left: auto;
         display: flex;
-
+        list-style: none;
         li.nav-right--login{
           @include right;
           
           a{
             @include none;
+            
           }
         }
         
