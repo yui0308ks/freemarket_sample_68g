@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
+      # binding.pry
     end
   end
   
@@ -19,6 +20,9 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:level2_id]}").children
+  end
+  
+  def get_delivery_method
   end
 
   def create

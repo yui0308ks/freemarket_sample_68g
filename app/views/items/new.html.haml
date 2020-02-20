@@ -1,5 +1,8 @@
 = stylesheet_link_tag "furima/items_new"
 = stylesheet_link_tag "furima/_reset"
+-# %body
+-#   %script{:src => "script.js"}
+
 .sell
   %header
     =render "shared/miniheader"
@@ -114,17 +117,20 @@
           .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
+            -# %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
             = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
         .sell__form__commission_box
           .sell__form__commission
             販売手数料（10%）
-          %span.sell__form__commission_line
-          ー
+            .right_bar
+          
         .sell__form__profit_box
           .sell__form__profit
             販売利益
-          %span.sell__form__profit_line
-          ー
+            = f.number_field :price, style: "display: none", id: "price"
+          -# %span.sell__form__profit_line
+            .right_bar_2
+          
 
       .sell__form__content5.clearfix
         .sell__form__content_text
