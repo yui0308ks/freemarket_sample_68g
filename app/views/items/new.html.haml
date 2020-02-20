@@ -46,13 +46,13 @@
         .sell__form_box
           .sell__form_group2
             %label
-              カテゴリー
               %span.form_require
                 必須
             .select_wrap
+              = f.label 'カテゴリー', class: 'sell__form_label'
+              = f.select :category, @category_parent_array, {}, {class: 'select_wrap__box--select', id: 'parent_category'}
               %i.icon-arrow-bottom
                 = icon('fas', 'arrow-bottom', class: 'icon')
-              %select.sell__select
           .form_group
             %label
               ブランド

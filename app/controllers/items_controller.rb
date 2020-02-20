@@ -3,7 +3,19 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @category_parent_array = ["---"]
     @item = Item.new
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
+  
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:level1_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:level2_id]}").children
   end
 
   def create

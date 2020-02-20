@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create]
   resources :signups, only: [:new, :create] do
     collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'member'
       post 'address'
       post 'telephone'
