@@ -60,6 +60,9 @@ $base-color: #fff;
       .search-form{
         display: flex;
         width: 100%;
+        .searching-form{
+          width: 100%;
+        }
         #keyword{
           width: calc(100% - 26px);
           height: 31px;
@@ -119,12 +122,13 @@ $base-color: #fff;
       ul.nav-right{
         margin-left: auto;
         display: flex;
-
+        list-style: none;
         li.nav-right--login{
           @include right;
           
           a{
             @include none;
+            
           }
         }
         

@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
   def index
+    # @items = Items.all
+    @search_params = item_search_params
+    @items_search = Item.search(@search_params).includes(:prefecture)
   end
 
   def new
@@ -28,4 +31,12 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price)
   end
+
+
+  private
+
+  def item_search_params
+    params.fetch(:search, {}).permit(:name)
+  end
+
 end
