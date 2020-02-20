@@ -13,11 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_02_17_030647) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-<<<<<<< Updated upstream
+
     t.integer "zip_code", null: false
-=======
-    t.string "zip_code", null: false
->>>>>>> Stashed changes
+
     t.integer "prefecture", default: 0, null: false
     t.string "city", null: false
     t.integer "block", null: false
