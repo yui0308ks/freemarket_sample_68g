@@ -53,6 +53,7 @@ end
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "delivery_day"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_charge_id"], name: "index_items_on_delivery_charge_id"
     t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
