@@ -12,8 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # binding.pry
     @user = User.new(sign_up_params)
+
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -26,14 +26,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create_address
+    # binding.pry
     @address = Address.new(address_params)
+    # binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
-    # unless @address.valid?
-    #   flash.now[:alert] = @address.errors.full_messages
-    #   render :new_address and return
-    # end
+    # binding.pry
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+    end
     @user.build_address(@address.attributes)
+    # binding.pry
     @user.save
+    # binding.pry
     sign_in(:user, @user)
   end
 
@@ -70,7 +74,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:zip_code, :prefecture_id, :city, :block, :home)
+    params.require(:address).permit(:zip_code, :prefecture, :city, :block, :last_name, :first_name, :last_name_kana, :first_name_kana)
+    # .merge(user_id: current_user.id)
   end
 
 

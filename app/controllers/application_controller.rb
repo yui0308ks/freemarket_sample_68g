@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 #ストロングパラメータを使用するためにconfigure_permitted_parametersを定義
   def  configure_permitted_parameters
     # binding.pry
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday_year_id, :birthday_month_id, :birthday_day_id, :phone_num, :authentication_num, :content])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday_year_id, :birthday_month_id, :birthday_day_id, :phone_num, :content])
   end
 
 end
