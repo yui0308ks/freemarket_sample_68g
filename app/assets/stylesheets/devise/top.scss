@@ -1,0 +1,45 @@
+// -# 新規登録画面のマークアップ
+// -# 新規ログイン画面ヘッダー
+.signin__container{
+  text-align: center;
+  height: 100vh;
+  background-color: rgb(245, 245,245);
+  color: #333;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .signup__simple__header{
+    &__logo{
+  // -# 新規登録メイン
+      padding: 40px;
+    }
+  }
+
+  .signup-index-main{
+    background-color: #fff;
+    padding: 40px 40px;
+    width: 700px;
+    margin: 0 auto;
+    &__head{
+      // 新規会員登録
+    }
+    .signup-submit-button-form{
+      .signup-index-mail-box{
+          // メールアドレスで登録する
+      }
+    }
+  }
+
+      // -# 新規ログイン画面フッター
+  .signup__footer{
+    &__detail{margin-top: 40px;
+
+        // プライバシーポリシー
+        // メルカリ利用規約
+        // 特定商取引に関する表記
+    }
+    .signup__footer__logo{
+      padding: 40px;
+      p{
+      }
+    }
+  }
+}
