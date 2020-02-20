@@ -5,9 +5,9 @@
     =render "shared/miniheader"
   .sell__form
     .sell__form__container
-      %h2
-        .sell__form__head
-          商品の情報を入力
+    = form_with model: @item, local: true, class:"sell__form__head_box" do |f|
+      .sell__form__head
+        商品の情報を入力
 
       .sell__upload_box
         %h3.sell__upload_head
@@ -21,6 +21,9 @@
             %pre.sell_doropbox_text
               ドラッグアンドドロップ
               %rb またはクリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :images do |i|
+              = i.file_field :image
               %i.icon-camera
 
       .sell__form__content
@@ -29,14 +32,13 @@
             商品名
             %span.form_require
               必須
-          %input.sell__input{placeholder: "商品名 (必須40文字まで)"}
+          =f.text_field :name, class:"sell__input", placeholder:"商品名（必須40文字まで）"
         .form_group
           %label
             商品の説明
             %span.form_require
               必須
-          %textarea.sell__textarea{placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
-
+          =f.text_area :description, class:"sell__textarea", placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
       .sell__form__content2.clearfix
         %h3.sell__form__sub_head
@@ -44,13 +46,13 @@
         .sell__form_box
           .sell__form_group2
             %label
-              カテゴリー
               %span.form_require
                 必須
             .select_wrap
+              = f.label 'カテゴリー', class: 'sell__form_label'
+              = f.select :category, @category_parent_array, {}, {class: 'select_wrap__box--select', id: 'parent_category'}
               %i.icon-arrow-bottom
                 = icon('fas', 'arrow-bottom', class: 'icon')
-              %select.sell__select
           .form_group
             %label
               ブランド
@@ -112,7 +114,7 @@
           .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
-            %input.sell__input_price.option{placeholder: "例)300"}
+            = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
         .sell__form__commission_box
           .sell__form__commission
             販売手数料（10%）
