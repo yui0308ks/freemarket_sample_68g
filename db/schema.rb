@@ -10,28 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_030647) do
+ActiveRecord::Schema.define(version: 2020_02_20_112227) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-<<<<<<< Updated upstream
-    t.integer "zip_code", null: false
-=======
     t.string "zip_code", null: false
->>>>>>> Stashed changes
     t.integer "prefecture", default: 0, null: false
     t.string "city", null: false
     t.integer "block", null: false
     t.bigint "user_id", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-<<<<<<< Updated upstream
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "ancestry"
@@ -58,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_030647) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "condition"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_charge_id"], name: "index_items_on_delivery_charge_id"
     t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
@@ -65,8 +57,6 @@ ActiveRecord::Schema.define(version: 2020_02_17_030647) do
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
   end
 
-=======
->>>>>>> Stashed changes
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false

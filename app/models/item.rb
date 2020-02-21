@@ -1,13 +1,12 @@
 class Item < ApplicationRecord
   # validates :name, :image, :description, :category, :condition, :delivery_charge, :delivery_way, :prefecture, :delivery_day, :price, presence: true
-  validates :name, length: { minimum: 1, maximum: 40 }
-  validates :description, length: { minimum: 1, maximum: 1000 }
+  # validates :name, length: { minimum: 1, maximum: 40 }
+  # validates :description, length: { minimum: 1, maximum: 1000 }
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   # belongs_to user, foreign_key: 'user_id'
   # belongs_to :category
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images
-<<<<<<< Updated upstream
+  accepts_nested_attributes_for :images, allow_destroy: true
 
 # headerの検索機能
   scope :search, -> (search_params) do
@@ -25,7 +24,9 @@ class Item < ApplicationRecord
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
 
 
-=======
+  enum condition: {
+    選択してください:0,未使用:1,やや汚れあり:2
+    }
   
   
   
@@ -50,5 +51,5 @@ class Item < ApplicationRecord
   "---":0,
   "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
 },_prefix: true
->>>>>>> Stashed changes
+
 end
