@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_062607) do
+ActiveRecord::Schema.define(version: 2020_02_17_030647) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "zip_code", null: false
-    t.integer "prefecture_id", null: false
+
+    t.integer "zip_code", null: false
+    t.integer "prefecture", default: 0, null: false
     t.string "city", null: false
     t.integer "block", null: false
-    t.string "send_name", null: false
-    t.string "send_first_name", null: false
-    t.string "send_family_name_kana", null: false
-    t.string "send_first_name_kana", null: false
-    t.integer "phonenumber"
     t.bigint "user_id", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -49,13 +49,14 @@ ActiveRecord::Schema.define(version: 2020_02_18_062607) do
     t.integer "size"
     t.bigint "delivery_charge_id"
     t.bigint "delivery_way_id"
+    t.bigint "delivery_day_id"
     t.bigint "prefecture_id"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "delivery_day"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_charge_id"], name: "index_items_on_delivery_charge_id"
+    t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
     t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
   end

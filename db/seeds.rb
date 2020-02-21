@@ -1,3 +1,7 @@
+# ladies,mens = Category.create([{name: "レディース"}, {name: "メンズ"}])
+# tops,jacket = ladies.children.create([{name: "トップス"}, {name: "ジャケット"}])
+# tops.children.create([{name: "Tシャツ"}, {name: "ブラウス"}])
+
 categories=[
            {level1:"メンズ",level1_children:[
                                                {level2:"トップス",level2_children:["Tシャツ","シャツ","ジャージ"]},

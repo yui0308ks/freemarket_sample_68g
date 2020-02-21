@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :size
       t.references :delivery_charge
       t.references :delivery_way
+      t.references :delivery_day
       t.references :prefecture
       t.integer :price
       t.timestamps

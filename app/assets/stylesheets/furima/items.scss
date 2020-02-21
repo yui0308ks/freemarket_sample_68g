@@ -6,7 +6,6 @@ $base-color: #fff;
   color: #333;
 }
 
-
 @mixin right {
   color: #333;
   line-height: 38px;
@@ -56,11 +55,15 @@ $base-color: #fff;
         width: 140px;
         display: block;
       }
+
       .search-form{
-        display: flex;
         width: 100%;
+        height: 35px;
+        display: flex;
+        margin-bottom: 5px;
         .searching-form{
           width: 100%;
+          padding: 0 0 0 5px;
         }
         #keyword{
           width: calc(100% - 26px);
@@ -69,23 +72,28 @@ $base-color: #fff;
           
         }
       }
-      #sbtn{ 
-        width: 20px;
-        height: 20px;
+      .sbtn{ 
+        width: 35px;
+        height: 35px;
         border: 0;
         cursor: pointer;
         background-color: $color-blue;
         padding: 8px;
-        
-        .fas.fa-search{
-          font-size: 20px;
-          font-weight: bold;
-          color: $base-color;
-          text-align: center;
-        }
+        position: relative;
       }
     }
-
+    .SearchIcon{
+      position: absolute;
+      top: 12px;
+      right: 7px;
+      .fas.fa-search{
+      font-size: 20px;
+      font-weight: bold;
+      color: $base-color;
+      text-align: center;
+      }
+    }
+    
    
     &--nav{
       font-size: 14px;
@@ -115,25 +123,19 @@ $base-color: #fff;
         }
       }
       
-    
-
-
       ul.nav-right{
         margin-left: auto;
         display: flex;
         list-style: none;
         li.nav-right--login{
-          @include right;
-          
+          @include right;     
           a{
             @include none;
-            
           }
         }
         
         li.nav-right--new{
           @include right;
-         
           a{
             @include none;
          } 

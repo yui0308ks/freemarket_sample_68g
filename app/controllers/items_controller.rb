@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    # @items = Items.all
-    # @search_params = item_search_params
-    # @items_search = Item.search(@search_params).includes(:prefecture)
+    # @items = Item.all
+    @search_params = item_search_params #
+    @items_search = Item.search(@search_params) #検索結果を@items_searchに代入
   end
 
   def new
@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
+      # binding.pry
     end
   end
   
@@ -19,6 +20,9 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:level2_id]}").children
+  end
+  
+  def get_delivery_method
   end
 
   def create
@@ -32,11 +36,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price)
   end
 
-
-  private
-
   def item_search_params
-    params.fetch(:search, {}).permit(:name)
+    params.fetch(:search, {}).permit(:name, :keyword) 
+    # fetchメソッド: paramsが空だったら{}を返す。 それ以外はparams[:name]を返す。
   end
 
 end
