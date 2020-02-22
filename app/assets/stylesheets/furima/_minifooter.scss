@@ -1,12 +1,15 @@
+$width-constant: 456px;
+
 .footer {
   height: 220px;
-  width: 456px;
+  width: $width-constant;
   margin: 0 auto;
   padding: 40px 0;
   background-color: rgb(245, 245, 245);
+  box-sizing: border-box;
   &__logo {
     height: 69px;
-    width: 456px;
+    width: $width-constant;
     color: #333;
     display: flex;
     justify-content: center;
@@ -14,7 +17,7 @@
     margin: 20px auto;
   }
   ul {
-    width: 456px;
+    width: $width-constant;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -22,14 +25,13 @@
   }
   &__name_box {
     height: 14px;
-    width: 456px;
+    width: $width-constant;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 8px;
   }
 }
-
 label {
   font-weight: 600;
   font-size: 14px;
@@ -74,4 +76,15 @@ input {
 .form_group {
   margin-top: 40px;
 
+}
+
+.text-reset{
+  text-decoration: none;
+  &:link{
+  color: #0099e8;
+  }
+  &:visited{
+  color: #0099e8;
+
+  }
 }

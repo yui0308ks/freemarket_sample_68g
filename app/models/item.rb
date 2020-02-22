@@ -51,5 +51,4 @@ class Item < ApplicationRecord
   "---":0,
   "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
 },_prefix: true
-
 end
