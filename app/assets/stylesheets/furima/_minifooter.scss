@@ -15,6 +15,9 @@ $width-constant: 456px;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
   }
   ul {
     width: $width-constant;
