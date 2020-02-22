@@ -24,9 +24,6 @@ class Item < ApplicationRecord
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
 
 
-  enum condition: {
-    選択してください:0,未使用:1,やや汚れあり:2
-    }
   
   
   
