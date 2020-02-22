@@ -58,6 +58,35 @@
       padding: 0 16px;
       margin-top: 8px;
     }
+    .select_wrap1 {
+     
+    
+    
+      .select_wrap__box--select{
+        height: 48px;
+        width: 100%;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        box-sizing: border-box;
+
+      }
+      #parent-category{
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        box-sizing: border-box;
+
+      }
+    }
+    
     h3.sell__sub_head {
       color: #888;
       font-size: 14px;

@@ -51,11 +51,12 @@
             %label
               %span.form_require
                 必須
-            .select_wrap
-              = f.label 'カテゴリー', class: 'sell__form_label'
-              = f.select :category, @category_parent_array, {}, {class: 'select_wrap__box--select', id: 'parent_category'}
-              %i.icon-arrow-bottom
-                = icon('fas', 'arrow-bottom', class: 'icon')
+          .select_wrap1
+            カテゴリー
+            = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
+            -# %i.icon-arrow-bottom
+              -# = icon('fas', 'arrow-bottom', class: 'icon')
+            
           .form_group
             %label
               ブランド
@@ -66,12 +67,13 @@
           .form_group
             %label
               商品の状態
+              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
               %span.form_require
                 必須
             .select_wrap
-              %i.icon-arrow-bottom
-                = icon('fas', 'arrow-bottom', class: 'icon')
-              %select.sell__select
+              -# %i.icon-arrow-bottom
+                -# = icon('fas', 'arrow-bottom', class: 'icon')
+             
 
       .sell__form__content3.clearfix
         %h3.sell__sub_head
@@ -80,30 +82,33 @@
           .form_group2
             %label
               配送料の負担
+              = f.select :delivery_charge, Item.delivery_charges.keys, {}, {class: 'sell__select',id:"delivery_charge"}
               %span.form_require
                 必須
             .select_wrap
-              %i.icon-arrow-bottom
-                = icon('fas', 'arrow-bottom', class: 'icon')
-              %select.sell__select
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+            
           .form_group
             %label
               発送元の地域
+              = f.select :prefecture, Item.prefectures.keys, {}, {class: 'sell__select',id:"prefectur"}
               %span.form_require
                 必須
             .select_wrap
-              %i.icon-arrow-bottom
-                = icon('fas', 'arrow-bottom', class: 'icon')
-              %select.sell__select
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+              
           .form_group
             %label
               発送までの日数
+              = f.select :delivery_day, Item.delivery_days.keys, {}, {class: 'sell__select',id:"delivery_day"}
               %span.form_require
                 必須
             .select_wrap
-              %i.icon-arrow-bottom
-                = icon('fas', 'arrow-bottom', class: 'icon')
-              %select.sell__select
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+            
 
       .sell__form__content4.clearfix
         %h3.sell__sub_head
@@ -117,8 +122,8 @@
           .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
-            -# %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
-            = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
+            %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
+            -# = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
         .sell__form__commission_box
           .sell__form__commission
             販売手数料（10%）
