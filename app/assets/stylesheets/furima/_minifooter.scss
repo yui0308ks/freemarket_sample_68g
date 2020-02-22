@@ -1,10 +1,90 @@
-.header {
-  height: 128px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .logo{
-    width: 185px;
-    height: 49px;
+$width-constant: 456px;
+
+.footer {
+  height: 220px;
+  width: $width-constant;
+  margin: 0 auto;
+  padding: 40px 0;
+  background-color: rgb(245, 245, 245);
+  box-sizing: border-box;
+  &__logo {
+    height: 69px;
+    width: $width-constant;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+  ul {
+    width: $width-constant;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+  }
+  &__name_box {
+    height: 14px;
+    width: $width-constant;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+  }
+}
+label {
+  font-weight: 600;
+  font-size: 14px;
+}
+.form_group--left {
+  margin: 40px 0 0;
+}
+
+textarea {
+  height: 142px;
+  margin: 8px 0 0;
+  border-radius: 0;
+  outline: 0;
+}
+
+
+
+.form_require2 {
+  background-color: #888;
+  color: #fff;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+input {
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+}
+
+.option {
+  display: inline-block;
+}
+
+.form_group {
+  margin-top: 40px;
+
+}
+
+.text-reset{
+  text-decoration: none;
+  &:link{
+  color: #0099e8;
+  }
+  &:visited{
+  color: #0099e8;
+
   }
 }

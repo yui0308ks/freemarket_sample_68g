@@ -1,0 +1,172 @@
+$color-blue  : #3CCACE;
+$base-color  : #fff;
+$border-color: #ccc;
+$gray-color  : #f5f5f5;
+$font-mini   : 14px;
+$font-regular: 16px;
+
+
+@mixin box-in {
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid $border-color;
+  background: $base-color;
+  line-height: 1.5;
+  font-size: $font-regular;
+}
+
+@mixin span-in {
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: $base-color;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+body{
+  background: $gray-color;
+}
+
+.single-main{
+  width: 700px;
+  margin: 0 auto;
+  background: $base-color;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+  &__head{
+  height:97px; 
+  
+  h2{
+  font-weight: bold;
+  font-size: 22px;
+  padding: 32px;
+  text-align: center;
+  }
+ }
+
+  &__form{
+    border-top: 1px solid $gray-color;
+    padding: 24px 16px 40px;
+  }
+}
+
+.l-single-content{
+  max-width: 343px;
+  margin: 0 auto;
+  
+  &__group{ 
+    margin: 24px 0 0;
+  
+    label{
+      font-weight: 600;
+    }
+    
+    span{
+      @include span-in;
+      background: $color-blue;
+      margin: 0 0 0 8px;
+
+      
+    }
+
+    .span-form-group_birth{
+      @include span-in;
+      margin: 0 2px;
+    }
+
+    input{
+      @include box-in;
+      width: 100%;
+      box-sizing: border-box;
+    }
+   select{
+     @include box-in;
+     width: 100%;
+   }
+   
+    p{
+     margin:8px 0 0;
+     font-size: $font-mini;
+   }
+
+   
+   h3{
+    font-size: $font-regular; 
+    font-weight: bold;
+   }
+   
+  }
+  
+  &__btn{
+  display: block;
+  margin:0 auto;
+  width: 100%;
+  line-height: 48px;
+  font-size: $font-mini;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  text-align: center;
+  text-decoration:none;
+  background: $color-blue;
+  a {
+    color: $base-color;
+
+  }
+ }
+}
+
+   
+.name-form{
+
+  input{
+    @include box-in;
+    width: calc(50% - 6px);
+    box-sizing: border-box
+  }
+ }
+
+.birthday-form{
+  select{
+    @include box-in;
+    width: 76px;
+  }
+}
+
+.actions{
+  margin: 24px 0 0;
+
+.next-btn{
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: $font-mini;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  background: $color-blue;
+  border: 1px solid $color-blue;
+  color: $base-color;
+}
+
+}
+
+
+.text-right{
+  display:block;
+  text-align: right;
+  color: #0099e8;
+  text-decoration: none;
+  font-size: $font-mini;
+  &:visited{
+    color: #0099e8;
+  }
+}
+
+.text-gray{
+  color: #888;
+  font-size: $font-mini;
+}

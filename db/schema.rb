@@ -18,10 +18,6 @@ ActiveRecord::Schema.define(version: 2020_02_21_060052) do
     t.string "city", null: false
     t.integer "block", null: false
     t.bigint "user_id", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -61,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_060052) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "condition"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_charge_id"], name: "index_items_on_delivery_charge_id"
     t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
