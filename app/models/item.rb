@@ -7,7 +7,6 @@ class Item < ApplicationRecord
   # belongs_to :category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
-<<<<<<< Updated upstream
 
 # headerの検索機能
   scope :search, -> (search_params) do
@@ -15,7 +14,6 @@ class Item < ApplicationRecord
     # >> {}.blank?
     # => true
     return if search_params.blank?
-
     # パラメータを指定して検索を実行する
     name_like(search_params[:name])
       # .gender_is(search_params[:gender]) 他に何かあれば追加
@@ -24,15 +22,12 @@ class Item < ApplicationRecord
   # nameが存在する場合、nameをlike検索する
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
 
+  
 
-=======
-  
-  
-  
+
   enum delivery_charge: {
   "---":0,送料込み（出品者負担）:1,着払い（購入者負担）:2
   }
-
 
   enum prefecture:{
   "---":0,
@@ -49,6 +44,6 @@ class Item < ApplicationRecord
   enum delivery_day:{
   "---":0,
   "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
-},_prefix: true
->>>>>>> Stashed changes
+  },_prefix: true
+
 end

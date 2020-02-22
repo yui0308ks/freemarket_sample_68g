@@ -1,0 +1,15 @@
+= stylesheet_link_tag "furima/items"
+= stylesheet_link_tag "furima/_reset"
+= stylesheet_link_tag "furima/application"
+.main__section5--content--list
+  %figure.main__section5--content--lists--list--image
+    =image_tag "#{image.image}", class: "main__section5--content--lists--list__img"
+  .main__section5--content--lists--list--body
+    .main__section5--content--lists--list--body__name 
+      = item.name
+    .main__section5--content--lists--list--body__detail
+      %ul.product 
+        %li.yen item.price
+        %i.fas.fa-star
+          0
+      %p (税込)

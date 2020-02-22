@@ -1,13 +1,14 @@
 $color-blue: #3CCACE;
 $base-color: #fff;
+$black: #333;
 
 @mixin none {
   text-decoration: none;
-  color: #333;
+  color: $black;
 }
 
 @mixin right {
-  color: #333;
+  color: $black;
   line-height: 38px;
   padding: 0 0 0 16px;
 }
@@ -373,18 +374,18 @@ $base-color: #fff;
   &__section5{
     padding: 80px 0 ;
     background-color: #f8f8f8;
-    
+    a{
+      text-decoration: none;
+    }
     &--title{
       text-align: center;
       font-size: 28px;
       line-height: 1.4;
       font-weight: bold;
     }
-    
     &--content{
       &--head{
         text-align: center;
-
         a{
           font-size: 24px;
           text-decoration: none;
@@ -401,40 +402,52 @@ $base-color: #fff;
         justify-content: space-around;
 
         &--list{
-        
-          &--image{
+          width: 220px;
+          background-color: $base-color;
+          position: relative;
+          &__image{
             width: 220px;
             height: 150px;
             position: relative;
             margin: 0;
           }
-          &__img{
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-          }
-
-          &--body{
-            background-color:$base-color;
+          &__body{
+            background-color: white;
+            color: $black;
             padding: 16px;
-            
-            &__detail{
-            
-              ul.product{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                font-size: 14px;
-              }
-              p{
-                font-size: 10px;
+            .content{
+              display:flex;
+              justify-content: space-between;
+              &--right{
+                size: 10px;
               }
             }
+
+
+
+          }
+          .soldout{
+            width: 0;
+            height: 0;
+            border-top: 40px solid #ea352d ;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 40px solid #ea352d ;
+            z-index:100;
+            position: absolute;
+            &--inner{
+              transform: rotate(-45deg);
+              font-size: 16px;
+              margin:-15px -10px 0px -45px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
+          p{
+            font-size: 10px;
           }
         }
-        &--list:hover {
-          opacity: 0.5 ;
-        } 
       }
     }
   }
@@ -487,7 +500,7 @@ $base-color: #fff;
 .footer{
   padding: 60px 0;
   color: $base-color;
-  background-color: #272727;
+  background-color: $black;
   text-align: center;
 
   ul.footer__contents{
@@ -550,6 +563,4 @@ $base-color: #fff;
     width: 60%;
   }
 }
-
-
 

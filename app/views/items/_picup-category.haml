@@ -3,12 +3,15 @@
 = stylesheet_link_tag "furima/application"
 .main__section5--content--list
   %figure.main__section5--content--lists--list--image
-    =image_tag("/a001.png", class: "main__section5--content--lists--list__img")
+    =image_tag "#{item.images.image}", class: "main__section5--content--lists--list__img"
   .main__section5--content--lists--list--body
-    .main__section5--content--lists--list--body__name product3
+    .main__section5--content--lists--list--body__name 
+      = item.name
     .main__section5--content--lists--list--body__detail
       %ul.product 
-        %li.yen 300000円
+        %li.yen 
+          = item.price
+          円
         %i.fas.fa-star
           0
       %p (税込)
