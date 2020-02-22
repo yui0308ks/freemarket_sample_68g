@@ -7,7 +7,6 @@ class Item < ApplicationRecord
   # belongs_to :category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
-<<<<<<< Updated upstream
 
 # headerの検索機能
   scope :search, -> (search_params) do
@@ -25,7 +24,6 @@ class Item < ApplicationRecord
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
 
 
-=======
   
   
   
@@ -50,5 +48,4 @@ class Item < ApplicationRecord
   "---":0,
   "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
 },_prefix: true
->>>>>>> Stashed changes
 end
