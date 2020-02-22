@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  def index
-    # @items = Item.all
-    @search_params = item_search_params #
-    @items_search = Item.search(@search_params) #検索結果を@items_searchに代入
 
-    @items = Item.includes(:images).order( 'created_at DESC')
+  def index
+    @items = Item.includes(:images)
+    @search_params = item_search_params
+    @items_search = Item.search(@search_params) 
+    #検索結果を@items_searchに代入
   end
 
   def new
