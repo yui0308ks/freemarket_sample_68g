@@ -44,19 +44,19 @@
           =f.text_area :description, class:"sell__textarea", placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
       .sell__form__content2.clearfix
-        %h3.sell__form__sub_head
+        .sell__form__sub_head
           商品の詳細
-        .sell__form_box
+          .sell__form_box
           .sell__form_group2
             %label
+              カテゴリー
               %span.form_require
                 必須
-          .select_wrap1
-            カテゴリー
-            = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
-            -# %i.icon-arrow-bottom
-              -# = icon('fas', 'arrow-bottom', class: 'icon')
-            
+              .select_wrap1
+                = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
+                -# %i.icon-arrow-bottom
+                  -# = icon('fas', 'arrow-bottom', class: 'icon')
+              
           .form_group
             %label
               ブランド
@@ -69,48 +69,47 @@
               商品の状態
               %span.form_require
                 必須
-                
-              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
-           
-              
             .select_wrap
+              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
               -# %i.icon-arrow-bottom
                 -# = icon('fas', 'arrow-bottom', class: 'icon')
              
 
       .sell__form__content3.clearfix
-        %h3.sell__sub_head
+        .sell__sub_head
           配送について
-        .sell__form_box
-          .form_group2
-            %label
-              配送料の負担
-              = f.select :delivery_charge, Item.delivery_charges.keys, {}, {class: 'sell__select',id:"delivery_charge"}
-              %span.form_require
-                必須
-            .select_wrap
-              -# %i.icon-arrow-bottom
-              -#   = icon('fas', 'arrow-bottom', class: 'icon')
-            
-          .form_group
-            %label
-              発送元の地域
-              = f.select :prefecture, Item.prefectures.keys, {}, {class: 'sell__select',id:"prefectur"}
-              %span.form_require
-                必須
-            .select_wrap
-              -# %i.icon-arrow-bottom
-              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+          .sell__form_box
+            .form_group2
+              %label
+                配送料の負担
               
-          .form_group
-            %label
-              発送までの日数
-              = f.select :delivery_day, Item.delivery_days.keys, {}, {class: 'sell__select',id:"delivery_day"}
-              %span.form_require
-                必須
-            .select_wrap
-              -# %i.icon-arrow-bottom
-              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+                %span.form_require
+                  必須
+              .select_wrap
+                = f.select :delivery_charge, Item.delivery_charges.keys, {}, {class: 'sell__select',id:"delivery_charge"}
+                -# %i.icon-arrow-bottom
+                -#   = icon('fas', 'arrow-bottom', class: 'icon')
+                .form_group
+                  %label
+                    発送元の地域
+                    
+                    %span.form_require
+                      必須
+                  .select_wrap
+                    = f.select :prefecture, Item.prefectures.keys, {}, {class: 'sell__select',id:"prefectur"}
+                    -# %i.icon-arrow-bottom
+                    -#   = icon('fas', 'arrow-bottom', class: 'icon')
+                    
+                .form_group
+                  %label
+                    発送までの日数
+                    
+                    %span.form_require
+                      必須
+                  .select_wrap
+                    = f.select :delivery_day, Item.delivery_days.keys, {}, {class: 'sell__select',id:"delivery_day"}
+                    -# %i.icon-arrow-bottom
+                    -#   = icon('fas', 'arrow-bottom', class: 'icon')
             
 
       .sell__form__content4.clearfix

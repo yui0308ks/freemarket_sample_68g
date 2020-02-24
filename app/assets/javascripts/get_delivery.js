@@ -10,13 +10,11 @@ $(function(){
 
   $("#delivery_charge").on('change',function(){
     var delivery_parentCategory = ""
-    console.log("#delivery_charge");
     delivery_parentCategory = document.getElementById('delivery_charge').value;
     if (delivery_parentCategory  != "---"){
-
-
+     
     $.ajax({
-        url: 'get_delivery_method',
+        url: '/items/get_delivery',
         type: 'GET',
         data: { parent_name: delivery_parentCategory },
         dataType: 'json' ,
@@ -31,7 +29,7 @@ $(function(){
           console.log("ajax通信に成功しました");
           console.log(response);
       }
-      })
+    })
 
       .done(function(method) {
         $('#delivery_method-parent').remove();
