@@ -182,9 +182,7 @@
           取引中の商品が商品がありません
 
 
--# = render partial: "items/footer"#locals: { group: @group }
-
-
 %li
   = link_to new_card_path do
     支払い方法
+= render partial: "items/footer"#locals: { group: @group }
