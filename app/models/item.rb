@@ -14,7 +14,6 @@ class Item < ApplicationRecord
     # >> {}.blank?
     # => true
     return if search_params.blank?
-
     # パラメータを指定して検索を実行する
     name_like(search_params[:name])
       # .gender_is(search_params[:gender]) 他に何かあれば追加
@@ -23,17 +22,13 @@ class Item < ApplicationRecord
   # nameが存在する場合、nameをlike検索する
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
 
-
   enum condition: {
-    選択してください:0,未使用:1,やや汚れあり:2
-    }
-  
-  
+  "選択してください":0,新品:1,中古:2
+  }
   
   enum delivery_charge: {
   "---":0,送料込み（出品者負担）:1,着払い（購入者負担）:2
   }
-
 
   enum prefecture:{
   "---":0,
