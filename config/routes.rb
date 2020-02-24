@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post  'addresses',  to: 'users/registrations#create_address'
     get  'logout',    to: 'users/sessions#logout'
   end
+  
   resources :items do
     collection do
       get 'category'
