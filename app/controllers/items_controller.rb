@@ -13,11 +13,17 @@ class ItemsController < ApplicationController
     
     
     # @item.images.new
-    @parents=Category.where(ancestry: nil)
+    @parents = Category.where(ancestry: nil)
     # .each do |parent|
       # @category_parent_array << parent.name
     
     # end
+  end
+
+  #editメソッド未完成
+  def edit
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry: nil)
   end
 
   def category
