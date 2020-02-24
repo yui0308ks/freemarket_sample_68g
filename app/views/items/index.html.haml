@@ -1,4 +1,4 @@
-= stylesheet_link_tag "furima/items_show"
+= stylesheet_link_tag "furima/items"
 = stylesheet_link_tag "furima/application"
 = stylesheet_link_tag "furima/_reset"
 = render partial: "items/header"#locals: { group: @group }
@@ -163,6 +163,3 @@
     出品する
   .camera__img
     = link_to image_tag("/icon_camera.png", class:"camera__img1"), new_item_path
-
-
-= render partial: "items/footer"#locals: { group: @group }
