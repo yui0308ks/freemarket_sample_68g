@@ -3,8 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .logo{
+  &__logo{
     width: 185px;
     height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
   }
 }

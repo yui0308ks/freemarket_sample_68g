@@ -2,5 +2,6 @@
 = stylesheet_link_tag "furima/_reset"
 
 .header
-  %a.sell__header--logo
-    = image_tag src = "/logo.png", size: "185x49"
+  .header__logo
+    = link_to root_path, class: '' do
+      = image_tag src = "/logo.png", size: "185x49"

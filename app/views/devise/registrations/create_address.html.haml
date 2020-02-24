@@ -1,12 +1,19 @@
-.signup-wrapper
-  .single-header
-    %h1.single-header__logo
-    = link_to root_path 
-  .signup-main5
-    .signup-main5__head 
+= stylesheet_link_tag "furima/_reset"
+= stylesheet_link_tag "devise/registrations_new"
+=render "shared/miniheader"
+.single-main
+  .single-main__head
+    %h2
       会員登録完了
-      %br/
-      ありがとうございます。
-      %br/
-      会員登録が完了しました。
-      =link_to "トップページへ戻る", root_path, class: "next-btn5"
+  .single-main__form
+    = form_with model: @user, url: user_registration_path, class: :form, local: true do |f|
+      .l-single-content
+        .l-single-content__group
+          %p
+            ユーザー登録が完了しました。引き続きFURIMAをお楽しみください。
+        .actions
+          = link_to "トップページへ戻る", root_path,class: "next-btn"
+        .l-single-content__group
+          %p
+            -# コメントの追加をする場合はここに記入
+=render "shared/minifooter"
