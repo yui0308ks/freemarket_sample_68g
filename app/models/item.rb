@@ -22,6 +22,9 @@ class Item < ApplicationRecord
   # nameが存在する場合、nameをlike検索する
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
 
+  enum condition: {
+  "選択してください":0,新品:1,中古:2
+  }
   
   enum delivery_charge: {
   "---":0,送料込み（出品者負担）:1,着払い（購入者負担）:2

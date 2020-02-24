@@ -67,9 +67,12 @@
           .form_group
             %label
               商品の状態
-              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
               %span.form_require
                 必須
+                
+              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
+           
+              
             .select_wrap
               -# %i.icon-arrow-bottom
                 -# = icon('fas', 'arrow-bottom', class: 'icon')
@@ -133,8 +136,9 @@
           .sell__form__profit
             販売利益
             = f.number_field :price, style: "display: none", id: "price"
+          .right_bar_2
           -# %span.sell__form__profit_line
-            .right_bar_2
+            
           
 
       .sell__form__content5.clearfix

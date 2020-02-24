@@ -10,7 +10,7 @@ $(function(){
 
   $("#delivery_charge").on('change',function(){
     var delivery_parentCategory = ""
-
+    console.log("#delivery_charge");
     delivery_parentCategory = document.getElementById('delivery_charge').value;
     if (delivery_parentCategory  != "---"){
 
@@ -19,7 +19,18 @@ $(function(){
         url: 'get_delivery_method',
         type: 'GET',
         data: { parent_name: delivery_parentCategory },
-        dataType: 'json'
+        dataType: 'json' ,
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+          console.log("ajax通信に失敗しました");
+          console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+          console.log("textStatus     : " + textStatus);
+          console.log("errorThrown    : " + errorThrown.message);
+      },
+      //ajax通信成功
+      success : function(response) {
+          console.log("ajax通信に成功しました");
+          console.log(response);
+      }
       })
 
       .done(function(method) {
