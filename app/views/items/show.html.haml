@@ -1,0 +1,22 @@
+= stylesheet_link_tag "furima/items_show"
+= stylesheet_link_tag "furima/application"
+= stylesheet_link_tag "furima/_reset"
+= render partial: "items/header"#locals: { group: @group }
+
+
+
+
+.div
+  = image_tag "#{@item.images[0].image}" , class: ""
+
+%ul  
+  - @item.images.each do |image|
+    %li
+      = image_tag "#{image.image}" 
+
+
+
+
+
+
+= render partial: "items/footer"#locals: { group: @group }

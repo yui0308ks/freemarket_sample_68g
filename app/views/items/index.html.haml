@@ -1,4 +1,4 @@
-= stylesheet_link_tag "furima/items"
+= stylesheet_link_tag "furima/items_show"
 = stylesheet_link_tag "furima/application"
 = stylesheet_link_tag "furima/_reset"
 = render partial: "items/header"#locals: { group: @group }
@@ -102,7 +102,7 @@
         .main__section5--product--head--title
       .main__section5--content--lists
         - @items.each do |item|
-          = link_to items_path(:id) do
+          = link_to item_path(item.id) do
             .main__section5--content--lists--list
               - if item.prefecture_id?
                 .soldout
@@ -129,7 +129,7 @@
         .main__section5--content--head--title
       .main__section5--content--lists
         - @items.each do |item|
-          = link_to items_path do
+          = link_to item_path(item.id) do
             .main__section5--content--lists--list
               - if item.prefecture_id?
                 .soldout
@@ -163,3 +163,6 @@
     出品する
   .camera__img
     = link_to image_tag("/icon_camera.png", class:"camera__img1"), new_item_path
+
+
+= render partial: "items/footer"#locals: { group: @group }

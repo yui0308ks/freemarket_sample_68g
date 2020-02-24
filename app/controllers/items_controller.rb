@@ -20,6 +20,10 @@ class ItemsController < ApplicationController
     # end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   #editメソッド未完成
   def edit
     @item = Item.find(params[:id])
