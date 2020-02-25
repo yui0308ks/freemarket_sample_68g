@@ -1,1 +1,170 @@
-= render partial: 'form'
+
+= stylesheet_link_tag "furima/items_new"
+= stylesheet_link_tag "furima/_reset"
+-# %body
+-#   %script{:src => "script.js"}
+
+
+-# 河畠さん
+-# (商品出品機能が完成したら、その見た目をそのまま持ってきて下さい。)
+
+.sell
+  %header
+    =render "shared/miniheader"
+  .sell__form
+    .sell__form__container
+    = form_with model: @item, local: true, class:"sell__form__head_box" do |f|
+      .sell__form__head
+        商品の情報を入力
+
+      .sell__upload_box
+        %h3.sell__upload_head
+          出品画像
+          %span.form_require
+            必須
+        %p.sell__upload_text
+          最大10枚までアップロードできます。
+        .sell__dropbox_container.clearfix
+          .sell__upload_drop_box
+            %pre.sell_doropbox_text
+              ドラッグアンドドロップ
+              %rb またはクリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :images do |i|
+              = i.file_field :image
+              %i.icon-camera
+
+      .sell__form__content
+        .form_group
+          %label
+            商品名
+            %span.form_require
+              必須
+          =f.text_field :name, class:"sell__input", placeholder:"商品名（必須40文字まで）"
+        .form_group
+          %label
+            商品の説明
+            %span.form_require
+              必須
+          =f.text_area :description, class:"sell__textarea", placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+      .sell__form__content2.clearfix
+        %h3.sell__form__sub_head
+          商品の詳細
+        .sell__form_box
+          .sell__form_group2
+            %label
+              %span.form_require
+                必須
+          .select_wrap1
+            カテゴリー
+            = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
+            -# %i.icon-arrow-bottom
+              -# = icon('fas', 'arrow-bottom', class: 'icon')
+            
+          .form_group
+            %label
+              ブランド
+              %span.form_require2
+                任意
+            .div
+              %input.sell__input_brand{placeholder: "例）シャネル"}
+          .form_group
+            %label
+              商品の状態
+              %span.form_require
+                必須
+                
+              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
+           
+              
+            .select_wrap
+              -# %i.icon-arrow-bottom
+                -# = icon('fas', 'arrow-bottom', class: 'icon')
+             
+
+      .sell__form__content3.clearfix
+        %h3.sell__sub_head
+          配送について
+        .sell__form_box
+          .form_group2
+            %label
+              配送料の負担
+              = f.select :delivery_charge, Item.delivery_charges.keys, {}, {class: 'sell__select',id:"delivery_charge"}
+              %span.form_require
+                必須
+            .select_wrap
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+            
+          .form_group
+            %label
+              発送元の地域
+              = f.select :prefecture, Item.prefectures.keys, {}, {class: 'sell__select',id:"prefectur"}
+              %span.form_require
+                必須
+            .select_wrap
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+              
+          .form_group
+            %label
+              発送までの日数
+              = f.select :delivery_day, Item.delivery_days.keys, {}, {class: 'sell__select',id:"delivery_day"}
+              %span.form_require
+                必須
+            .select_wrap
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+            
+
+      .sell__form__content4.clearfix
+        %h3.sell__sub_head
+          価格（¥300〜9,999,999）
+        .sell__form__price_box
+          .sell__form__price_box--left
+            %label.price
+              販売価格
+            %span.form_require.option
+              必須
+          .sell__form__price_box--right
+            %span.sell__yen_mark.option
+              ¥
+            %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
+            -# = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
+        .sell__form__commission_box
+          .sell__form__commission
+            販売手数料（10%）
+            .right_bar
+          
+        .sell__form__profit_box
+          .sell__form__profit
+            販売利益
+            = f.number_field :price, style: "display: none", id: "price"
+          .right_bar_2
+          -# %span.sell__form__profit_line
+            
+          
+
+      .sell__form__content5.clearfix
+        .sell__form__content_text
+          %p
+            =link_to '禁止されている出品', 'http://www.yahoo.co.jp/'
+            、
+            =link_to '行為', 'https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/'
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            =link_to '偽ブランドの販売', 'https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/'
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            =link_to '加盟店規約', 'https://www.mercari.com/jp/seller_terms/'
+            に同意したことになります。
+        %button.sell__form__btn{type: "submit"}
+          出品する
+        %button.sell__form__back_btn{type: "submit"}
+          もどる
+    
+    %footer
+      =render "shared/minifooter"

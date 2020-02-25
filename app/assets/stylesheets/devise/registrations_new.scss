@@ -15,6 +15,7 @@ $font-regular: 16px;
   background: $base-color;
   line-height: 1.5;
   font-size: $font-regular;
+  box-sizing: border-box
 }
 
 @mixin span-in {
@@ -23,6 +24,15 @@ $font-regular: 16px;
   color: $base-color;
   font-size: 12px;
   vertical-align: top;
+}
+
+a {
+  text-decoration: none;
+}
+
+.field_with_errors {
+  display: contents;
+  // もしくは diplay: inline;
 }
 
 body{
@@ -79,7 +89,6 @@ body{
     input{
       @include box-in;
       width: 100%;
-      box-sizing: border-box;
     }
    select{
      @include box-in;
@@ -123,7 +132,6 @@ body{
   input{
     @include box-in;
     width: calc(50% - 6px);
-    box-sizing: border-box
   }
  }
 
@@ -135,10 +143,12 @@ body{
 }
 
 .actions{
+  text-decoration:none;
   margin: 24px 0 0;
 
 .next-btn{
   display: block;
+  text-decoration:none;
   width: 100%;
   line-height: 48px;
   font-size: $font-mini;
@@ -169,4 +179,8 @@ body{
 .text-gray{
   color: #888;
   font-size: $font-mini;
+}
+
+.center{
+  text-align: center;
 }

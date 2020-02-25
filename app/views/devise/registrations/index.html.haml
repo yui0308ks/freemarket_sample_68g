@@ -1,33 +1,21 @@
-//= stylesheet_link_tag "devise/top"
--# 新規登録画面のマークアップ
--# 新規ログイン画面ヘッダー
-.signin__container
-  .signup__simple__header
-    .signup__simple__header__logo
-      = link_to root_path do
-        =image_tag  '/logo.png', height: '49', width: '189'
-
-  -# 新規登録メイン
-  .signup-index-main
-    .signup-index-main__head
+= stylesheet_link_tag "furima/application"
+= stylesheet_link_tag "furima/_reset"
+= stylesheet_link_tag "devise/registrations_new"
+=render "shared/miniheader"
+.single-main
+  .single-main__head
+    %h2
       新規会員登録
-    .signup-submit-button-form
-      .signup-index-mail-box
-        = link_to new_user_registration_path do
-          = icon "fa","envelope"
-          メールアドレスで登録する
-
-
-      -# 新規ログイン画面フッター
-  .signup__footer
-    .signup__footer__detail
-      = link_to '#' do
-        プライバシーポリシー
-      = link_to '#' do
-        メルカリ利用規約
-      = link_to '#' do
-        特定商取引に関する表記
-    .signup__footer__logo
-      = link_to root_path, class: 'signup-footer__logo' do
-        = image_tag '/logo-white.png', alt: 'mercari', height: '49', width: '189'
-      %p© 2019 Mercari
+  .single-main__form
+    = form_with model: @user, url: user_registration_path, class: :form, local: true do |f|
+      .l-single-content
+        .l-single-content__group
+          %p
+            -# コメントの追加をする場合はここに記入
+        .actions
+          = link_to new_user_registration_path do
+            = f.submit "メールアドレスで登録する" ,class: "next-btn"
+        .l-single-content__group
+          %p
+            -# コメントの追加をする場合はここに記入
+=render "shared/minifooter"

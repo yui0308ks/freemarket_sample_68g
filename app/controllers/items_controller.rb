@@ -13,11 +13,23 @@ class ItemsController < ApplicationController
     @item.images.new
     
     # @item.images.new
-    @parents=Category.where(ancestry: nil)
+    @parents = Category.where(ancestry: nil)
     # .each do |parent|
       # @category_parent_array << parent.name
     
     # end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.includes(:users)
+  end
+
+  #editメソッド未完成
+  def edit
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry: nil)
   end
 
   def category
@@ -40,8 +52,12 @@ class ItemsController < ApplicationController
   #   @category_grandchildren = Category.find("#{params[:child_id]}").children
   # end
   
-  def get_delivery_method
+  def get_delivery
+      respond_to do |format|
+        format.html
+        format.json
   end
+end
 
   def create
     @item = Item.new(item_params)
