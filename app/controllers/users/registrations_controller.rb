@@ -14,8 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
 
-    
-
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -28,18 +26,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create_address
-    # binding.pry
     @address = Address.new(address_params)
-    # binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
-    # binding.pry
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
     end
     @user.build_address(@address.attributes)
-    # binding.pry
     @user.save
-    # binding.pry
     sign_in(:user, @user)
   end
 
