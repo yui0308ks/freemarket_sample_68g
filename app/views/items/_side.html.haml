@@ -95,6 +95,5 @@
         電話番号の確認
         %i.fas.fa-chevron-right
     %li
-      = link_to  "#" do
-        ログアウト
-        %i.fas.fa-chevron-right
+      = link_to 'ログアウト',  destroy_user_session_path, method: :delete
+      %i.fas.fa-chevron-right

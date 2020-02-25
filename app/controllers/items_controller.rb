@@ -31,7 +31,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @parents = Category.where(ancestry: nil)
   end
-
+  
+  
   def category
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children
