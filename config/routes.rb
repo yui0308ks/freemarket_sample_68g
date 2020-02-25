@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get  'logout',    to: 'users/sessions#logout'
   end
   
-  resources :items, except: :show do
+  resources :items  do
     resources :comments, only: :create
     collection do
       get 'category'
