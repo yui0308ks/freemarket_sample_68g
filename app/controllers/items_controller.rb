@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @comment = Comment.new
-    @comments = @item.comments.includes(:users)
+    @comments = @item.comments
   end
 
   #editメソッド未完成
