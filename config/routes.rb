@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
   }
-  resources :users, only: :show
+  resources :users, only: [:show ,:destroy]
   devise_scope :user do
     get  'signup',    to: 'users/registrations#index'
     get  'addresses',  to: 'users/registrations#new_address'
