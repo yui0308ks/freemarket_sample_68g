@@ -311,20 +311,21 @@
     line-height: 1.5;
     font-size: 14px;
   }
-  &__dropbox_container {
-    height: 162px;
+  #image-box {
     margin: 16px auto 0;
-  }
-  &__upload_drop_box {
     height: 162px;
     width: 620px;
     padding: 40px 0;
     background-color: #f5f5f5;
     border: 1px dashed #ccc;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // text-align: center;
+  }
+  &__upload_drop_box {
+    // display: none;
   }
   &__dropbox_text {
     font-size: 14px;
