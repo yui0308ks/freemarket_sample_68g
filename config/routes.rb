@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   
   resources :items do
+    resources :comments, only: :create
     collection do
       get 'category'
       get 'get_delivery'

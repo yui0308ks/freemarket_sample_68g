@@ -22,6 +22,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.includes(:users)
   end
 
   #editメソッド未完成
