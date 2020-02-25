@@ -1,3 +1,4 @@
+# DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -57,7 +58,7 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|string|null: false|
+|comment|text|null: false|
 |item_id|string|null: false|
 |user_id|string|null: false|
 ### Association
@@ -97,7 +98,7 @@
 |last_name_kana|string|null: false|
 |zip_code|string|null: false|
 |prefecture|integer|null: false|
-|city|tring|null: false|
+|city|string|null: false|
 |block|string|null: false|
 |home|string|null: false|
 ### Association
