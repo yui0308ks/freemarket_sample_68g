@@ -28,12 +28,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_address
     # binding.pry
+    @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     # binding.pry
-    @user = User.new(session["devise.regist_data"]["user"])
+
     # binding.pry
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
     end
     @user.build_address(@address.attributes)
     # binding.pry
