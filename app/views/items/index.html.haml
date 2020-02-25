@@ -93,73 +93,73 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
 
--#   %section.main__section5
--#     .main__section5--title
--#       ピックアップカテゴリー
--#     .main__section5--content
--#       .main__section5--content--head
--#         = link_to "新規投稿商品" , "#"
--#         .main__section5--product--head--title
--#       .main__section5--content--lists
--#         - @items.each do |item|
--#           = link_to items_path do
--#             .main__section5--content--lists--list
--#               - if item.prefecture_id?
--#                 .soldout
--#                   .soldout--inner
--#                     soldout
--#               = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
--#               .main__section5--content--lists--list__body
--#                 = item.name 
--#                 %br
--#                 .content
--#                   .content--left
--#                     = "¥#{item.price}円"
--#                   .content--right
--#                     %i.fas.fa-star 
--#                 %p (税込)
+  %section.main__section5
+    .main__section5--title
+      ピックアップカテゴリー
+    .main__section5--content
+      .main__section5--content--head
+        = link_to "新規投稿商品" , "#"
+        .main__section5--product--head--title
+      .main__section5--content--lists
+        -# - @items.each do |item|
+        -#   = link_to items_path do
+        -#     .main__section5--content--lists--list
+        -#       - if item.prefecture_id?
+              -#   .soldout
+              -#     .soldout--inner
+              -#       soldout
+              -# = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
+              -# .main__section5--content--lists--list__body
+              -#   = item.name 
+              -#   %br
+                -# .content
+                -#   .content--left
+                -#     = "¥#{item.price}円"
+                -#   .content--right
+                -#     %i.fas.fa-star 
+                -# %p (税込)
 
--#   %section.main__section5
--#     .main__section5--title
--#       ピックアップブランド
--#     .main__section5--content
+  %section.main__section5
+    .main__section5--title
+      ピックアップブランド
+    .main__section5--content
    
--#       .main__section5--content--head
--#         = link_to "アーカイバ" , "#"
--#         .main__section5--content--head--title
--#       .main__section5--content--lists
--#         - @items.each do |item|
--#           = link_to items_path do
--#             .main__section5--content--lists--list
--#               - if item.prefecture_id?
--#                 .soldout
--#                   .soldout--inner
--#                     soldout
--#               = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
--#               .main__section5--content--lists--list__body
--#                 = item.name 
--#                 %br
--#                 .content
--#                   .content--left
--#                     = "¥#{item.price}円"
--#                   .content--right
--#                     %i.fas.fa-star 
--#                 %p (税込)
+      .main__section5--content--head
+        = link_to "アーカイバ" , "#"
+        .main__section5--content--head--title
+      .main__section5--content--lists
+        -# - @items.each do |item|
+        -#   = link_to items_path do
+        -#     .main__section5--content--lists--list
+        -#       - if item.prefecture_id?
+        -#         .soldout
+        -#           .soldout--inner
+        -#             soldout
+        -#       = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
+        -#       .main__section5--content--lists--list__body
+        -#         = item.name 
+        -#         %br
+        -#         .content
+        -#           .content--left
+        -#             = "¥#{item.price}円"
+        -#           .content--right
+        -#             %i.fas.fa-star 
+        -#         %p (税込)
                 
--#   %section.main__section6
--#     .main__section6--content
--#       .main__section6--content--title
--#         だれでもかんたん、人生を変えるフリマアプリ
--#       %p.main__section6--content--text
--#         今すぐ無料ダウンロード！
--#       .main__section6--content--icon
--#         = link_to image_tag("/app-store.svg", class: "abtn"),  "https://www.apple.com/jp/ios/app-store/"
--#         = link_to image_tag("/google.svg", class: "gbtn"),  "https://play.google.com/store?hl=ja"
+  %section.main__section6
+    .main__section6--content
+      .main__section6--content--title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.main__section6--content--text
+        今すぐ無料ダウンロード！
+      .main__section6--content--icon
+        = link_to image_tag("/app-store.svg", class: "abtn"),  "https://www.apple.com/jp/ios/app-store/"
+        = link_to image_tag("/google.svg", class: "gbtn"),  "https://play.google.com/store?hl=ja"
       
--# = render partial: "items/footer"#locals: { group: @group }
+= render partial: "items/footer"#locals: { group: @group }
 
--# .camera
--#   .camera__text
--#     出品する
--#   .camera__img
--#     = link_to image_tag("/icon_camera.png", class:"camera__img1"), new_item_path
+.camera
+  .camera__text
+    出品する
+  .camera__img
+    = link_to image_tag("/icon_camera.png", class:"camera__img1"), new_item_path

@@ -19,16 +19,14 @@
             必須
         %p.sell__upload_text
           最大10枚までアップロードできます。
-        .sell__dropbox_container.clearfix
-          .sell__upload_drop_box
-            %pre.sell_doropbox_text
-              ドラッグアンドドロップ
-              %rb またはクリックしてファイルをアップロード
-          .hidden-content
-            = f.fields_for :images do |i|
-              = i.file_field :image
-              %i.icon-camera
-
+        .sell__dorpbox_container#image-box
+          -# %pre.sell_doropbox_text
+          -#   ドラッグアンドドロップ
+          -#   %rb またはクリックしてファイルをアップロード
+          = f.fields_for :images do |i|
+            .js-file_group{data: i.index}
+              = i.file_field :image, class: "js-file"
+              %span.js-remove 削除
       .sell__form__content
         .form_group
           %label
@@ -67,12 +65,9 @@
           .form_group
             %label
               商品の状態
+              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
               %span.form_require
                 必須
-                
-              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
-           
-              
             .select_wrap
               -# %i.icon-arrow-bottom
                 -# = icon('fas', 'arrow-bottom', class: 'icon')
@@ -136,9 +131,8 @@
           .sell__form__profit
             販売利益
             = f.number_field :price, style: "display: none", id: "price"
-          .right_bar_2
           -# %span.sell__form__profit_line
-            
+          .right_bar_2
           
 
       .sell__form__content5.clearfix
