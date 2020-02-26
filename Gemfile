@@ -82,9 +82,9 @@ gem 'pry-rails'
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'enum_help' 
 gem 'ancestry'
-
+gem 'active_hash'
 gem 'payjp'
-
+gem 'rails-i18n', '~> 5.1' 
 gem 'dotenv-rails'
