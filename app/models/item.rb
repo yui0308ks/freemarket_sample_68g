@@ -10,6 +10,14 @@ class Item < ApplicationRecord
 
   belongs_to :user , foreign_key: 'user_id'
 
+  has_many :favorites
+  has_many :users, through: :favorites
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
+
   # belongs_to :category
 
 

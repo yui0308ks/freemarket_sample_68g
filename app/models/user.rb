@@ -26,4 +26,6 @@ has_one :address
 has_many :items
 has_many :likes
 has_many :comments, dependent: :destroy
+has_many :favorites
+has_many :fav_items, through: :favorites, source: :item
 end
