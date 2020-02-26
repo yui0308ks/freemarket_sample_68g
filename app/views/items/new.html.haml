@@ -66,11 +66,13 @@
           .form_group
             %label
               商品の状態
-              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
+            
               %span.form_require
                 必須
             .select_wrap
-              = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
+              -# = f.select :condition, [ ["新品、未使用","新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れなし", "やや傷や汚れなし"], ["傷や汚れなし", "傷や汚れなし"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"] ], {prompt: "---"}, class:"contents__detail__main__box__condition__select"
+              = f.select :condition, Item.conditions_i18n.invert, {}, class: 'sell__select',id:"condition"
+              -# = f.select  :condition, Item.conditions.keys.map {|k| [I18n.t("enums.item.condition.#{k}"), k]}
               -# %i.icon-arrow-bottom
                 -# = icon('fas', 'arrow-bottom', class: 'icon')
              
@@ -86,7 +88,8 @@
                 %span.form_require
                   必須
               .select_wrap
-                = f.select :delivery_charge, Item.delivery_charges.keys, {}, {class: 'sell__select',id:"delivery_charge"}
+                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
+                -# = f.select :delivery_charge, Item.delivery_charges.map {|k| [I18n.t("enums.item.delivery_charge.#{k}"), k]}
                 -# %i.icon-arrow-bottom
                 -#   = icon('fas', 'arrow-bottom', class: 'icon')
                 .form_group
@@ -96,7 +99,8 @@
                     %span.form_require
                       必須
                   .select_wrap
-                    = f.select :prefecture, Item.prefectures.keys, {}, {class: 'sell__select',id:"prefectur"}
+                    -# = f.select :prefecture, Item.prefectures.keys, {}, {class: 'sell__select',id:"prefectur"}
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"選択してください"}, class: 'sell__select',id:"prefectur"
                     -# %i.icon-arrow-bottom
                     -#   = icon('fas', 'arrow-bottom', class: 'icon')
                     
@@ -107,7 +111,7 @@
                     %span.form_require
                       必須
                   .select_wrap
-                    = f.select :delivery_day, Item.delivery_days.keys, {}, {class: 'sell__select',id:"delivery_day"}
+                    = f.select :delivery_day_id, Item.delivery_day_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_day"}
                     -# %i.icon-arrow-bottom
                     -#   = icon('fas', 'arrow-bottom', class: 'icon')
             
