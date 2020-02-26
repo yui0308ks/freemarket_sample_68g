@@ -154,8 +154,8 @@ $black: #333;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   &__form{
     width: 700px;
-    margin: 40px auto;
-    padding: 40px;
+    margin: 40px auto 0 auto;
+    padding: 40px 40px 0 40px;
     background-color: #fff;
     &--title{
       text-align: center;
@@ -312,6 +312,13 @@ $black: #333;
         border-radius: 5px;
         font-family: "游ゴシック", "YuGothic";
       }
+      p.noticeMsg{
+        padding: 8px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+        margin: 10px 0;
+        text-align: left;
+      }
       input[type="submit"] {
         background-color: $color-blue;
         border-radius: 20px;
@@ -320,10 +327,38 @@ $black: #333;
         font-size: 18px;
         padding: 8px;
         margin-top: 10px;
+        width: 50%;
         &:hover {
           background-color: lighten(gray, 10%);
         }
       }
+    }
+  }
+  ul.link_btn{
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    margin: 10px auto;
+    padding: 0;
+  }
+  li{
+    a{
+      text-decoration: none;
+      color: $color-blue;
+    }
+  }
+  .group-name{
+    width: 700px;
+    margin: 10px auto 40px auto;
+
+    a{
+      display: block;
+      margin: 24px 0 8px;
+      color: #3CCACE;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 22px;
+      position: relative;
     }
   }
 }
