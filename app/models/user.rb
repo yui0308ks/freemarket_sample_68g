@@ -25,5 +25,5 @@ has_one :card
 has_one :address
 has_many :items
 has_many :likes
-has_many :comments
+has_many :comments, dependent: :destroy
 end

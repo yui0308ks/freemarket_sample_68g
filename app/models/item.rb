@@ -5,9 +5,11 @@ class Item < ApplicationRecord
 
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   has_many :images, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  # belongs_to user #, foreign_key: 'user_id'
+
+  belongs_to :user , foreign_key: 'user_id'
+
   # belongs_to :category
 
 

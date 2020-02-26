@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @comment = Comment.new
-    @comments = @item.comments.includes(:users)
+    @comments = @item.comments
   end
 
   #editメソッド未完成
@@ -31,7 +31,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @parents = Category.where(ancestry: nil)
   end
-
+  
+  
   def category
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children

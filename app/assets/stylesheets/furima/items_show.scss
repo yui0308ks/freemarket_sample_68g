@@ -99,7 +99,7 @@ $black: #333;
     &--nav{
       font-size: 14px;
       display: flex;
-      margin-bottom: 10px;
+      padding-bottom: 10px;
       
       ul.nav-left{
         position: relative;
@@ -154,8 +154,8 @@ $black: #333;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   &__form{
     width: 700px;
-    padding: 40px;
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
+    padding: 40px 40px 0 40px;
     background-color: #fff;
     &--title{
       text-align: center;
@@ -265,7 +265,39 @@ $black: #333;
     background-color: #fff;
     margin: 10px 0;
     text-align: center;
+    &__inner{
+      width: 100%;
+      ul.comment{
+        display: block;
+      }
+      li{
+        position: relative;
+        margin-bottom: 20px;
+        display: flex;
+        width: 100%;
+      }
+      li.clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    }
+      .comment-left{
+        float: left;
+        width: 20%;
+      }
+      .comment-right{
+        padding: 16px;
+        background: #eef0f4;
+        border-radius: 15px;
+        line-height: 1.5;
+        word-break: break-all;
+        width: 100%;
+        text-align: left;
+        float: right;
+      }
     form {
+      margin-top:10px;
       h3 {
         margin: 0 0 20px 0;
         text-align: center;
@@ -280,19 +312,56 @@ $black: #333;
         border-radius: 5px;
         font-family: "游ゴシック", "YuGothic";
       }
+      p.noticeMsg{
+        padding: 8px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+        margin: 10px 0;
+        text-align: left;
+      }
       input[type="submit"] {
         background-color: $color-blue;
         border-radius: 20px;
         color: #fff;
         border: 0;
         font-size: 18px;
+        padding: 8px;
+        margin-top: 10px;
+        width: 50%;
         &:hover {
           background-color: lighten(gray, 10%);
         }
       }
     }
+  }
+  ul.link_btn{
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    margin: 10px auto;
+    padding: 0;
+  }
+  li{
+    a{
+      text-decoration: none;
+      color: $color-blue;
     }
   }
+  .group-name{
+    width: 700px;
+    margin: 10px auto 40px auto;
+
+    a{
+      display: block;
+      margin: 24px 0 8px;
+      color: #3CCACE;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 22px;
+      position: relative;
+    }
+  }
+}
 
 
 
