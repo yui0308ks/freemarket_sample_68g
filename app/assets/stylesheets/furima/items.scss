@@ -31,6 +31,7 @@ $black: #333;
 
 .Header{
   padding: 0 60px;
+  background-color: white;
   &__inner{
     max-width: 1040px;
     width: 100%;
@@ -99,7 +100,7 @@ $black: #333;
     &--nav{
       font-size: 14px;
       display: flex;
-      margin-bottom: 10px;
+      padding-bottom: 10px;
       
       ul.nav-left{
         position: relative;

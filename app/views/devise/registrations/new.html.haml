@@ -1,3 +1,4 @@
+= stylesheet_link_tag "furima/_reset"
 = stylesheet_link_tag "devise/registrations_new"
 =render "shared/miniheader"
 .single-main
@@ -10,7 +11,7 @@
         .l-single-content__group
           %label ニックネーム
           %span 必須
-          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)メルカリ太郎"
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)フリマ太郎"
         .l-single-content__group
           %label メールアドレス
           %span 必須

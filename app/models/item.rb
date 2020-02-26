@@ -2,11 +2,15 @@ class Item < ApplicationRecord
   # validates :name, :image, :description, :category, :condition, :delivery_charge, :delivery_way, :prefecture, :delivery_day, :price, presence: true
   # validates :name, length: { minimum: 1, maximum: 40 }
   # validates :description, length: { minimum: 1, maximum: 1000 }
+
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  # belongs_to user, foreign_key: 'user_id'
-  # belongs_to :category
   has_many :images, dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
+  belongs_to :user , foreign_key: 'user_id'
+  # belongs_to :category
+
+
 
 # headerの検索機能
   scope :search, -> (search_params) do
@@ -21,6 +25,8 @@ class Item < ApplicationRecord
   end
   # nameが存在する場合、nameをlike検索する
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
+
+
 
   enum condition: {
   "選択してください":0,新品:1,中古:2

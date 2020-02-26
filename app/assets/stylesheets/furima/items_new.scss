@@ -8,6 +8,7 @@
     width: 700px;
     padding: 40px;
     margin: 0 auto;
+    background-color: #fff;
     &__container{
       margin: 0 auto;
       background-color: #fff;
@@ -52,73 +53,110 @@
       display: flex;
       justify-content: space-between;
     }
+
+    
     .sell__select {
       height: 48px;
-      width: 400px;
+      width: 100%;
       padding: 0 16px;
       margin-top: 8px;
-    }
-    .select_wrap1 {
-     
-    
-    
-      .select_wrap__box--select{
-        height: 48px;
-        width: 100%;
-        padding: 10px 16px 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        line-height: 1.5;
-        font-size: 16px;
-        box-sizing: border-box;
-
-      }
-      #m_category{
-        height: 48px;
-        padding: 10px 16px 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        line-height: 1.5;
-        font-size: 16px;
-        box-sizing: border-box;
-        width: 100%;
-      }
-      #s_category{
-        height: 48px;
-        padding: 10px 16px 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        line-height: 1.5;
-        font-size: 16px;
-        box-sizing: border-box;
-        width: 100%;
-      }
-    }
-    
-    h3.sell__sub_head {
-      color: #888;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .sell__input_brand {
-      height: 48px;
-      padding: 10px 16px 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
       background-color: #fff;
-      line-height: 1.5;
-      font-size: 16px;
-      box-sizing: border-box;
     }
+    .sell__form__sub_head{
+      width: 100%;
+      
+      .sell__form_group2{
+        padding-top: 20px;
+      }
+      .select_wrap1 {
+        
+      
+      
+      
+        .select_wrap__box--select{
+          height: 48px;
+          width: 100%;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+          font-weight: 300;
+        }
+        #m_category{
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+          width: 100%;
+          font-weight: 300;
+        }
+        #s_category{
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+          width: 100%;
+          font-weight: 300;
+        }
+      }
+      
+      h3.sell__sub_head {
+        color: #888;
+        font-size: 14px;
+        
+      }
+        .sell__input_brand {
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+        }
+      
+        .sell__select{
+          width: 100%;
+          background-color: #fff;
+        }
+
+        .form_group{
+          font-weight: 300;
+        }
+    }
+
+
     &__content3 {
       height: 441px;
       padding: 40px;
       border-top: solid 1px #eee;
       display: flex;
       justify-content: space-between;
+      .sell__sub_head{
+        width: 100%;
+        background-color: #fff;
+      }
+
+      .select_wrap{
+        width: 100%;
+        background-color: #fff;
+        font-weight: 300;
+      }
+      .form_group2{
+        padding-top: 20px;
+      }
     }
 
     &__content4 {
@@ -273,20 +311,21 @@
     line-height: 1.5;
     font-size: 14px;
   }
-  &__dropbox_container {
-    height: 162px;
+  #image-box {
     margin: 16px auto 0;
-  }
-  &__upload_drop_box {
     height: 162px;
     width: 620px;
     padding: 40px 0;
     background-color: #f5f5f5;
     border: 1px dashed #ccc;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // text-align: center;
+  }
+  &__upload_drop_box {
+    // display: none;
   }
   &__dropbox_text {
     font-size: 14px;

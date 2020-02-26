@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.includes(:images)
+    @items = Item.includes(:images).order('created_at DESC')
     @search_params = item_search_params
     @items_search = Item.search(@search_params) 
     #検索結果を@items_searchに代入
@@ -10,16 +10,29 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     # @category_parent_array = ["---"]
-    
+    @item.images.new
     
     # @item.images.new
-    @parents=Category.where(ancestry: nil)
+    @parents = Category.where(ancestry: nil)
     # .each do |parent|
       # @category_parent_array << parent.name
     
     # end
   end
 
+  def show
+    @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments
+  end
+
+  #editメソッド未完成
+  def edit
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry: nil)
+  end
+  
+  
   def category
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children
@@ -40,23 +53,26 @@ class ItemsController < ApplicationController
   #   @category_grandchildren = Category.find("#{params[:child_id]}").children
   # end
   
-  def get_delivery_method
+  def get_delivery
+      respond_to do |format|
+        format.html
+        format.json
   end
+end
 
   def create
     @item = Item.new(item_params)
     @item.save
-    render :index
+    redirect_to root_path, notice: '出品しました'
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price)
+    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price, images_attributes: [:image])
   end
 
   def item_search_params
     params.fetch(:search, {}).permit(:name, :keyword) 
     # fetchメソッド: paramsが空だったら{}を返す。 それ以外はparams[:name]を返す。
   end
-
 end

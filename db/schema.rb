@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_034741) do
+ActiveRecord::Schema.define(version: 2020_02_25_105840) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "zip_code", null: false
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2020_02_24_034741) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image"
     t.datetime "created_at", null: false
@@ -64,11 +72,13 @@ ActiveRecord::Schema.define(version: 2020_02_24_034741) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "condition"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_charge_id"], name: "index_items_on_delivery_charge_id"
     t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
     t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,4 +105,5 @@ ActiveRecord::Schema.define(version: 2020_02_24_034741) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "users"
 end

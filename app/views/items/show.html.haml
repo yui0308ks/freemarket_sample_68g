@@ -1,0 +1,106 @@
+= stylesheet_link_tag "furima/items_show"
+= stylesheet_link_tag "furima/application"
+= stylesheet_link_tag "furima/_reset"
+
+
+
+.sell
+  %header
+    = render partial: "items/header"#locals: { group: @group }
+  .sell__form
+    %h2.sell__form--title
+      = @item.name
+    = image_tag "#{@item.images[0].image}" , class: "sell__form--image1"
+    %ul
+      - @item.images.each do |image|
+        %li
+          = image_tag "#{image.image}" , class: "sell__form--image2"
+    .sell__price
+      %span.sell__price--font
+        = "¥ #{@item.price}"
+      .sell__price--detail
+        %span
+          (税込) 送料込み
+    .sell__name
+      = @item.name
+    .table
+      %table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = @item.name
+          %tr
+            %th カテゴリー
+            %td
+              = @item.name
+          - if @item.name.present?
+            %tr
+              %th ブランド
+              %td
+                = @item.name
+          - if @item.name.present?
+            %tr
+              %th 商品のサイズ
+              %td
+                = @item.name
+          %tr
+            %th 商品の状態
+            %td 
+              = @item.name
+          %tr
+            %th 配送料の負担
+            %td 
+              = @item.name
+          %tr
+            %th 発送元の地域
+            %td
+              = @item.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @item.name
+    .baner
+      .like-btn
+        = link_to "#" do
+          %i.fas.fa-star
+          お気に入り 0
+      .optional
+        = link_to "#" do
+          %i.fas.fa-flag
+          不適切な商品の通報
+    .commentBox
+      .commentBox__inner
+        %h4 ＜コメント一覧＞
+        - if @comments
+          %ul.comment
+            - @comments.each do |comment|
+              %li.clearfix
+                .comment-left
+                  = comment.user.nickname
+                  -# = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                .comment-right
+                  = comment.text
+      - if current_user
+        = form_with(model: [@item, @comment], local: true) do |form|
+          = form.text_area :text, placeholder: "コメントする", rows: "4"
+          = form.submit "SEND"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+
+
+
+
+  .main__section6
+    .main__section6--content
+      .main__section6--content--title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.main__section6--content--text
+        今すぐ無料ダウンロード！
+      .main__section6--content--icon
+        = link_to image_tag("/app-store.svg", class: "abtn"),  "https://www.apple.com/jp/ios/app-store/"
+        = link_to image_tag("/google.svg", class: "gbtn"),  "https://play.google.com/store?hl=ja"
+
+= render partial: "items/footer"#locals: { group: @group }

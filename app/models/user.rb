@@ -16,7 +16,7 @@ class User < ApplicationRecord
         validates :birthday_month_id,       presence: true
         validates :birthday_day_id,         presence: true
         validates :email,                   presence: true, uniqueness: true
-                                                                            # , format: { with: VALID_EMAIL_REGEX }
+        # , format: { with: VALID_EMAIL_REGEX }
         validates :password,                presence: true, length: {minimum: 7, maximum: 30}
         # validates :password_confirmation,   presence: true, length: {minimum: 7, maximum: 30}
 
@@ -25,5 +25,5 @@ has_one :card
 has_one :address
 has_many :items
 has_many :likes
-has_many :comments
+has_many :comments, dependent: :destroy
 end

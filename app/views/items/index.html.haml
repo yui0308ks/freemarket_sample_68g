@@ -101,8 +101,9 @@
         = link_to "新規投稿商品" , "#"
         .main__section5--product--head--title
       .main__section5--content--lists
+
         - @items.each do |item|
-          = link_to items_path(:id) do
+          = link_to item_path(item.id) do
             .main__section5--content--lists--list
               - if item.prefecture_id?
                 .soldout
@@ -128,8 +129,9 @@
         = link_to "アーカイバ" , "#"
         .main__section5--content--head--title
       .main__section5--content--lists
+
         - @items.each do |item|
-          = link_to items_path do
+          = link_to item_path(item.id) do
             .main__section5--content--lists--list
               - if item.prefecture_id?
                 .soldout
