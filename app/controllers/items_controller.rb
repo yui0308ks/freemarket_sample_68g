@@ -1,35 +1,42 @@
 class ItemsController < ApplicationController
+  before_action :set_item, except: [:index, :new, :create]
 
+  
   def index
     @items = Item.includes(:images).order('created_at DESC')
     @search_params = item_search_params
     @items_search = Item.search(@search_params) 
     #検索結果を@items_searchに代入
   end
-
+  
   def new
     @item = Item.new
-    # @category_parent_array = ["---"]
-    @item.images.new
-    
-    # @item.images.new
-    @parents = Category.where(ancestry: nil)
-    # .each do |parent|
-      # @category_parent_array << parent.name
-    
-    # end
+    @item.images.new    
+    @parents = Category.where(ancestry: nil)    
   end
-
+  
   def show
     @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = Comment.includes(:users)
   end
-
+  
   #editメソッド未完成
   def edit
+    # @item = Item.find_by(id: params[:id])
     @item = Item.find(params[:id])
+    @images = @item.images
+    # @images = Image.find(item_id: params[:id])
+    # no = @iem.cat~.id
     @parents = Category.where(ancestry: nil)
+  end
+  
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def category
@@ -44,13 +51,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def get_category_children
-  #   @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  # end
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
 
-  # def get_category_grandchildren
-  #   @category_grandchildren = Category.find("#{params[:child_id]}").children
-  # end
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
   
   def get_delivery
       respond_to do |format|
@@ -67,7 +74,7 @@ end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price, images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price, images_attributes: [:image, :_destroy, :id])
   end
 
   def item_search_params
@@ -75,3 +82,7 @@ end
     # fetchメソッド: paramsが空だったら{}を返す。 それ以外はparams[:name]を返す。
   end
 end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
