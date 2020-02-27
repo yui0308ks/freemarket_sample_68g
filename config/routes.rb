@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     end
   end
 
+
+
+
+
   resources :signups, only: [:new, :create] do
     collection do
       
