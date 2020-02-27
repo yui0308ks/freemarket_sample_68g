@@ -29,9 +29,17 @@ class ItemsController < ApplicationController
   #editメソッド未完成
   def edit
     @item = Item.find(params[:id])
+    @images = @item.images
     @parents = Category.where(ancestry: nil)
   end
   
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
   
   def category
     if params[:l_cat]
@@ -45,30 +53,17 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def get_category_children
-  #   @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  # end
-
-  # def get_category_grandchildren
-  #   @category_grandchildren = Category.find("#{params[:child_id]}").children
-  # end
-  
   def get_delivery
       respond_to do |format|
         format.html
         format.json
+      end
   end
-end
 
   def create
-   binding.pry
     @item = Item.new(item_params)
     @item.save
     redirect_to root_path, notice: '出品しました'
-
-
-
-
   end
 
   private
@@ -79,5 +74,9 @@ end
   def item_search_params
     params.fetch(:search, {}).permit(:name, :keyword) 
     # fetchメソッド: paramsが空だったら{}を返す。 それ以外はparams[:name]を返す。
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

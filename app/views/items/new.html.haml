@@ -1,9 +1,7 @@
 = stylesheet_link_tag "furima/items_new"
 = stylesheet_link_tag "furima/_reset"
-
 -# %body
 -#   %script{:src => "script.js"}
-
 .sell
   %header
     =render "shared/miniheader"
@@ -52,10 +50,7 @@
               %span.form_require
                 必須
               .select_wrap1
-                = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
-                -# %i.icon-arrow-bottom
-                  -# = icon('fas', 'arrow-bottom', class: 'icon')
-              
+                = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'     
           .form_group
             %label
               ブランド
@@ -66,12 +61,11 @@
           .form_group
             %label
               商品の状態
-            
+              -# = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
               %span.form_require
                 必須
             .select_wrap
               = f.select :condition, Item.conditions_i18n.invert, {}, class: 'sell__select',id:"condition"
-              -# = f.select  :condition, Item.conditions.keys.map {|k| [I18n.t("enums.item.condition.#{k}"), k]}
               -# %i.icon-arrow-bottom
                 -# = icon('fas', 'arrow-bottom', class: 'icon')
              
@@ -87,8 +81,7 @@
                 %span.form_require
                   必須
               .select_wrap
-                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
-                -# = f.select :delivery_charge, Item.delivery_charges.map {|k| [I18n.t("enums.item.delivery_charge.#{k}"), k]}
+                = f.select :delivery_charges_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
                 -# %i.icon-arrow-bottom
                 -#   = icon('fas', 'arrow-bottom', class: 'icon')
                 .form_group
@@ -98,8 +91,7 @@
                     %span.form_require
                       必須
                   .select_wrap
-                    -# = f.select :prefecture, Item.prefectures.keys, {}, {class: 'sell__select',id:"prefectur"}
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"選択してください"}, class: 'sell__select',id:"prefectur"
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {promt:"選択してください"}, {class: 'sell__select',id:"prefectur"}
                     -# %i.icon-arrow-bottom
                     -#   = icon('fas', 'arrow-bottom', class: 'icon')
                     
