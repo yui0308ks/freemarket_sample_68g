@@ -9,9 +9,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    # @category_parent_array = ["---"]
     @item.images.new
-    @parents = Category.where(ancestry: nil)
     
+    # @item.images.new
+    @parents = Category.where(ancestry: nil)
+    # .each do |parent|
+      # @category_parent_array << parent.name
+    
+    # end
   end
 
   def show
@@ -23,7 +29,6 @@ class ItemsController < ApplicationController
   #editメソッド未完成
   def edit
     @item = Item.find(params[:id])
-    @images = @item.images
     @parents = Category.where(ancestry: nil)
   end
   
@@ -35,6 +40,12 @@ class ItemsController < ApplicationController
     end
   end
   
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
+  end 
+
   def category
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children
@@ -47,36 +58,34 @@ class ItemsController < ApplicationController
     end
   end
 
- 
+  # def get_category_children
+  #   @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  # end
+
+  # def get_category_grandchildren
+  #   @category_grandchildren = Category.find("#{params[:child_id]}").children
+  # end
+  
   def get_delivery
       respond_to do |format|
         format.html
         format.json
-      end
   end
+end
 
   def create
-   
     @item = Item.new(item_params)
-    # binding.pry
-    if  @item.save
-        redirect_to root_path 
-    else
-      render :new
-    end
+    @item.save
+    redirect_to root_path, notice: '出品しました'
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :delivery_day_id,:prefecture_id, :price, :condition, images_attributes: [:image]).merge( user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :prefecture_id, :price, images_attributes: [:image])
   end
 
   def item_search_params
     params.fetch(:search, {}).permit(:name, :keyword) 
     # fetchメソッド: paramsが空だったら{}を返す。 それ以外はparams[:name]を返す。
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
 end
