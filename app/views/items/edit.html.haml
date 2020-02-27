@@ -21,10 +21,10 @@
           最大10枚までアップロードできます。
         .sell__dropbox_container.clearfix#image-box
           =f.fields_for :images do |i|
-            .js-file_group{data: i.index}
             -@images.each do |image|
-              = image_tag "#{image.image}", width: "100", height: '100'
-              %span.js-remove 削除
+              .js-file_group{data: i.index}
+                = image_tag "#{image.image}", width: "100", height: '100'
+                %span.js-remove 削除
           -# .sell__upload_drop_box
           -#   %pre.sell_doropbox_text
           -#     ドラッグアンドドロップ
@@ -51,13 +51,13 @@
       .sell__form__content2.clearfix
         %h3.sell__form__sub_head
           商品の詳細
-        .sell__form_box
+          .sell__form_box
           .sell__form_group2
+          .select_wrap1
+            カテゴリー
             %label
               %span.form_require
                 必須
-          .select_wrap1
-            カテゴリー
             = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
             -# %i.icon-arrow-bottom
               -# = icon('fas', 'arrow-bottom', class: 'icon')
@@ -84,14 +84,14 @@
       .sell__form__content3.clearfix
         .sell__sub_head
           配送について
-        .sell__form_box
+          .sell__form_box
           .form_group2
             %label
               配送料の負担
               %span.form_require
                 必須
             .select_wrap
-              = f.select :delivery_charges_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
+              = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
               -# %i.icon-arrow-bottom
               -#   = icon('fas', 'arrow-bottom', class: 'icon')
             
@@ -129,7 +129,8 @@
           .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
-            %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
+            %input#price_calc.sell__input_price{:price, placeholder: "例) 300", type: "number"}
+            -# %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
             -# = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
         .sell__form__commission_box
           .sell__form__commission
@@ -139,7 +140,7 @@
         .sell__form__profit_box
           .sell__form__profit
             販売利益
-            = f.number_field :price, style: "display: none", id: "price"
+            = f.number_field style: "display: none", id: "price"
           .right_bar_2
           -# %span.sell__form__profit_line
             
