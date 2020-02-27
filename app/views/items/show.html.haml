@@ -29,37 +29,37 @@
           %tr
             %th 出品者
             %td
-              = @item.name
+              = @item.user_id
           %tr
             %th カテゴリー
             %td
-              = @item.name
-          - if @item.name.present?
-            %tr
-              %th ブランド
-              %td
-                = @item.name
-          - if @item.name.present?
-            %tr
-              %th 商品のサイズ
-              %td
-                = @item.name
+              = @item.category_id
+          -# - if @item.name.present?
+            -# %tr
+              -# %th ブランド
+              -# %td
+              -#   = @item.name
+          -# - if @item.name.present?
+            -# %tr
+            -#   %th 商品のサイズ
+            -#   %td
+            -#     = @item.name
           %tr
             %th 商品の状態
             %td 
-              = @item.name
+              = @item.condition
           %tr
             %th 配送料の負担
             %td 
-              = @item.name
+              = @item.delivery_charge_id
           %tr
             %th 発送元の地域
             %td
-              = @item.name
+              = @item.prefecture_id
           %tr
             %th 発送日の目安
             %td
-              = @item.name
+              = @item.delivery_day_id
     .baner
       .like-btn
         = link_to "#" do
@@ -88,14 +88,18 @@
             相手のことを考え丁寧なコメントを心がけましょう。<br>
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
           = form.submit "コメントする", class: "form__submit"
+          .lower-content
+            .lower-content-in
+              = link_to "商品を編集する", edit_item_path(@item.id), class: "form__submit"
+              = link_to "商品を削除する", item_path(@item.id), {method: :delete, class: "form__submit", data:{confirm: "本当に削除しますか？"}}
       - else
         %strong
           %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
   %ul.link_btn
     %li
-      = link_to "前の商品"
+      = link_to "< 前の商品"
     %li
-      = link_to "後ろの商品"
+      = link_to "後ろの商品 >"
   .group-name
     = link_to "#{@item.name}をもっと見る"
         
