@@ -24,8 +24,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    active_hash (3.1.0)
-      activesupport (>= 5.0.0)
     activejob (5.2.4.1)
       activesupport (= 5.2.4.1)
       globalid (>= 0.3.6)
@@ -115,8 +113,6 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    enum_help (0.0.17)
-      activesupport (>= 3.0.0)
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.72.0)
@@ -326,7 +322,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_hash
   ancestry
   bootsnap (>= 1.1.0)
   byebug
@@ -341,7 +336,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
-  enum_help
   fog-aws
   font-awesome-sass
   haml-rails
