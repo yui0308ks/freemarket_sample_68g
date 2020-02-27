@@ -3,11 +3,13 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
 
-  # before_action :set_item, only: [:index, :pay, :done]
+  before_action :set_item, only: [:index, :pay, :done]
 
   def index
-    @address = Address.find(current_user.id)
-    # @address = Address.where(user_id: current_user).firstでもオッケー！
+    # binding.pry
+    @user = User.find_by(id: current_user.id)
+    @address = Address.find_by(user_id: current_user)
+    # @address = Address.where(user_id: current_user).firstでもオッケー?
     card = Card.where(user_id: current_user.id).first
     #テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -33,26 +35,31 @@ class PurchaseController < ApplicationController
 
 
   def pay
+    # binding.pry
+    @item = Item.find(params[:item_id])
     card = Card.find_by(user_id: current_user.id)
-    Payjp.api_key = Rails.application.credentials.dig(:payjp, :payjp_test_secret_access_key)
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
       :amount => @item.price, #支払金額
       :customer => card.customer_id, #payjpの顧客ID
       :currency => 'jpy', #日本円
     )
     @item.update(customer_id: current_user.id)
-    redirect_to action: 'done' #完了画面に移動
+    redirect_to done_item_purchase_index_path #完了画面に移動
   end
+
+
+
 
   def done
   end
 
-  # private
+  private
 
-  # def set_item
-  #   @item = Item.find(params[:item_id])
-  #   @images = @item.images.order("created_at DESC")
-  #   [0,1,2,3,4]
-  # end
+  def set_item
+    @item = Item.find(params[:item_id])
+    @images = @item.images.order("created_at DESC")
+    [0,1,2,3,4]
+  end
 
 end

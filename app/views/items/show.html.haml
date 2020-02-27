@@ -99,7 +99,22 @@
   .group-name
     = link_to "#{@item.name}をもっと見る"
         
+-#  - if user_signed_in? && current_user.id == @item.user_id
+-#       .edit
+        -# = form_tag '/', method: :get, class: 'edit__form' do
+          -# = submit_tag "商品の編集", class: 'edit__form--submit'
+        
+        -# .edit_form
+          -# = link_to "商品の編集", edit_item_path(@item.id), class: 'edit__form'
 
+        -# %p.comment__caution or
+        -# 上記は編集機能時に修正
+        -# = form_tag(item_path, method: :delete, class: 'destroy__form' ) do
+        -#   = submit_tag "この商品を削除する", class: 'destroy__form--submit'
+
+    -# - elsif user_signed_in?
+.container__purchace
+  = link_to '購入画面へ進む',item_purchase_index_path(@item), class: 'container__purchace-button'
 
 
 

@@ -3,8 +3,9 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    card = Card.where(user_id: current_user.id).first
+    redirect_to action: "show" if card.present?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
