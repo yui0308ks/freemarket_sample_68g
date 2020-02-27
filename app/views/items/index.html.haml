@@ -109,6 +109,7 @@
                 .soldout
                   .soldout--inner
                     soldout
+              - else
               = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
               .main__section5--content--lists--list__body
                 = item.name 
