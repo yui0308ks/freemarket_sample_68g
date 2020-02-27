@@ -50,15 +50,17 @@ end
   def create
    
     @item = Item.new(item_params)
-    @item.save
-
-    redirect_to root_path, notice: '出品しました'
-
+    # binding.pry
+    if  @item.save
+        redirect_to root_path 
+    else
+      render :new
+    end
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :delivery_day_id,:prefecture_id, :price, :condition, images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :delivery_day_id,:prefecture_id, :price, :condition, images_attributes: [:image]).merge( user_id: current_user.id)
   end
 
   def item_search_params
