@@ -19,9 +19,6 @@
         %p.sell__upload_text
           最大10枚までアップロードできます。
         .sell__dorpbox_container#image-box
-          -# %pre.sell_doropbox_text
-          -#   ドラッグアンドドロップ
-          -#   %rb またはクリックしてファイルをアップロード
           = f.fields_for :images do |i|
             .js-file_group{data: i.index}
               = i.file_field :image, class: "js-file"
@@ -81,7 +78,7 @@
                 %span.form_require
                   必須
               .select_wrap
-                = f.select :delivery_charges_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
+                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
                 -# %i.icon-arrow-bottom
                 -#   = icon('fas', 'arrow-bottom', class: 'icon')
                 .form_group
@@ -91,7 +88,7 @@
                     %span.form_require
                       必須
                   .select_wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {promt:"選択してください"}, {class: 'sell__select',id:"prefectur"}
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"選択してください"}, class: 'sell__select',id:"prefectur"
                     -# %i.icon-arrow-bottom
                     -#   = icon('fas', 'arrow-bottom', class: 'icon')
                     
@@ -120,7 +117,6 @@
             %span.sell__yen_mark.option
               ¥
             %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
-            -# = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
         .sell__form__commission_box
           .sell__form__commission
             販売手数料（10%）

@@ -6,8 +6,11 @@ class PurchaseController < ApplicationController
   # before_action :set_item, only: [:index, :pay, :done]
 
   def index
-    @address = Address.find(current_user.id)
-    # @address = Address.where(user_id: current_user).firstでもオッケー！
+    @user = User.find(current_user.id)
+    @address = @user.address
+    # @user = User.find_by(id: current_user.id)
+    # @address = Address.find(current_user.id)
+    # @address = Address.where(user_id: current_user).firstでもオッケー?
     card = Card.where(user_id: current_user.id).first
     #テーブルからpayjpの顧客IDを検索
     if card.blank?
