@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  belongs_to :user , foreign_key: 'user_id'
+  # belongs_to :user , foreign_key: 'user_id'
 
   # belongs_to :category
 
@@ -41,5 +41,5 @@ class Item < ApplicationRecord
 
   enum delivery_day_id:{
     choice:0,one_day:1, two_day:2, four_day:3
-},_prefix: true
+  },_prefix: true
 end
