@@ -44,7 +44,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -82,9 +85,9 @@ gem 'pry-rails'
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'enum_help' 
+
 gem 'ancestry'
-gem 'active_hash'
+
 gem 'payjp'
 gem 'rails-i18n', '~> 5.1' 
 gem 'dotenv-rails'

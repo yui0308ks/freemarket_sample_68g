@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_120904) do
+
+ActiveRecord::Schema.define(version: 2020_02_27_085056) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "zip_code", null: false
@@ -51,6 +53,16 @@ ActiveRecord::Schema.define(version: 2020_02_25_120904) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_favorites_on_item_id"
+    t.index ["user_id", "item_id"], name: "index_favorites_on_user_id_and_item_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image"
     t.datetime "created_at", null: false
@@ -64,16 +76,18 @@ ActiveRecord::Schema.define(version: 2020_02_25_120904) do
     t.text "description"
     t.bigint "category_id"
     t.integer "size"
-    t.integer "delivery_charge_id"
-    t.integer "delivery_way_id"
-    t.integer "delivery_day_id"
-    t.integer "prefecture_id"
+    t.bigint "delivery_charge_id"
+    t.bigint "delivery_way_id"
+    t.bigint "delivery_day_id"
+    t.bigint "prefecture_id"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "condition"
     t.bigint "user_id"
+    t.bigint "customer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["customer_id"], name: "index_items_on_customer_id"
     t.index ["delivery_charge_id"], name: "index_items_on_delivery_charge_id"
     t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
     t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
@@ -104,6 +118,9 @@ ActiveRecord::Schema.define(version: 2020_02_25_120904) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "favorites", "items"
+  add_foreign_key "favorites", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "customer_id"
 end
