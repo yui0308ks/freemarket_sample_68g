@@ -1,5 +1,6 @@
 class Address < ApplicationRecord
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  # belongs_to_active_hash :prefecture
   belongs_to :user, optional: true, dependent: :destroy
 
   # ZIP_CODE_VALID = /\A\d{3}-\d{4}\z/
@@ -17,6 +18,8 @@ class Address < ApplicationRecord
   validates :first_name_kana,            presence: true, format: { with: kana }
   validates :last_name_kana,             presence: true, format: { with: kana }
 
+  
+  
   enum prefecture:{
     "---":0,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -28,6 +31,7 @@ class Address < ApplicationRecord
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
+  
 
 end
 
