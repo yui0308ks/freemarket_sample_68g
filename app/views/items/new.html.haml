@@ -1,9 +1,7 @@
 = stylesheet_link_tag "furima/items_new"
 = stylesheet_link_tag "furima/_reset"
-
 -# %body
 -#   %script{:src => "script.js"}
-
 .sell
   %header
     =render "shared/miniheader"
@@ -49,10 +47,7 @@
               %span.form_require
                 必須
               .select_wrap1
-                = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
-                -# %i.icon-arrow-bottom
-                  -# = icon('fas', 'arrow-bottom', class: 'icon')
-              
+                = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'     
           .form_group
             %label
               ブランド
@@ -63,7 +58,7 @@
           .form_group
             %label
               商品の状態
-            
+              -# = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
               %span.form_require
                 必須
             .select_wrap
