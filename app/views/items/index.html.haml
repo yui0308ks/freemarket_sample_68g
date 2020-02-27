@@ -101,15 +101,14 @@
         = link_to "新規投稿商品" , "#"
         .main__section5--product--head--title
       .main__section5--content--lists
-
-        - @items.each do |item|
+        - @items.first(3).each do |item|
           = link_to item_path(item.id) do
             .main__section5--content--lists--list
               - if item.prefecture_id?
                 .soldout
                   .soldout--inner
                     soldout
-              -# = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
+              = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
               .main__section5--content--lists--list__body
                 = item.name 
                 %br
@@ -124,26 +123,24 @@
     .main__section5--title
       ピックアップブランド
     .main__section5--content
-   
       .main__section5--content--head
         = link_to "アーカイバ" , "#"
         .main__section5--content--head--title
       .main__section5--content--lists
-
-        - @items.each do |item|
+        - @items.first(3).each do |item|
           = link_to item_path(item.id) do
             .main__section5--content--lists--list
               - if item.prefecture_id?
                 .soldout
                   .soldout--inner
                     soldout
-              -# = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
+              = image_tag "#{item.images[0].image}" , class: "main__section5--content--lists--list__image"
               .main__section5--content--lists--list__body
                 = item.name 
                 %br
                 .content
                   .content--left
-                    = "¥#{item.price}円"
+                    = "¥ #{item.price} 円"
                   .content--right
                     %i.fas.fa-star 
                 %p (税込)
