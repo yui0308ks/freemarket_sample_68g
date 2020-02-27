@@ -482,3 +482,41 @@ $black: #333;
     }
   }
 }
+
+ //kobayasi
+
+.lower-content{
+  box-sizing: border-box;
+  &-in{
+    display:flex;//これは後から足したものである
+    width: 326 px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: inline-block;
+
+    a.form__submit{
+      box-sizing: border-box;
+      display: inline-block;
+      margin-top:10px;
+      background-color: $color-blue;
+      border-radius: 20px;
+      color: #fff;
+      border: 0;
+      font-size: 18px;
+      padding: 8px;
+      margin-top: 10px;
+      width: 163px;
+      &:hover {
+        background-color: lighten(gray, 10%);
+      }
+    }
+  }
+}
+ a {
+  text-decoration: none;
+}
+
+.field_with_errors {
+  display: contents;
+  // もしくは diplay: inline;
+}
