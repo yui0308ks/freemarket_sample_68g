@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
   # validates :name, :image, :description, :category, :condition, :delivery_charge, :delivery_way, :prefecture, :delivery_day, :price, presence: true
   # validates :name, length: { minimum: 1, maximum: 40 }
   # validates :description, length: { minimum: 1, maximum: 1000 }
@@ -32,15 +34,16 @@ class Item < ApplicationRecord
 
 
   enum condition: {
-    choice:0, news:1, old:2
+    選択:0, 新品:1, 中古:2
   },_prefix: true
   
   enum delivery_charge_id: {
-    choice:0,include:1,cash_on_delivery:2
+    選択:0, 送料込み（出品者負担）:1, 着払い（購入者負担）:2
   },_prefix: true
-
 
   enum delivery_day_id:{
-    choice:0,one_day:1, two_day:2, four_day:3
+    選択:0, "1~2日で配送":1, "2~3日で配送":2, "4~7日で配送":3
   },_prefix: true
+
+
 end
