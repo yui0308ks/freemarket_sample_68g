@@ -19,8 +19,9 @@
           = link_to "ブランド" , "#"
       %ul.nav-right
         - if user_signed_in?
+          %li.nav-right--new
+            = link_to "マイページ", class: 'mypage'
           %li.nav-right--login
-            .logout
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout__btn'
         - else
           %li.nav-right--new
