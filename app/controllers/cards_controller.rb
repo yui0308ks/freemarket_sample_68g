@@ -2,10 +2,13 @@ class CardsController < ApplicationController
 
   require "payjp"
 
+  before_action :set_card, only: [:index, :delete]
+
+
   def new
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     card = Card.where(user_id: current_user.id).first
-    redirect_to action: "show" if card.present?
+    redirect_to controller: "card", action: "show" if card.present?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -21,7 +24,7 @@ class CardsController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to card_path
       else
         redirect_to action: "pay"
       end
@@ -49,6 +52,11 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+
+  private
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 end

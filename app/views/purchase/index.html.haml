@@ -78,7 +78,7 @@
                 .payment__box__inner__shipping__inner__title__change
                   -# = link_to "変更する", root_path, class: "payment__box__inner__shipping__inner__title__change"
               .payment__box__inner__shipping__inner__address__text
-                = "〒 #{@address.zip_code}".insert(1, "-")
+                = "〒 #{@address.zip_code}".insert(3, "-")
                 %br
                 = @address.prefecture
                 = @address.city
