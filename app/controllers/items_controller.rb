@@ -10,8 +10,9 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @parents = Category.where(ancestry: nil)
     
+    @parents = Category.where(ancestry: nil)
+    # @parents = Parent.all
   end
 
   def show
@@ -62,13 +63,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-   
     @item = Item.new(item_params)
-    # binding.pry
     if  @item.save
         redirect_to root_path 
     else
-      render :new
+      flash[:notice] = "必須項目を全て入力してください。"
+      redirect_to new_item_path 
+     
+      # render :new
     end
   end
 

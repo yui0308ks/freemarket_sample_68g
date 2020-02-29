@@ -33,15 +33,15 @@ class Item < ApplicationRecord
 
 
   enum condition: {
-    choice:0, news:1, old:2
+     news:1, old:2
   },_prefix: true
-  
+  #choice:0は選択に入ってしまってたので、消しました。
   enum delivery_charge_id: {
-    choice:0,include:1,cash_on_delivery:2
+    include:1,cash_on_delivery:2
   },_prefix: true
 
 
   enum delivery_day_id:{
-    choice:0,one_day:1, two_day:2, four_day:3
+    one_day:1, two_day:2, four_day:3
   },_prefix: true
 end

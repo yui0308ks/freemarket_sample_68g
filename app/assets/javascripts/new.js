@@ -8,7 +8,7 @@ $(function(){
     $('.right_bar').prepend('¥') // 手数料の前に¥マークを付けたいので
     $('.right_bar_2').html(profit)
     $('.right_bar_2').prepend('¥')
-    $('#price').val(profit) // 計算結果を格納用フォームに追加｡もし､入力値を追加したいのなら､今回はdataを引数に持たせる｡
+    $('#price').val(data) // 計算結果を格納用フォームに追加｡もし､入力値を追加したいのなら､今回はdataを引数に持たせる｡
     if(profit == '') {   // もし､計算結果が''なら表示も消す｡
     $('.right_bar_2').html('');
     $('.right_bar').html('');
