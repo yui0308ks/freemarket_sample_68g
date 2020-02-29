@@ -81,7 +81,7 @@
                   -# = link_to comment.user.nickname, "/users/#{comment.user_id}"
                 .comment-right
                   = comment.text
-      - if current_user
+      - if user_signed_in?
         = form_with(model: [@item, @comment], local: true, id: "new_comment") do |form|
           = form.text_area :text, placeholder: "コメントする", rows: "4", class: "textbox"
           %p.noticeMsg
@@ -90,8 +90,11 @@
           = form.submit "コメントする", class: "form__submit"
           .lower-content
             .lower-content-in
-              = link_to "商品を編集する", edit_item_path(@item.id), class: "form__submit"
-              = link_to "商品を削除する", item_path(@item.id), {method: :delete, class: "form__submit", data:{confirm: "本当に削除しますか？"}}
+              - if @item.user.id == current_user.id
+                = link_to "商品を編集する", edit_item_path(@item.id), class: "form__submit"
+                = link_to "商品を削除する", item_path(@item.id), {method: :delete, class: "form__submit", data:{confirm: "本当に削除しますか？"}}
+              - else
+                = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "form__submit"
       - else
         %strong
           %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
@@ -103,7 +106,20 @@
   .group-name
     = link_to "#{@item.name}をもっと見る"
         
+  -# - if user_signed_in? && current_user.id == @item.user_id
+  -#   .edit
+  -#     -# = form_tag '/', method: :get, class: 'edit__form' do
+  -#       -# = submit_tag "商品の編集", class: 'edit__form--submit'
+  -#     .edit_form
+  -#       = link_to "商品の編集", edit_item_path(@item.id), class: 'edit__form'
 
+  -#     -# %p.comment__caution or
+  -#     -# 上記は編集機能時に修正
+  -#     = form_tag(item_path, method: :delete, class: 'destroy__form' ) do
+  -#       = submit_tag "この商品を削除する", class: 'destroy__form--submit'
+
+  -# - elsif user_signed_in?
+  
 
 
 
