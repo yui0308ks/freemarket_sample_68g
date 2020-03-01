@@ -37,4 +37,7 @@
   = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
   #card_token
   = submit_tag "追加する", id: "token_submit"
-  
+.mypage-card-show__right__bottom
+  = link_to root_path, class: 'mypage-card-show__right__bottom__link' do
+    トップページへ
+    = icon('fas', 'chevron-right', class: 'mypage-card-show__right__bottom__link__icon')
