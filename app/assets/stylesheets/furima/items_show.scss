@@ -493,7 +493,19 @@ $black: #333;
     margin: 0 auto;
     box-sizing: border-box;
     display: inline-block;
-
+    &-bought {
+      box-sizing: border-box;
+      display: inline-block;
+      margin-top:10px;
+      background-color: $color-blue;
+      border-radius: 20px;
+      color: #fff;
+      border: 0;
+      font-size: 18px;
+      padding: 8px;
+      margin-top: 10px;
+      width: 163px;
+    }
     a.form__submit{
       box-sizing: border-box;
       display: inline-block;
