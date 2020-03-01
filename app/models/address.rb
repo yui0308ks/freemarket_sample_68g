@@ -1,8 +1,4 @@
 class Address < ApplicationRecord
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :prefecture
-  # 上記不要によりコメントアウト（山口）
-
   belongs_to :user, optional: true, dependent: :destroy
 
   # ZIP_CODE_VALID = /\A\d{3}-\d{4}\z/
