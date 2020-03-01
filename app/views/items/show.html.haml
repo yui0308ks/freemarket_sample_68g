@@ -93,6 +93,9 @@
               - if @item.user.id == current_user.id
                 = link_to "商品を編集する", edit_item_path(@item.id), class: "form__submit"
                 = link_to "商品を削除する", item_path(@item.id), {method: :delete, class: "form__submit", data:{confirm: "本当に削除しますか？"}}
+              - elsif @item.customer_id.present?
+                .lower-content-in-bought
+                  購入済み
               - else
                 = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "form__submit"
       - else
