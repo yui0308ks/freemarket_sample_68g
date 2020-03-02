@@ -51,14 +51,22 @@
       .sell__form__content2.clearfix
         %h3.sell__form__sub_head
           商品の詳細
-        .sell__form_box
-          .sell__form_group2
-            %label
-              %span.form_require
-                必須
-          .select_wrap1
-            カテゴリー
-            = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
+          .sell__form_box
+            .sell__form_group2
+              %label
+                %span.form_require
+                  必須
+            .select_wrap1
+              カテゴリー
+              -# = f.collection_select :category_id,@parents, :id, :name,{prompt: @parent.name},class:"select_wrap__box--select",id:"parent_category"
+              -# = f.collection_select :category_id,@parents, :id, :name,{prompt: @child.name},class:"select_wrap__box--select",id:"m_category"
+              -# = f.collection_select :category_id,@parents, :id, :name,{prompt: @ground_child.name},class:"select_wrap__box--select",id:"s_category"
+              =f.select :category_id, {"#{@parent.name}": "#{@parent.id}"}, {},  class: "select_wrap__box--select",id: "parent_category"
+              =f.select :category_id, {"#{@child.name}": "#{@child.id}"}, {},  class: "select_wrap__box--select",id: "parent_category"
+              =f.select :category_id, {"#{@ground_child.name}": "#{@ground_child.id}"}, {},  class: "select_wrap__box--select",id: "parent_category"
+              -# =f.select :category_id, {“{@child.name}“: “{@child.id}“}, {},  class: ‘select_wrap__box--select’,id: ‘m_category’
+              -# =f.select :category_id, {“{@ground_child.name}“: “{@ground_child.id}“}, {},  class: ‘select_wrap__box--select’,id: ‘s_category’
+
             -# %i.icon-arrow-bottom
               -# = icon('fas', 'arrow-bottom', class: 'icon')
             
@@ -84,16 +92,16 @@
       .sell__form__content3.clearfix
         .sell__sub_head
           配送について
-        .sell__form_box
-          .form_group2
-            %label
-              配送料の負担
-              %span.form_require
-                必須
-            .select_wrap
-              = f.select :delivery_charges_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
-              -# %i.icon-arrow-bottom
-              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+          .sell__form_box
+            .form_group2
+              %label
+                配送料の負担
+                %span.form_require
+                  必須
+              .select_wrap
+                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
+                -# %i.icon-arrow-bottom
+                -#   = icon('fas', 'arrow-bottom', class: 'icon')
             
               .form_group
                 %label
@@ -129,7 +137,8 @@
           .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
-            %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
+            = f.text_field :price, id:"price_calc", class:"sell__input_price",placeholder:"例) 300"
+            -# %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
             -# = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
         .sell__form__commission_box
           .sell__form__commission
