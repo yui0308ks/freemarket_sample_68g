@@ -20,6 +20,7 @@
         %p.sell__upload_text
           最大10枚までアップロードできます。
         .sell__dorpbox_container#image-box
+<<<<<<< HEAD
           -# %pre.sell_doropbox_text
           -#   ドラッグアンドドロップ
           -#   %rb またはクリックしてファイルをアップロード
@@ -28,6 +29,19 @@
             -@images.each do |image|
               = image_tag "#{image.image}", width: "100", height: '100'
               %span.js-remove 削除
+=======
+          = f.fields_for :images do |i|
+            .js-file_group{data: i.index}
+              = i.file_field :image, class: "js-file"
+              %span.js-remove 削除
+            - if @item.persisted?
+              = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file_group{data: @images.count}
+              = file_field_tag :image, name: "item[images_attributes][#{@images.count}][image]", class: 'js-file'
+              .js-remove 削除
+
+>>>>>>> master
       .sell__form__content
         .form_group
           %label
@@ -46,6 +60,7 @@
         .sell__form__sub_head
           商品の詳細
           .sell__form_box
+<<<<<<< HEAD
           .sell__form_group2
             %label
               カテゴリー
@@ -53,6 +68,26 @@
                 必須
               .select_wrap1
                 = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'     
+=======
+            .sell__form_group2
+              %label
+                %span.form_require
+                  必須
+            .select_wrap1
+              カテゴリー
+              -# = f.collection_select :category_id,@parents, :id, :name,{prompt: @parent.name},class:"select_wrap__box--select",id:"parent_category"
+              -# = f.collection_select :category_id,@parents, :id, :name,{prompt: @child.name},class:"select_wrap__box--select",id:"m_category"
+              -# = f.collection_select :category_id,@parents, :id, :name,{prompt: @ground_child.name},class:"select_wrap__box--select",id:"s_category"
+              =f.select :category_id, {"#{@parent.name}": "#{@parent.id}"}, {},  class: "select_wrap__box--select",id: "parent_category"
+              =f.select :category_id, {"#{@child.name}": "#{@child.id}"}, {},  class: "select_wrap__box--select",id: "parent_category"
+              =f.select :category_id, {"#{@ground_child.name}": "#{@ground_child.id}"}, {},  class: "select_wrap__box--select",id: "parent_category"
+              -# =f.select :category_id, {“{@child.name}“: “{@child.id}“}, {},  class: ‘select_wrap__box--select’,id: ‘m_category’
+              -# =f.select :category_id, {“{@ground_child.name}“: “{@ground_child.id}“}, {},  class: ‘select_wrap__box--select’,id: ‘s_category’
+
+            -# %i.icon-arrow-bottom
+              -# = icon('fas', 'arrow-bottom', class: 'icon')
+            
+>>>>>>> master
           .form_group
             %label
               ブランド
@@ -65,9 +100,16 @@
               商品の状態
               -# = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
               %span.form_require
+<<<<<<< HEAD
                 必須
             .select_wrap
               = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
+=======
+                必須                         
+            .select_wrap
+              = f.select :condition, Item.conditions_i18n.invert, {}, class: 'sell__select',id:"condition"
+
+>>>>>>> master
               -# %i.icon-arrow-bottom
                 -# = icon('fas', 'arrow-bottom', class: 'icon')
              
@@ -79,6 +121,7 @@
             .form_group2
               %label
                 配送料の負担
+<<<<<<< HEAD
               
                 %span.form_require
                   必須
@@ -107,6 +150,35 @@
                     = f.select :delivery_day, Item.delivery_days.keys, {}, {class: 'sell__select',id:"delivery_day"}
                     -# %i.icon-arrow-bottom
                     -#   = icon('fas', 'arrow-bottom', class: 'icon')
+=======
+                %span.form_require
+                  必須
+              .select_wrap
+                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
+                -# %i.icon-arrow-bottom
+                -#   = icon('fas', 'arrow-bottom', class: 'icon')
+            
+              .form_group
+                %label
+                  発送元の地域
+                  %span.form_require
+                    必須
+                .select_wrap
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {promt:"選択してください"}, {class: 'sell__select',id:"prefectur"}
+
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+              
+              .form_group
+                %label
+                  発送までの日数
+                  %span.form_require
+                    必須
+                .select_wrap
+                  = f.select :delivery_day_id, Item.delivery_day_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_day"}
+              -# %i.icon-arrow-bottom
+              -#   = icon('fas', 'arrow-bottom', class: 'icon')
+>>>>>>> master
             
 
       .sell__form__content4.clearfix
@@ -121,7 +193,8 @@
           .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
-            %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
+            = f.text_field :price, id:"price_calc", class:"sell__input_price",placeholder:"例) 300"
+            -# %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
             -# = f.number_field :price, class:"sell__input_price option", placeholder: "例)300"
         .sell__form__commission_box
           .sell__form__commission
@@ -138,21 +211,8 @@
 
       .sell__form__content5.clearfix
         .sell__form__content_text
-          %p
-            =link_to '禁止されている出品', 'http://www.yahoo.co.jp/'
-            、
-            =link_to '行為', 'https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/'
-            を必ずご確認ください。
-          %p
-            またブランド品でシリアルナンバー等がある場合はご記載ください。
-            =link_to '偽ブランドの販売', 'https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/'
-            は犯罪であり処罰される可能性があります。
-          %p
-            また、出品をもちまして
-            =link_to '加盟店規約', 'https://www.mercari.com/jp/seller_terms/'
-            に同意したことになります。
         %button.sell__form__btn{type: "submit"}
-          出品する
+          変更する
         %button.sell__form__back_btn{type: "submit"}
           もどる
     

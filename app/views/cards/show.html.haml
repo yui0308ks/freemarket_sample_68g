@@ -8,3 +8,7 @@
 = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
   %input{ type: "hidden", name: "card_id", value: "" }
   %button 削除する
+.mypage-card-show__right__bottom
+  = link_to root_path, class: 'mypage-card-show__right__bottom__link' do
+    トップページへ
+    = icon('fas', 'chevron-right', class: 'mypage-card-show__right__bottom__link__icon')

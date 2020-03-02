@@ -47,7 +47,7 @@
       }
     }
     &__content2 {
-      height: 441px;
+      height: 470px;
       padding: 40px 40px 0 40px;
       border-top: solid 1px #eee;
       display: flex;
@@ -153,6 +153,13 @@
         width: 100%;
         background-color: #fff;
         font-weight: 300;
+      }
+      #item_prefecture_id{
+        height: 48px;
+        width: 100%;
+        padding: 0 16px;
+        margin-top: 8px;
+        background-color: #fff;
       }
       .form_group2{
         padding-top: 20px;
@@ -324,9 +331,7 @@
     // align-items: center;
     // text-align: center;
   }
-  &__upload_drop_box {
-    // display: none;
-  }
+
   &__dropbox_text {
     font-size: 14px;
   }

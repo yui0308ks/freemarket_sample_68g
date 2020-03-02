@@ -1,13 +1,13 @@
 class Address < ApplicationRecord
-
   belongs_to :user, optional: true, dependent: :destroy
 
   # ZIP_CODE_VALID = /\A\d{3}-\d{4}\z/
   # PHONE_VALIDATION = /\A\d{10,11}\z/
   kana = /\A([ァ-ン]|ー)+\z/
+  
 
-  validates :zip_code,                   presence: true
-  validates :prefecture,                 presence: true
+  validates :zip_code,                   presence: true, length: {is: 7}
+  validates :prefecture,                 presence: true, exclusion: {in: %w(---)}
   validates :city,                       presence: true
   validates :block,                      presence: true
 
@@ -29,5 +29,3 @@ class Address < ApplicationRecord
   }
 
 end
-
-
