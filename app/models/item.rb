@@ -1,9 +1,9 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  # validates :name, :image, :description, :category, :condition, :delivery_charge, :delivery_way, :prefecture, :delivery_day, :price, presence: true
-  # validates :name, length: { minimum: 1, maximum: 40 }
-  # validates :description, length: { minimum: 1, maximum: 1000 }
+  validates :name, :description,  :category_id, :condition, :delivery_charge_id, :prefecture_id, :delivery_day_id, :price, presence: true
+  validates :name, length: { minimum: 1, maximum: 40 }
+  validates :description, length: { minimum: 1, maximum: 1000 }
   belongs_to :user, foreign_key: 'user_id'
 
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
@@ -38,7 +38,7 @@ class Item < ApplicationRecord
     新品:1, 中古:2
 
   },_prefix: true
-  #choice:0は選択に入ってしまってたので、消しました。
+ 
   enum delivery_charge_id: {
 
     送料込み（出品者負担）:1, 着払い（購入者負担）:2
