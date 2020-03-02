@@ -1,7 +1,9 @@
 = stylesheet_link_tag "furima/items_new"
 = stylesheet_link_tag "furima/_reset"
+
 -# %body
 -#   %script{:src => "script.js"}
+
 .sell
   %header
     =render "shared/miniheader"
@@ -10,6 +12,8 @@
     = form_with model: @item, local: true, class:"sell__form__head_box" do |f|
       .sell__form__head
         商品の情報を入力
+        .br
+        %font{:color => "red"}= flash[:notice] 
 
       .sell__upload_box
         %h3.sell__upload_head
@@ -47,7 +51,10 @@
               %span.form_require
                 必須
               .select_wrap1
-                = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'     
+                = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
+                -# %i.icon-arrow-bottom
+                  -# = icon('fas', 'arrow-bottom', class: 'icon')
+              
           .form_group
             %label
               ブランド
@@ -58,11 +65,11 @@
           .form_group
             %label
               商品の状態
-              -# = f.select :condition, Item.conditions.keys, {}, {class: 'sell__select',id:"condition"}
+            
               %span.form_require
                 必須
             .select_wrap
-              = f.select :condition, Item.conditions_i18n.invert, {}, class: 'sell__select',id:"condition"
+              = f.select :condition, Item.conditions_i18n.invert, {prompt:"選択してください"}, class: 'sell__select',id:"condition"
               -# %i.icon-arrow-bottom
                 -# = icon('fas', 'arrow-bottom', class: 'icon')
              
@@ -78,7 +85,7 @@
                 %span.form_require
                   必須
               .select_wrap
-                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_charge"}
+                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_charge"}
                 -# %i.icon-arrow-bottom
                 -#   = icon('fas', 'arrow-bottom', class: 'icon')
                 .form_group
@@ -88,7 +95,7 @@
                     %span.form_require
                       必須
                   .select_wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"選択してください"}, class: 'sell__select',id:"prefectur"
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"選択してください"}, class: 'sell__select',id:"prefecture"
                     -# %i.icon-arrow-bottom
                     -#   = icon('fas', 'arrow-bottom', class: 'icon')
                     
@@ -99,7 +106,7 @@
                     %span.form_require
                       必須
                   .select_wrap
-                    = f.select :delivery_day_id, Item.delivery_day_ids_i18n.invert, {}, {class: 'sell__select',id:"delivery_day"}
+                    = f.select :delivery_day_id, Item.delivery_day_ids_i18n.invert, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_day"}
                     -# %i.icon-arrow-bottom
                     -#   = icon('fas', 'arrow-bottom', class: 'icon')
             
@@ -148,6 +155,7 @@
             に同意したことになります。
         %button.sell__form__btn{type: "submit"}
           出品する
+       
         %button.sell__form__back_btn{type: "submit"}
           もどる
     

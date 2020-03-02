@@ -19,11 +19,13 @@
           = link_to "ブランド" , "#"
       %ul.nav-right
         - if user_signed_in?
+          %li.nav-right--new
+            = link_to "マイページ","/users/show", class: 'mypage'
           %li.nav-right--login
-            .logout
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout__btn'
         - else
           %li.nav-right--new
             = link_to "新規会員登録", signup_path, class: 'header__center__bottom__right__link__signin'
           %li.nav-right--login
             = link_to "ログイン", new_user_session_path, class: 'header__center__bottom__right__link__session'
+            

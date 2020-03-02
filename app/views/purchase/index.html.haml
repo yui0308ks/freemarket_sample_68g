@@ -30,15 +30,15 @@
     .buy-item-1
       .buy-item-1__box
         .buy-item-1__box__image
-          -# = image_tag "#{@images[0].image}", size: "80x80"
+          = image_tag "#{@images[0].image}", size: "80x80"
         .buy-item-1__box__content
           %p.buy-item-1__box__content__name
-            -# = @item.name
+            = @item.name
           %p.buy-item-1__box__content__price
             .buy-item-1__box__content__number
             .buy-item-1__box__content__tax_included
               ¥
-              -# = @item.price.to_s(:delimited)
+              = @item.price.to_s(:delimited)
               （税込）送料込み
     .payment
       .payment__box
@@ -47,7 +47,7 @@
             支払い金額
           .payment__box__inner__price__right
             ¥
-            -# = @item.price.to_s(:delimited)
+            = @item.price.to_s(:delimited)
         .payment__box__inner__card
           .payment__box__inner__card__inner
             .payment__box__inner__card__inner__method
@@ -78,7 +78,7 @@
                 .payment__box__inner__shipping__inner__title__change
                   -# = link_to "変更する", root_path, class: "payment__box__inner__shipping__inner__title__change"
               .payment__box__inner__shipping__inner__address__text
-                = "〒 #{@address.zip_code}".insert(1, "-")
+                = "〒 #{@address.zip_code}".insert(3, "-")
                 %br
                 = @address.prefecture
                 = @address.city
@@ -89,6 +89,6 @@
                 = @address.last_name
           .payment__box__inner__contents
             .payment__box__inner__contents__submit
-              -# = form_with url: pay_item_purchase_index_path(@item.id), local: true do |f|
-              -#   = f.submit '購入する', class: 'payment__box__inner__contents__submit__buttun'
+              = form_with url: pay_item_purchase_index_path(@item.id), local: true do |f|
+                = f.submit '購入する', class: 'payment__box__inner__contents__submit__buttun'
 -# .single-footer

@@ -29,37 +29,37 @@
           %tr
             %th 出品者
             %td
-              = @item.name
+              = @item.user_id
           %tr
             %th カテゴリー
             %td
-              = @item.name
-          - if @item.name.present?
-            %tr
-              %th ブランド
-              %td
-                = @item.name
-          - if @item.name.present?
-            %tr
-              %th 商品のサイズ
-              %td
-                = @item.name
+              = @item.category_id
+          -# - if @item.name.present?
+            -# %tr
+              -# %th ブランド
+              -# %td
+              -#   = @item.name
+          -# - if @item.name.present?
+            -# %tr
+            -#   %th 商品のサイズ
+            -#   %td
+            -#     = @item.name
           %tr
             %th 商品の状態
             %td 
-              = @item.name
+              = @item.condition
           %tr
             %th 配送料の負担
             %td 
-              = @item.name
+              = @item.delivery_charge_id
           %tr
             %th 発送元の地域
             %td
-              = @item.name
+              = @item.prefecture_id
           %tr
             %th 発送日の目安
             %td
-              = @item.name
+              = @item.delivery_day_id
     .baner
       .like-btn
         = link_to "#" do
@@ -81,24 +81,34 @@
                   -# = link_to comment.user.nickname, "/users/#{comment.user_id}"
                 .comment-right
                   = comment.text
-      - if current_user
+      - if user_signed_in?
         = form_with(model: [@item, @comment], local: true, id: "new_comment") do |form|
           = form.text_area :text, placeholder: "コメントする", rows: "4", class: "textbox"
           %p.noticeMsg
             相手のことを考え丁寧なコメントを心がけましょう。<br>
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
           = form.submit "コメントする", class: "form__submit"
+          .lower-content
+            .lower-content-in
+              - if @item.user.id == current_user.id
+                = link_to "商品を編集する", edit_item_path(@item.id), class: "form__submit"
+                = link_to "商品を削除する", item_path(@item.id), {method: :delete, class: "form__submit", data:{confirm: "本当に削除しますか？"}}
+              - elsif @item.customer_id.present?
+                .lower-content-in-bought
+                  購入済み
+              - else
+                = link_to "購入画面に進む", item_purchase_index_path(@item) , class: "form__submit"
       - else
         %strong
           %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
   %ul.link_btn
     %li
-      = link_to "前の商品"
+      = link_to "< 前の商品"
     %li
-      = link_to "後ろの商品"
+      = link_to "後ろの商品 >"
   .group-name
     = link_to "#{@item.name}をもっと見る"
-
+        
   -# - if user_signed_in? && current_user.id == @item.user_id
   -#   .edit
   -#     -# = form_tag '/', method: :get, class: 'edit__form' do
@@ -112,8 +122,7 @@
   -#       = submit_tag "この商品を削除する", class: 'destroy__form--submit'
 
   -# - elsif user_signed_in?
-  .container__purchace
-    = link_to '購入画面へ進む',item_purchase_index_path(@item), class: 'container__purchace-button'
+  
 
 
 
