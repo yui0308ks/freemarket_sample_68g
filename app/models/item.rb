@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   belongs_to :user , foreign_key: 'user_id'
+  belongs_to :category
 
   # belongs_to :category
 

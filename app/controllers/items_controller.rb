@@ -17,8 +17,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @category = @item.category
     @comment = Comment.new
-    @comments = @item.comments
+    @comments = @item.comments  
   end
 
   #editメソッド未完成
