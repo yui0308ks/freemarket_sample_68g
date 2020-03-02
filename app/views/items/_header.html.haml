@@ -5,7 +5,7 @@
     .Header__inner--main
       %h1.Header__inner--main--icon
         = link_to image_tag("/logo.png", class:"Header__inner--main--image"), "/"
-      = form_with( scope: :search, url: items_path, local: true, method: :get, class: "search-form") do |f|
+      -# = form_with( scope: :search, url: item_path, local: true, method: :get, class: "search-form") do |f|
         = f.text_field :keyword, placeholder: "キーワードから探す", class: "searching-form"
         = f.label(:name, '名前') do
           = f.submit '' , class: 'sbtn'

@@ -24,12 +24,17 @@ class ItemsController < ApplicationController
   #editメソッド未完成
   def edit
     @item = Item.find(params[:id])
+    # binding.pry
     @images = @item.images
     @parents = Category.where(ancestry: nil)
+    @ground_child = Category.find(@item.category_id)
+    @child = @ground_child.parent
+    @parent = @child.parent
   end
   
   def update
-    if @item.update(item_params)
+    item = Item.find(params[:id])
+    if item.update(item_params)
       redirect_to root_path
     else
       render :edit
