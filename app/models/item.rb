@@ -35,19 +35,19 @@ class Item < ApplicationRecord
 
   enum condition: {
 
-    選択:0, 新品:1, 中古:2
+    新品:1, 中古:2
 
   },_prefix: true
   #choice:0は選択に入ってしまってたので、消しました。
   enum delivery_charge_id: {
 
-    選択:0, 送料込み（出品者負担）:1, 着払い（購入者負担）:2
+    送料込み（出品者負担）:1, 着払い（購入者負担）:2
 
   },_prefix: true
 
   enum delivery_day_id:{
 
-    選択:0, "1~2日で配送":1, "2~3日で配送":2, "4~7日で配送":3
+    "1~2日で配送":1, "2~3日で配送":2, "4~7日で配送":3
 
   },_prefix: true
 
