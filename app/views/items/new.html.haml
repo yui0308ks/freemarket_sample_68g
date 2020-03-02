@@ -116,7 +116,8 @@
           .sell__form__price_box--right
             %span.sell__yen_mark.option
               ¥
-            %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
+            = f.text_field :price, id:"price_calc", class:"sell__input_price",placeholder:"例) 300"
+            -# %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
         .sell__form__commission_box
           .sell__form__commission
             販売手数料（10%）
