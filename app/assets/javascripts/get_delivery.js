@@ -18,17 +18,6 @@ $(function(){
         type: 'GET',
         data: { parent_name: delivery_parentCategory },
         dataType: 'json' ,
-      //   error : function(XMLHttpRequest, textStatus, errorThrown) {
-      //     console.log("ajax通信に失敗しました");
-      //     console.log("XMLHttpRequest : " + XMLHttpRequest.status);
-      //     console.log("textStatus     : " + textStatus);
-      //     console.log("errorThrown    : " + errorThrown.message);
-      // },
-      // //ajax通信成功
-      // success : function(response) {
-      //     console.log("ajax通信に成功しました");
-      //     console.log(response);
-      // }
     })
 
       .done(function(method) {
@@ -72,16 +61,14 @@ $(function(){
 
 });
 
-// methodBoxHtml = `<div class="listing-product-delivery-method" id="delivery_method-parent"> 
-// <label class='listing-default__label'> 配送の方法</label> 
-// <span class='listing-default--require'>必須</span> 
-//   <div class='listing-select-wrapper__box'>
-//     <div class='listing-select-wrapper'></div>
-//       <select class="listing-select-wrapper__box--select" id="delivery_charge">
-//         <option value="---">選択してください</option>
-//         ${insertHTML}
-//       </select>
-//       <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-//     </div>
-//   </div>
-// </div>`;
+//   error : function(XMLHttpRequest, textStatus, errorThrown) {
+      //     console.log("ajax通信に失敗しました");
+      //     console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+      //     console.log("textStatus     : " + textStatus);
+      //     console.log("errorThrown    : " + errorThrown.message);
+      // },
+      // //ajax通信成功
+      // success : function(response) {
+      //     console.log("ajax通信に成功しました");
+      //     console.log(response);
+      // }
