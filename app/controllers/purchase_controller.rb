@@ -26,18 +26,11 @@ class PurchaseController < ApplicationController
     end
   end
 
-  # def pay
-  #   card = Card.where(user_id: current_user.id).first
-  #   Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-  #   Payjp::Charge.create(
-  #   :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
-  #   :customer => card.customer_id, #顧客ID
-  #   :currency => 'jpy', #日本円
-  # )
+
 
 
   def pay
-    @item = Item.find(params[:item_id])
+    # @item = Item.find(params[:item_id])
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
