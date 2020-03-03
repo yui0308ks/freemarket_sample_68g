@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
+
   def index
     @items = Item.includes(:images).order('created_at DESC')
     @search_params = item_search_params
@@ -16,7 +18,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @category = @item.category
     @comment = Comment.new
     @comments = @item.comments  
@@ -24,7 +25,6 @@ class ItemsController < ApplicationController
 
   #editメソッド未完成
   def edit
-    @item = Item.find(params[:id])
     # binding.pry
     @images = @item.images
     @parents = Category.where(ancestry: nil)
@@ -34,8 +34,7 @@ class ItemsController < ApplicationController
   end
   
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if @item.update(item_params)
       redirect_to root_path
     else
       render :edit
@@ -43,7 +42,6 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to root_path
   end 
