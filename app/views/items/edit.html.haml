@@ -11,6 +11,9 @@
     = form_with model: @item, local: true, class:"sell__form__head_box" do |f|
       .sell__form__head
         商品の情報を入力
+        .br
+        %font{:color => "red"}= flash[:notice] 
+
 
       .sell__upload_box
         %h3.sell__upload_head
