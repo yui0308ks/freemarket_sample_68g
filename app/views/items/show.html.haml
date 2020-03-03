@@ -29,11 +29,11 @@
           %tr
             %th 出品者
             %td
-              = @item.user_id
+              = @item.user.nickname
           %tr
             %th カテゴリー
             %td
-              = @item.category_id
+              = @category.name
           -# - if @item.name.present?
             -# %tr
               -# %th ブランド
@@ -55,7 +55,7 @@
           %tr
             %th 発送元の地域
             %td
-              = @item.prefecture_id
+              = @item.prefecture.name
           %tr
             %th 発送日の目安
             %td
