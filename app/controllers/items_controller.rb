@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
+
   def index
     @items = Item.includes(:images).order('created_at DESC')
     @search_params = item_search_params
@@ -16,14 +18,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @category = @item.category
     @comment = Comment.new
-    @comments = @item.comments
+    @comments = @item.comments  
   end
 
   #editメソッド未完成
   def edit
-    @item = Item.find(params[:id])
     # binding.pry
     @images = @item.images
     @parents = Category.where(ancestry: nil)
@@ -33,8 +34,7 @@ class ItemsController < ApplicationController
   end
   
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if @item.update(item_params)
       redirect_to root_path
     else
       flash[:notice] = "必須項目を全て入力してください。"
@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to root_path
   end 
@@ -62,10 +61,10 @@ class ItemsController < ApplicationController
 
  
   def get_delivery
-      respond_to do |format|
-        format.html
-        format.json
-      end
+      # respond_to do |format|
+      #   format.html
+      #   format.json
+      # end
   end
 
   def create
@@ -82,7 +81,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :delivery_day_id,:prefecture_id, :price, :condition, images_attributes: [:image]).merge( user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :size, :delivery_charge_id, :delivery_way_id, :delivery_day_id,:prefecture_id, :price, :condition, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
   end
 
   def item_search_params
