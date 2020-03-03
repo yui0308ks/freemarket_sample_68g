@@ -60,10 +60,10 @@ class ItemsController < ApplicationController
 
  
   def get_delivery
-      respond_to do |format|
-        format.html
-        format.json
-      end
+      # respond_to do |format|
+      #   format.html
+      #   format.json
+      # end
   end
 
   def create

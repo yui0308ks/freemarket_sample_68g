@@ -10,9 +10,9 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-
   belongs_to :user , foreign_key: 'user_id'
   belongs_to :category
+
 
   # belongs_to :category
 
@@ -35,22 +35,15 @@ class Item < ApplicationRecord
 
 
   enum condition: {
-
     新品:1, 中古:2
-
   },_prefix: true
  
   enum delivery_charge_id: {
-
     送料込み（出品者負担）:1, 着払い（購入者負担）:2
-
   },_prefix: true
 
   enum delivery_day_id:{
-
     "1~2日で配送":1, "2~3日で配送":2, "4~7日で配送":3
-
   },_prefix: true
-
 
 end
