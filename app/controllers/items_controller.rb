@@ -17,15 +17,24 @@ class ItemsController < ApplicationController
     # @parents = Parent.all
   end
 
+  def create
+    @item = Item.new(item_params)
+    if  @item.save
+        redirect_to root_path 
+    else
+      flash[:notice] = "必須項目を全て入力してください。"
+      redirect_to new_item_path 
+    end
+  end
+
   def show
     @category = @item.category
     @comment = Comment.new
     @comments = @item.comments  
   end
 
-  #editメソッド未完成
   def edit
-    # binding.pry
+    @item = Item.find(params[:id])
     @images = @item.images
     @parents = Category.where(ancestry: nil)
     @ground_child = Category.find(@item.category_id)
@@ -74,8 +83,6 @@ class ItemsController < ApplicationController
     else
       flash[:notice] = "必須項目を全て入力してください。"
       redirect_to new_item_path 
-     
-      # render :new
     end
   end
 

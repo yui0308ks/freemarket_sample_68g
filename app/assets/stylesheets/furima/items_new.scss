@@ -337,9 +337,19 @@
     border: 1px dashed #ccc;
     display: flex;
     flex-wrap: wrap;
-    // justify-content: center;
-    // align-items: center;
-    // text-align: center;
+  }
+  ul.pictures{
+    display: flex;
+    display: flex;
+    margin-bottom: 5px;
+  }
+  li.picture{
+    img{
+      display: block;
+    }
+  }
+  span.js-remove{
+    cursor: pointer;
   }
 
   &__dropbox_text {
