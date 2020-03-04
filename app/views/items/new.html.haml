@@ -39,7 +39,7 @@
             商品の説明
             %span.form_require
               必須
-          =f.text_area :description, class:"sell__textarea", placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          =f.text_area :description, class:"sell__textarea", placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"  
 
       .sell__form__content2.clearfix
         .sell__form__sub_head
@@ -85,9 +85,12 @@
                 %span.form_require
                   必須
               .select_wrap
-                = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_charge"}
+                = f.select :delivery_charge_id, Item.delivery_charge_ids.keys, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_charge"}
+                -# = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_charge"}
                 -# %i.icon-arrow-bottom
                 -#   = icon('fas', 'arrow-bottom', class: 'icon')
+                .delivery_charge
+                 
                 .form_group
                   %label
                     発送元の地域

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
+
   def index
     @items = Item.includes(:images).order('created_at DESC')
     @search_params = item_search_params
@@ -15,17 +17,24 @@ class ItemsController < ApplicationController
     # @parents = Parent.all
   end
 
+  def create
+    @item = Item.new(item_params)
+    if  @item.save
+        redirect_to root_path 
+    else
+      flash[:notice] = "必須項目を全て入力してください。"
+      redirect_to new_item_path 
+    end
+  end
+
   def show
-    @item = Item.find(params[:id])
     @category = @item.category
     @comment = Comment.new
     @comments = @item.comments  
   end
 
-  #editメソッド未完成
   def edit
     @item = Item.find(params[:id])
-    # binding.pry
     @images = @item.images
     @parents = Category.where(ancestry: nil)
     @ground_child = Category.find(@item.category_id)
@@ -38,12 +47,12 @@ class ItemsController < ApplicationController
     if item.update(item_params)
       redirect_to root_path
     else
-      render :edit
+      flash[:notice] = "必須項目を全て入力してください。"
+      redirect_to edit_item_path 
     end
   end
   
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to root_path
   end 
@@ -62,22 +71,10 @@ class ItemsController < ApplicationController
 
  
   def get_delivery
-      respond_to do |format|
-        format.html
-        format.json
-      end
-  end
-
-  def create
-    @item = Item.new(item_params)
-    if  @item.save
-        redirect_to root_path 
-    else
-      flash[:notice] = "必須項目を全て入力してください。"
-      redirect_to new_item_path 
-     
-      # render :new
-    end
+      # respond_to do |format|
+      #   format.html
+      #   format.json
+      # end
   end
 
   private
