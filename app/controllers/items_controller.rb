@@ -43,8 +43,7 @@ class ItemsController < ApplicationController
   end
   
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if @item.update(item_params)
       redirect_to root_path
     else
       flash[:notice] = "必須項目を全て入力してください。"
@@ -75,6 +74,16 @@ class ItemsController < ApplicationController
       #   format.html
       #   format.json
       # end
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if  @item.save
+        redirect_to root_path 
+    else
+      flash[:notice] = "必須項目を全て入力してください。"
+      redirect_to new_item_path 
+    end
   end
 
   private
