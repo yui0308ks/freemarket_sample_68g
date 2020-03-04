@@ -2,9 +2,8 @@ class UsersController < ApplicationController
 
 
   def show
-    # @nickname = current_user.nickname
-
-    #あと何が必要か分からない
+    @nickname = current_user.nickname
+    
   end
 
   def destroy

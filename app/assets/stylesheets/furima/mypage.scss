@@ -138,7 +138,6 @@
               right:16px;
               line-height: 48px;
             }
-      
           }
         }
       }
@@ -156,6 +155,17 @@
         background-size: cover;
         background-position: center center;
         &__contents{
+          text-align:  center;  
+
+          &__info{
+            display: flex;
+            &__evalution{
+
+            }
+            &__transactions{
+              margin-left: 10px;
+            }
+          }
         }
       }
       &__list{
@@ -168,37 +178,25 @@
           display: flex;
           width:100%;
           height:74px;
-
-
-           .tab1{
-            font-weight: bold;
-            background-color: white;
-            text-align: center;
-            line-height: 74px;
-            width:50%;
-            height: 74px;
-            border-top:2px solid #ea352d ;
-            }
-            .tab2{
-            font-weight: bold;
-            background-color: #aea0a0;
-            text-align: center;
-            line-height: 74px;
-            width:50%;
-            height: 74px;
-            border-top:2px solid #ea352d ;
-            }
             
-          // &__todo{
-          //   font-weight: bold;
-          //   border-left: 1px solid gray;
-          //   background-color: #aea0a0;
-          //   text-align: center;
-          //   line-height: 74px;
-          //   width:50%;
-          //   height:74px;
-          //   border-top:2px solid #ea352d ;
-          // }
+            .tab.select{
+              font-weight: bold;
+              background-color: white;
+              text-align: center;
+              line-height: 74px;
+              width:50%;
+              height: 74px;
+              border-top:2px solid #ea352d ;
+            }
+            .tab{
+              font-weight: bold;
+              background-color: #aea0a0;
+              text-align: center;
+              line-height: 74px;
+              width:50%;
+              height: 74px;
+              border-top:2px solid #ea352d ;
+            }
         }
         .mypage__main__list__notice_list.d_none {
           display: none;
@@ -306,15 +304,17 @@
           display: flex;
           width:100%;
           height:80px;
-          .cage1{
+
+          .cage.select{
             font-weight: bold;
             text-align: center;
             line-height: 72px;
             width:50%;
             height: 72px;
             border-top:2px solid #ea352d ;
+            background-color: white;
           }
-          .cage2{
+          .cage{
             font-weight: bold;
             text-align: center;
             line-height: 72px;
@@ -427,4 +427,5 @@
     width: 60%;
   }
 }
+
 

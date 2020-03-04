@@ -1,74 +1,64 @@
 $(function(){
-  // selectを追加するHTML
-  var cat_seach = $(".select_wrap1");
-
-  function appendSelect(catNum) {
-    
-    if(catNum == 1) {
-    
+  var seach = $(".select_wrap1");
+  function appendSelect(Num) {
+    if(Num == 1) {
       var select_id = `m_category`
-    } else if(catNum == 2) {
+    } else if(Num == 2) {
       var select_id = `s_category`
     }
     var html =
     `<select name="item[category_id]" id="${select_id}">
         <option value>---</option>
     </select>`
-    cat_seach.append(html)
+    seach.append(html)
   }
-  // optionを追加するHTML
-  function appendCat(catOption, catNum) {
-    if (catNum == 1) {
-      
+  function appendCat(Option, Num) {
+    if (Num == 1) {
       var appendId = $("#m_category")
-    } else if (catNum == 2) {
+    } else if (Num == 2) {
       var appendId = $("#s_category")
     }
     appendId.append(
       $("<option>")
-        .val($(catOption).attr('id'))
-        .text($(catOption).attr('name'))
+        .val($(Option).attr('id'))
+        .text($(Option).attr('name'))
     )
   }
-  // Lカテゴリーが選択された時のアクション
   $("#parent-category").on('change', function() {
-    l_cat = $(this).val()
+    parent = $(this).val()
     $("#m_category, #s_category").remove()
-    // ajaxでリクエストを送信
       $.ajax({
         type: "GET",
         url: "/items/category",
-        data: {l_cat: l_cat},
+        data: {parent: parent},
         dataType: 'json',
       })
-      // doneメソッドでappendする
-      .done(function(m_cat) {
-        var catNum = 1
-        appendSelect(catNum)
-        m_cat.forEach(function(m_cat) {
-          appendCat(m_cat, catNum)
+      .done(function(child) {
+        var Num = 1
+        appendSelect(Num)
+        child.forEach(function(child) {
+          appendCat(child, Num)
         })
       })
   })
-  // Mカテゴリーが選択された時のアクション
   $(document).on('change', "#m_category", function() {
-    m_cat = $(this).val()
+    child = $(this).val()
     $("#s_category").remove()
-
     $.ajax({
       type: "GET",
       url: "/items/category",
-      data: {m_cat: m_cat},
+      data: {child: child},
       dataType: 'json'
     })
-    .done(function(s_cat) {
-      var catNum = 2
-      appendSelect(catNum)
-      s_cat.forEach(function(s_cat) {
-        appendCat(s_cat, catNum)
+    .done(function(grandchild) {
+      var Num = 2
+      appendSelect(Num)
+      grandchild.forEach(function(grandchild) {
+        appendCat(grandchild, Num)
       })
     })
   })
+
 // })
 
   // // Sカテゴリーが選択された時のアクション
