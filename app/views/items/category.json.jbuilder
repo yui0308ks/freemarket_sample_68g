@@ -1,9 +1,9 @@
-json.array! @m_cat do |m_cat|
-  json.id   m_cat.id
-  json.name m_cat.name
+json.array! @child do |child|
+  json.id   child.id
+  json.name child.name
 end
 
-json.array! @s_cat do |s_cat|
-  json.id   s_cat.id
-  json.name s_cat.name
+json.array! @grandchild do |grandchild|
+  json.id   grandchild.id
+  json.name grandchild.name
 end

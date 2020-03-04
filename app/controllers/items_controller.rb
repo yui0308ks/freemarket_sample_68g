@@ -57,10 +57,10 @@ class ItemsController < ApplicationController
   end 
 
   def category
-    if params[:l_cat]
-      @m_cat = Category.find(params[:l_cat]).children
+    if params[:parent]
+      @child = Category.find(params[:parent]).children
     else
-      @s_cat = Category.find(params[:m_cat]).children
+      @grandchild = Category.find(params[:child]).children
     end
     respond_to do |format|
       format.html
