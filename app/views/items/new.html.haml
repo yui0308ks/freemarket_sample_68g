@@ -1,9 +1,6 @@
 = stylesheet_link_tag "furima/items_new"
 = stylesheet_link_tag "furima/_reset"
 
--# %body
--#   %script{:src => "script.js"}
-
 .sell
   %header
     =render "shared/miniheader"
@@ -52,8 +49,6 @@
                 必須
               .select_wrap1
                 = f.collection_select :category_id, @parents, :id , :name, {prompt:"選択してください"},  class: 'select_wrap__box--select', id: 'parent-category'
-                -# %i.icon-arrow-bottom
-                  -# = icon('fas', 'arrow-bottom', class: 'icon')
               
           .form_group
             %label
@@ -70,8 +65,6 @@
                 必須
             .select_wrap
               = f.select :condition, Item.conditions_i18n.invert, {prompt:"選択してください"}, class: 'sell__select',id:"condition"
-              -# %i.icon-arrow-bottom
-                -# = icon('fas', 'arrow-bottom', class: 'icon')
              
 
       .sell__form__content3.clearfix
@@ -86,11 +79,8 @@
                   必須
               .select_wrap
                 = f.select :delivery_charge_id, Item.delivery_charge_ids.keys, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_charge"}
-                -# = f.select :delivery_charge_id, Item.delivery_charge_ids_i18n.invert, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_charge"}
-                -# %i.icon-arrow-bottom
-                -#   = icon('fas', 'arrow-bottom', class: 'icon')
+
                 .delivery_charge
-                 
                 .form_group
                   %label
                     発送元の地域
@@ -99,8 +89,6 @@
                       必須
                   .select_wrap
                     = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"選択してください"}, class: 'sell__select',id:"prefecture"
-                    -# %i.icon-arrow-bottom
-                    -#   = icon('fas', 'arrow-bottom', class: 'icon')
                     
                 .form_group
                   %label
@@ -110,10 +98,7 @@
                       必須
                   .select_wrap
                     = f.select :delivery_day_id, Item.delivery_day_ids_i18n.invert, {prompt:"選択してください"}, {class: 'sell__select',id:"delivery_day"}
-                    -# %i.icon-arrow-bottom
-                    -#   = icon('fas', 'arrow-bottom', class: 'icon')
             
-
       .sell__form__content4.clearfix
         %h3.sell__sub_head
           価格（¥300〜9,999,999）
@@ -127,7 +112,6 @@
             %span.sell__yen_mark.option
               ¥
             = f.text_field :price, id:"price_calc", class:"sell__input_price",placeholder:"例) 300"
-            -# %input#price_calc.sell__input_price{placeholder: "例) 300", type: "number"}/
         .sell__form__commission_box
           .sell__form__commission
             販売手数料（10%）
@@ -137,7 +121,6 @@
           .sell__form__profit
             販売利益
             = f.number_field :price, style: "display: none", id: "price"
-          -# %span.sell__form__profit_line
           .right_bar_2
           
 

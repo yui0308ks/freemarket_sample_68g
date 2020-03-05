@@ -1,15 +1,3 @@
--# %h1 Purchase#done
--# %p Find me in app/views/purchase/done.html.haml
-
--# %h2 購入が完了しました！
--# %p Apple MacBook Pro 13インチ
--# %p ¥135,000(送料込み)
-
-
--# .single-container
--#   = render "shared/single-header"
-
-
 .buy-item
   .buy-item__body
     .buy-item__alert
@@ -41,6 +29,3 @@
           = @item.price.to_s(:delimited)
       .buy-item__centerbox__info__submit
         = link_to "トップページへ戻る", root_path, class: 'buy__centerbox__info__submit__button'
-
-  -# .single-footer
-  -#   = render "shared/single-footer"

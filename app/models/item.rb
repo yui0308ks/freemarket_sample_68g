@@ -13,11 +13,6 @@ class Item < ApplicationRecord
   belongs_to :user , foreign_key: 'user_id'
   belongs_to :category
 
-
-  # belongs_to :category
-
-
-
 # headerの検索機能
   scope :search, -> (search_params) do
     # search_paramsが空の場合以降の処理を行わない。

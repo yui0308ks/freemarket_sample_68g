@@ -10,8 +10,6 @@
 |birthday_year_id|integer|null: false|
 |birthday_month_id|integer|null: false|
 |birthday_day_id|integer|null: false|
-<!-- |phone_num|string|null: false| -->
-<!-- |authentication_num|integer|null: false| -->
 |content|text|
 |email_address|string|null: false|
 |password|string|null: false|
@@ -81,9 +79,6 @@
 |user_id|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
-<!-- |expiration_yyy|integer|null: false|
-|expiration_mm|integer|null: false|
-|security|integer|null: false| -->
 ### Association
 - belongs_to :user
 

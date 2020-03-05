@@ -6,7 +6,7 @@
 
 .sell
   %header
-    = render partial: "items/header"#locals: { group: @group }
+    = render partial: "items/header"
   .sell__form
     %h2.sell__form--title
       = @item.name
@@ -34,16 +34,6 @@
             %th カテゴリー
             %td
               = @category.name
-          -# - if @item.name.present?
-            -# %tr
-              -# %th ブランド
-              -# %td
-              -#   = @item.name
-          -# - if @item.name.present?
-            -# %tr
-            -#   %th 商品のサイズ
-            -#   %td
-            -#     = @item.name
           %tr
             %th 商品の状態
             %td 
@@ -78,7 +68,6 @@
               %li.clearfix
                 .comment-left
                   = comment.user.nickname
-                  -# = link_to comment.user.nickname, "/users/#{comment.user_id}"
                 .comment-right
                   = comment.text
       - if user_signed_in?
@@ -108,24 +97,6 @@
       = link_to "後ろの商品 >"
   .group-name
     = link_to "#{@item.name}をもっと見る"
-        
-  -# - if user_signed_in? && current_user.id == @item.user_id
-  -#   .edit
-  -#     -# = form_tag '/', method: :get, class: 'edit__form' do
-  -#       -# = submit_tag "商品の編集", class: 'edit__form--submit'
-  -#     .edit_form
-  -#       = link_to "商品の編集", edit_item_path(@item.id), class: 'edit__form'
-
-  -#     -# %p.comment__caution or
-  -#     -# 上記は編集機能時に修正
-  -#     = form_tag(item_path, method: :delete, class: 'destroy__form' ) do
-  -#       = submit_tag "この商品を削除する", class: 'destroy__form--submit'
-
-  -# - elsif user_signed_in?
-  
-
-
-
 
   .main__section6
     .main__section6--content
@@ -137,4 +108,4 @@
         = link_to image_tag("/app-store.svg", class: "abtn"),  "https://www.apple.com/jp/ios/app-store/"
         = link_to image_tag("/google.svg", class: "gbtn"),  "https://play.google.com/store?hl=ja"
 
-= render partial: "items/footer"#locals: { group: @group }
+= render partial: "items/footer"

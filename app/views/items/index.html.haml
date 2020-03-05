@@ -1,7 +1,7 @@
 = stylesheet_link_tag "furima/items"
 = stylesheet_link_tag "furima/application"
 = stylesheet_link_tag "furima/_reset"
-= render partial: "items/header"#locals: { group: @group }
+= render partial: "items/header"
 
 .main
   %section.main__section1
@@ -14,7 +14,6 @@
       .main__section1--content--btn
       = link_to image_tag("/app-store.svg", class: "abtn"),  "https://www.apple.com/jp/ios/app-store/"
       = link_to image_tag("/google.svg", class: "gbtn"),  "https://play.google.com/store?hl=ja"
-    -# .main__section1--picture  まだ当ててない
     
   %section.main__section2
     .main__section2--title

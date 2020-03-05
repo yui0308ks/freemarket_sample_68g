@@ -1,7 +1,7 @@
 = stylesheet_link_tag "furima/mypage"
 = stylesheet_link_tag "furima/_reset"
 = stylesheet_link_tag "furima/application"
-= render partial: "items/header"#locals: { group: @group }
+= render partial: "items/header"
 .wrapper  
   .head-nav
     %ul.head-nav__lists
@@ -102,7 +102,7 @@
 
 
 
-  = render partial: "items/footer"#locals: { group: @group }
+  = render partial: "items/footer"
 
 .camera
   .camera__text
