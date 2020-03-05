@@ -2,7 +2,7 @@
   サイト上で商品の出品、購入が出来ます。
 <br>
 
-<img style="width=80% text-aline: center;" alt="TOP画像" src="https://user-images.githubusercontent.com/55340851/75955272-de23a600-5ef8-11ea-8622-18152764fc57.png">
+<img style="width=80% text-aline: center;" alt="topページ" src="https://user-images.githubusercontent.com/55340851/75955481-3eb2e300-5ef9-11ea-8720-8ab23f6d2df1.png">
 
 ## 接続方法
 - URL : http://18.177.242.24/
@@ -41,9 +41,7 @@
 https://github.com/yui0308ks/freemarket_sample_68g
 
 # ER図
-￼￼<img style="width=80%; text-aline= center;" alt="ER図" src="https://user-images.githubusercontent.com/55340851/75954998-5c337d00-5ef8-11ea-9574-9e83ef01b2a1.png)
-">
-
+<img style="width=80% text-aline: center;" alt="ER図" src="https://user-images.githubusercontent.com/55340851/75955272-de23a600-5ef8-11ea-8622-18152764fc57.png">
 
 # DB設計
 ## usersテーブル
