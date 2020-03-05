@@ -7,7 +7,7 @@
 ## 接続方法
 - URL : http://18.177.242.24/
 - ID/Pass
-  -ID: admin
+  - ID: admin
   - Pass: 2222
 - テスト用アカウント等
   - 購入者用
