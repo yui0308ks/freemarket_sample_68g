@@ -24,8 +24,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      console.log(data); 
-      $('.commentBox__inner').append(html);  //ここではないか
+      $('.commentBox__inner').append(html); 
+      
       $('.textbox').val('');
       $('.form__submit').prop('disabled', false);
     })
