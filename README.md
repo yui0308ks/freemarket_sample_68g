@@ -33,7 +33,7 @@
 - AWS 
   - EC2  
   - S3  
-  - Capstrano  
+- Capstrano  
 - Nginx, Unicorn  
 
 
